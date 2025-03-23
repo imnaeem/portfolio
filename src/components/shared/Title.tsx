@@ -3,7 +3,7 @@ import { Box, Divider, Stack, Typography } from '@mui/material';
 const Title = ({ title }: { title: string }) => {
 	return (
 		<Stack direction='row' spacing={3} alignItems='center' pb={4}>
-			<Typography variant='h2' fontSize={40} fontWeight={600}>
+			<Typography variant='h2' fontSize={40} fontWeight={500}>
 				{title}
 			</Typography>
 

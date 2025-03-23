@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Roboto } from 'next/font/google';
 import './globals.css';
 import { Footer } from '@/components/footer/Footer';
 import { Navbar } from '@/components/navbar';
@@ -11,9 +11,10 @@ const geistSans = Geist({
 	subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
+const roboto = Roboto({
+	variable: '--font-roboto',
 	subsets: ['latin'],
+	weight: ['300', '400', '500', '700'], // Specify the font weights you need
 });
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+			<body className={`${roboto.variable} ${geistSans.variable} antialiased`}>
 				<div
 					className='min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full bg-gradient-to-r from-[#d2e4fc] to-[#f7f7f7]'
 					style={{ backgroundImage: "url('/bg.jpg')" }}>

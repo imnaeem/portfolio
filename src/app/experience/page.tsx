@@ -14,7 +14,7 @@ const Experience = () => {
 					<Resume />
 				</Stack>
 				<ProfessionalExperiences />
-				<Typography fontWeight={600} fontSize={30} my={3}>
+				<Typography fontWeight={500} fontSize={30} my={3}>
 					Technical Skills
 				</Typography>
 				<Skills />

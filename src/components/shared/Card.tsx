@@ -25,7 +25,7 @@ const Card = ({ title, description, icon, color, backgroundOpacity = 0.1 }: Prop
 			{icon && React.cloneElement(icon, { sx: { color, fontSize: 40 } })}
 
 			<Stack spacing={1} width='100%'>
-				<Typography fontSize={20} fontWeight={600}>
+				<Typography fontSize={20} fontWeight={500}>
 					{title}
 				</Typography>
 				{typeof description === 'string' ? <Typography>{description}</Typography> : description}

@@ -101,7 +101,7 @@ const Contact = () => {
 							<Typography variant='body1' fontSize={25}>
 								I'm always open to discussing product
 							</Typography>
-							<Typography fontSize={25} fontWeight={600}>
+							<Typography fontSize={25} fontWeight={500}>
 								design work or partnerships
 							</Typography>
 						</Box>

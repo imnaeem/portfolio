@@ -42,7 +42,7 @@ const info = [
 const PersonalInfo = () => {
 	return (
 		<Box my={3}>
-			<Typography fontWeight={600} fontSize={25} my={3}>
+			<Typography fontWeight={500} fontSize={25} my={3}>
 				Personal Info
 			</Typography>
 			<Grid2 container spacing={2}>

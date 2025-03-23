@@ -7,10 +7,10 @@ const experience = [
 		description: (
 			<>
 				<Stack direction='row' justifyContent='space-between'>
-					<Typography fontSize={14} fontWeight={600}>
+					<Typography fontSize={14} fontWeight={500}>
 						DevBrains
 					</Typography>
-					<Typography fontSize={14} fontWeight={600} variant='h6'>
+					<Typography fontSize={14} fontWeight={500} variant='h6'>
 						Dec 2022 - Present
 					</Typography>
 				</Stack>
@@ -41,10 +41,10 @@ const experience = [
 		description: (
 			<>
 				<Stack direction='row' justifyContent='space-between'>
-					<Typography fontSize={14} fontWeight={600}>
+					<Typography fontSize={14} fontWeight={500}>
 						DevBrains
 					</Typography>
-					<Typography fontSize={14} fontWeight={600} variant='h6'>
+					<Typography fontSize={14} fontWeight={500} variant='h6'>
 						Dec 2022 - Present
 					</Typography>
 				</Stack>
