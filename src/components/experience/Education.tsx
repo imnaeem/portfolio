@@ -12,7 +12,7 @@ export const Education = () => {
 					title='Bachelor of Science in Information Technology'
 					description={
 						<>
-							<Stack direction='row' justifyContent='space-between'>
+							<Stack direction='row' justifyContent='space-between' spacing={2}>
 								<Typography fontSize={14} fontWeight={500}>
 									Punjab University College of Information Technology | PUCIT
 								</Typography>

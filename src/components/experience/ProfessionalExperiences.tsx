@@ -42,10 +42,10 @@ const experience = [
 			<>
 				<Stack direction='row' justifyContent='space-between'>
 					<Typography fontSize={14} fontWeight={500}>
-						DevBrains
+						Kinectro
 					</Typography>
 					<Typography fontSize={14} fontWeight={500} variant='h6'>
-						Dec 2022 - Present
+						Aug 2022 - Nov 2022
 					</Typography>
 				</Stack>
 				<ul style={{ paddingLeft: '25px', listStyleType: 'disc' }}>
