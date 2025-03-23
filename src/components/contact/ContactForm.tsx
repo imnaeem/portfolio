@@ -1,3 +1,4 @@
+'use client';
 import SendIcon from '@mui/icons-material/Send';
 import { Button, Stack, TextField } from '@mui/material';
 import React, { useState } from 'react';

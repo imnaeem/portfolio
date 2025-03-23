@@ -17,6 +17,8 @@ const About = () => {
 						alt='profile-picture'
 						height={300}
 						width={260}
+						priority
+						placeholder='empty'
 					/>
 					<Stack spacing={2}>
 						<Typography fontWeight={500} fontSize={25}>

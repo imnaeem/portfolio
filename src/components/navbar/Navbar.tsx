@@ -50,7 +50,9 @@ export const Navbar = () => {
 					backgroundColor: isMobile ? '#F3F6F6' : 'transparent',
 				}}>
 				<Toolbar className='flex justify-between' sx={{ width: '100%', maxWidth: '1380px', mx: 'auto' }}>
-					<Image src='/logo.png' alt='logo' width={isMobile ? 160 : 356} height={isMobile ? 50 : 95} />
+					<Link href='/'>
+						<Image src='/logo.png' alt='logo' width={isMobile ? 160 : 356} height={isMobile ? 50 : 95} priority />
+					</Link>
 					{!isMobile && (
 						<div className='flex space-x-4'>
 							{navItems.map(({ label, icon, href }) => (

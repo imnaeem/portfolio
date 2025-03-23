@@ -4,6 +4,13 @@ import { Resume } from '@/components/experience/Resume';
 import { Skills } from '@/components/experience/Skills';
 import Title from '@/components/shared/Title';
 import { Box, Fade, Stack, Typography } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Experience | Muhammad Naeem',
+	description:
+		'Full Stack JavaScript Developer skilled in React, Next.js, Node.js, and GraphQL, building scalable and high-performance web apps.',
+};
 
 const Experience = () => {
 	return (

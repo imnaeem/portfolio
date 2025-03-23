@@ -1,4 +1,5 @@
-import { SvgIconProps, Typography, hexToRgb } from '@mui/material';
+import { hexToRgba } from '@/utils';
+import { SvgIconProps, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import React, { useMemo } from 'react';
 
@@ -12,9 +13,8 @@ type Props = {
 
 const Card = ({ title, description, icon, color, backgroundOpacity = 0.1 }: Props) => {
 	const backgroundColor = useMemo(() => {
-		const [red, green, blue] = hexToRgb(color)?.match?.(/\d+/g)?.map(Number) ?? [];
-		return `rgba(${red}, ${green}, ${blue}, ${backgroundOpacity})`;
-	}, [color]);
+		return hexToRgba(color, backgroundOpacity);
+	}, [color, backgroundOpacity]);
 
 	return (
 		<Stack
