@@ -50,7 +50,7 @@ const contactDetails = [
         </Typography>
       </>
     ),
-    color: '#FFD166',
+    color: '#34eb80',
     icon: <Email />,
   },
   {
@@ -94,7 +94,7 @@ const Contact = () => {
           mb={4}
           py={5}
         >
-          <Stack spacing={4} flex={1}>
+          <Stack spacing={4} flex={1} width='100%'>
             {contactDetails.map((item) => (
               <Card key={item.title} {...item} />
             ))}

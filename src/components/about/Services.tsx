@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from '../shared/Card';
 import { Box, Grid2, Typography } from '@mui/material';
 import {
@@ -53,7 +52,7 @@ const services = [
 const Services = () => {
   return (
     <Box my={3}>
-      <Typography fontWeight={600} fontSize={25} my={3}>
+      <Typography fontWeight={600} fontSize={30} my={3}>
         What I do!
       </Typography>
       <Grid2 container spacing={2}>

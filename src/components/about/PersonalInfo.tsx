@@ -15,7 +15,7 @@ const info = [
     value: 'contact@muhammadnaeem.me',
     link: 'mailto:contact@muhammadnaeem.me',
     icon: <Email />,
-    color: '#fe7111',
+    color: '#34eb80',
   },
   {
     title: 'Location',
