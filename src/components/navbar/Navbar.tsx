@@ -1,0 +1,113 @@
+'use client';
+import { useState, useEffect, use } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  useTheme,
+  useMediaQuery,
+  CssBaseline,
+} from '@mui/material';
+import { Menu, Home, Person, Description, Work, ContactMail, Brightness4 } from '@mui/icons-material';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+
+const navItems = [
+  { label: 'About', icon: <Home />, href: '/' },
+  { label: 'Resume', icon: <Description />, href: '/resume' },
+  { label: 'Portfolio', icon: <Work />, href: '/portfolio' },
+  { label: 'Contact', icon: <ContactMail />, href: '/contact' },
+];
+
+export const Navbar = () => {
+  const pathname = usePathname();
+  const [active, setActive] = useState(pathname);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  useEffect(() => {
+    setActive(pathname);
+  }, [pathname]);
+
+  return (
+    <>
+      {isMobile && <div style={{ height: isMobile ? 80 : 130 }} />}
+      <AppBar
+        elevation={0}
+        sx={{
+          position: isMobile ? 'fixed' : 'relative',
+          height: isMobile ? 80 : 130,
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          justifyContent: 'center',
+          backgroundColor: isMobile ? '#F3F6F6' : 'transparent',
+        }}
+      >
+        <Toolbar className='flex justify-between' sx={{ width: '100%', maxWidth: '1380px', mx: 'auto' }}>
+          <Image src='/logo.png' alt='logo' width={isMobile ? 160 : 356} height={isMobile ? 50 : 95} />
+          {!isMobile && (
+            <div className='flex space-x-4'>
+              {navItems.map(({ label, icon, href }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  passHref
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition duration-300 shadow-sm ${
+                    active === href
+                      ? 'bg-[#1877F2] text-white'
+                      : 'bg-white text-gray-800 hover:bg-[#1877F2] hover:text-white'
+                  }`}
+                >
+                  {icon}
+                  <span>{label}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {isMobile && (
+            <div className='flex items-center space-x-3'>
+              <IconButton onClick={() => setMobileOpen(true)} className='bg-white p-2 rounded-full'>
+                <Menu className='text-gray-800' />
+              </IconButton>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+
+      {isMobile && (
+        <Drawer
+          slotProps={{ paper: { sx: { mt: { xs: 10, lg: 0 } } } }}
+          anchor='right'
+          open={mobileOpen}
+          onClose={() => setMobileOpen(false)}
+        >
+          <List className='w-64 h-full'>
+            {navItems.map(({ label, icon, href }) => (
+              <Link key={label} href={href} passHref>
+                <ListItem disablePadding>
+                  <ListItemButton
+                    selected={href === active}
+                    onClick={() => setMobileOpen(false)}
+                    className={active === href ? 'bg-red-500 text-white' : 'text-gray-800'}
+                  >
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText primary={label} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+            ))}
+          </List>
+        </Drawer>
+      )}
+    </>
+  );
+};
