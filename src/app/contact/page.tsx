@@ -4,6 +4,9 @@ import Card from '@/components/shared/Card';
 import Title from '@/components/shared/Title';
 import { Email, Link, Phone } from '@mui/icons-material';
 import { Box, Divider, Fade, Stack, Typography } from '@mui/material';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const handleLinkClick = (link: string) => {
 	window.open(link, '_blank');
@@ -13,14 +16,17 @@ const contactDetails = [
 	{
 		title: 'Phone',
 		description: (
-			<Typography
-				onClick={() => handleLinkClick('tel:03006511173')}
-				sx={{
-					cursor: 'pointer',
-					':hover': { textDecoration: 'underline' },
-				}}>
-				03006511173
-			</Typography>
+			<>
+				<p style={{ cursor: 'pointer' }}>+&#57;&#50;&#51;&#48;&#48;&#54;&#53;&#49;&#49;&#49;&#55;&#51;</p>
+				<Typography
+					onClick={() => handleLinkClick('http://wa.me/447849820232')}
+					sx={{
+						cursor: 'pointer',
+						':hover': { textDecoration: 'underline' },
+					}}>
+					+447849820232
+				</Typography>
+			</>
 		),
 		color: '#FF6F61',
 		icon: <Phone />,
@@ -105,7 +111,9 @@ const Contact = () => {
 								design work or partnerships
 							</Typography>
 						</Box>
-						<ContactForm />
+						<GoogleReCaptchaProvider reCaptchaKey={SITE_KEY ?? ''}>
+							<ContactForm />
+						</GoogleReCaptchaProvider>
 					</Stack>
 				</Stack>
 			</div>

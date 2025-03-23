@@ -5,8 +5,8 @@ import Info from '../shared/Info';
 const info = [
 	{
 		title: 'Phone',
-		value: '03006511173',
-		link: 'tel:03006511173',
+		value: '+447849820232',
+		link: 'http://wa.me/447849820232',
 		icon: <WhatsApp />,
 		color: '#075E54',
 	},
