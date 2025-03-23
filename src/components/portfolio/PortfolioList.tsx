@@ -75,7 +75,7 @@ const PortfolioList = () => {
 						sx={{ p: 2, borderRadius: '8px', bgcolor: hexToRgba(item.color, 0.1), cursor: 'pointer' }}
 						size={{ xs: 12, sm: 6, md: 4 }}>
 						<Image
-							style={{ borderRadius: '12px', height: '230px', width: '340px' }}
+							style={{ borderRadius: '12px', height: '230px', width: '340px', marginLeft: 'auto', marginRight: 'auto' }}
 							src={item.image}
 							alt={item.title}
 							width={500}
