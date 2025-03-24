@@ -11,17 +11,7 @@ const contactDetails = [
 	{
 		title: 'Phone',
 		description: (
-			<>
-				<p style={{ cursor: 'pointer' }}>+&#57;&#50;&#51;&#48;&#48;&#54;&#53;&#49;&#49;&#49;&#55;&#51;</p>
-				<Typography
-					onClick={() => handleLinkClick('http://wa.me/447849820232')}
-					sx={{
-						cursor: 'pointer',
-						':hover': { textDecoration: 'underline' },
-					}}>
-					+447849820232
-				</Typography>
-			</>
+			<p style={{ cursor: 'pointer' }}>+{String.fromCharCode(57, 50, 51, 48, 48, 54, 53, 49, 49, 49, 55, 51)}</p>
 		),
 		color: '#FF6F61',
 		icon: <Phone />,

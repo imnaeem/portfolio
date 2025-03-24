@@ -1,13 +1,12 @@
-import { Email, GitHub, LinkedIn, LocationCity, WhatsApp } from '@mui/icons-material';
+import { Email, GitHub, LinkedIn, LocationCity, Phone } from '@mui/icons-material';
 import { Box, Grid2, Typography } from '@mui/material';
 import Info from '../shared/Info';
 
 const info = [
 	{
 		title: 'Phone',
-		value: '+447849820232',
-		link: 'http://wa.me/447849820232',
-		icon: <WhatsApp />,
+		value: `+${String.fromCharCode(57, 50, 51, 48, 48, 54, 53, 49, 49, 49, 55, 51)}`,
+		icon: <Phone />,
 		color: '#075E54',
 	},
 	{
