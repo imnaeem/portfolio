@@ -5,7 +5,7 @@ import { hexToRgba, titleCase } from '@/utils';
 import { Grid2, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { Suspense, useMemo, useState } from 'react';
 import PortfolioCategories from './PortfolioCategories';
 
 const PortfolioList = () => {
@@ -23,7 +23,9 @@ const PortfolioList = () => {
 
 	return (
 		<>
-			<PortfolioCategories category={category} setCategory={setCategory} />
+			<Suspense fallback={<p>Loading...</p>}>
+				<PortfolioCategories category={category} setCategory={setCategory} />
+			</Suspense>
 			<Grid2 container spacing={3} my='32px'>
 				{filteredProjects.map((item) => (
 					<Grid2
