@@ -1,5 +1,7 @@
 'use client';
 import { Box, Tab, Tabs } from '@mui/material';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 type Props = {
 	category: string;
@@ -9,8 +11,23 @@ type Props = {
 const tabs = ['All', 'Professional', 'Personal'];
 
 const PortfolioCategories = ({ category, setCategory }: Props) => {
+	const router = useRouter();
+	const searchParams = useSearchParams();
+
+	useEffect(() => {
+		const currentCategory = searchParams.get('projects');
+
+		if (currentCategory) {
+			setCategory(currentCategory);
+		} else {
+			router.replace('?projects=all', { scroll: false });
+			setCategory('all');
+		}
+	}, [searchParams, router, setCategory]); // Proper dependency array
+
 	const handleChange = (newValue: string) => {
 		setCategory(newValue);
+		router.replace(`?projects=${newValue}`); // Update URL without reloading
 	};
 
 	return (

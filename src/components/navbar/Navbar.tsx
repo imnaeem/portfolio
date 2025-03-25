@@ -34,7 +34,7 @@ export const Navbar = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 	useEffect(() => {
-		setActive(pathname);
+		setActive(`/${pathname.split('/')[1]}`);
 	}, [pathname]);
 
 	return (

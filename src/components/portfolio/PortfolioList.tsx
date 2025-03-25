@@ -1,66 +1,24 @@
 'use client';
+import { projectsList } from '@/lib/data';
+import { Project } from '@/types';
 import { hexToRgba, titleCase } from '@/utils';
 import { Grid2, Typography } from '@mui/material';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
-import { toast } from 'react-toastify';
 import PortfolioCategories from './PortfolioCategories';
-
-const projects = [
-	{
-		title: 'Platforms Inspection',
-		key: 'platform-Inspection',
-		type: 'professional',
-		color: '#000000',
-		image: '/images/abyss.jpeg',
-	},
-	{
-		title: 'Poll App',
-		key: 'poll-app',
-		type: 'professional',
-		color: '#008FF5',
-		image: '/images/polly.png',
-	},
-	{
-		title: 'Shuttle Pro',
-		key: 'shuttle-pro',
-		type: 'professional',
-		color: '#187355',
-		image: '/images/shuttle-pro.png',
-	},
-	{
-		title: 'Home Repair Service system',
-		key: 'goc-installers',
-		type: 'professional',
-		color: '#044a20',
-		image: '/images/goc-installers.png',
-	},
-	{
-		title: 'Construction Solutions',
-		key: 'construction-solutions',
-		type: 'personal',
-		color: '#008FF5',
-		image: '/images/conssols.png',
-	},
-	{
-		title: 'Personal Portfolio',
-		key: 'personal-portfolio',
-		type: 'personal',
-		color: '#008FF5',
-		image: '/images/portfolio.png',
-	},
-];
 
 const PortfolioList = () => {
 	const [category, setCategory] = useState('all');
+	const router = useRouter();
 
 	const filteredProjects = useMemo(() => {
-		if (category === 'all') return projects;
-		return projects.filter(({ type }) => type === category);
+		if (category === 'all') return projectsList;
+		return projectsList.filter(({ type }) => type === category);
 	}, [category]);
 
-	const handleOpenProject = () => {
-		toast.info('Coming soon!');
+	const handleOpenProject = (project: Project) => {
+		router.push(`/portfolio/${project.key}`);
 	};
 
 	return (
@@ -70,7 +28,7 @@ const PortfolioList = () => {
 				{filteredProjects.map((item) => (
 					<Grid2
 						key={item.key}
-						onClick={handleOpenProject}
+						onClick={() => handleOpenProject(item)}
 						className='shadow-sm'
 						sx={{ p: 2, borderRadius: '8px', bgcolor: hexToRgba(item.color, 0.1), cursor: 'pointer' }}
 						size={{ xs: 12, sm: 6, md: 4 }}>

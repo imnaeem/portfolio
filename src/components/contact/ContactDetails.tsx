@@ -70,7 +70,7 @@ const contactDetails = [
 
 export const ContactDetails = () => {
 	return (
-		<Stack spacing={4} flex={1} width='100%'>
+		<Stack spacing={6} flex={1} width='100%'>
 			{contactDetails.map((item) => (
 				<Card key={item.title} {...item} />
 			))}
