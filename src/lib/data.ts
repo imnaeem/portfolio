@@ -23,7 +23,7 @@ export const projectsList: Project[] = [
 		image: '/images/shuttle-pro.png',
 	},
 	{
-		title: 'Home Repair Service system',
+		title: 'GOC Installers',
 		key: 'goc-installers',
 		type: 'professional',
 		color: '#044a20',

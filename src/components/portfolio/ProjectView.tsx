@@ -1,4 +1,5 @@
 import { projectsList } from '@/lib/data';
+import { Box } from '@mui/material';
 import { useMemo } from 'react';
 
 type Props = {
@@ -11,7 +12,11 @@ const ProjectView = ({ projectKey }: Props) => {
 	}, [projectKey]);
 
 	console.log(currentProject);
-	return <div>Project</div>;
+	return (
+		<Box sx={{ height: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+			Project overview is not available yet. Please check back later.
+		</Box>
+	);
 };
 
 export default ProjectView;

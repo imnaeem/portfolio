@@ -16,18 +16,22 @@ const GoBackButton = () => {
 		setCanGoBack(hasHistory);
 	}, []);
 
+	const handleGoBack = () => {
+		router.back();
+	};
+
 	if (!canGoBack) return <></>;
 
 	return (
 		<Box>
 			{isMobile ? (
 				<IconButton
-					onClick={() => router.back()}
+					onClick={handleGoBack}
 					sx={{ p: 0.6, border: '1px solid', borderColor: 'primary.main', borderRadius: 1, mt: 0.6 }}>
 					<ArrowBackIcon color='primary' />
 				</IconButton>
 			) : (
-				<Button variant='outlined' startIcon={<ArrowBackIcon />} onClick={() => router.back()}>
+				<Button variant='outlined' startIcon={<ArrowBackIcon />} onClick={handleGoBack}>
 					Go back
 				</Button>
 			)}

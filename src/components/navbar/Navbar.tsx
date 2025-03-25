@@ -1,4 +1,5 @@
 'use client';
+import { lightTheme } from '@/theme';
 import { ContactMail, Description, Home, Menu, Work } from '@mui/icons-material';
 import {
 	AppBar,
@@ -32,6 +33,7 @@ export const Navbar = () => {
 
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+	const primaryColor = lightTheme.palette.primary.main;
 
 	useEffect(() => {
 		setActive(`/${pathname.split('/')[1]}`);
@@ -62,8 +64,8 @@ export const Navbar = () => {
 									passHref
 									className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition duration-300 shadow-sm ${
 										active === href
-											? 'bg-[#1877F2] text-white'
-											: 'bg-white text-gray-800 hover:bg-[#1877F2] hover:text-white'
+											? `bg-[${primaryColor}] text-white`
+											: `bg-white text-gray-800 hover:bg-[${primaryColor}] hover:text-white`
 									}`}>
 									{icon}
 									<span>{label}</span>
