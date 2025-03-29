@@ -1,6 +1,6 @@
 'use client';
 import { Email, Link, Phone } from '@mui/icons-material';
-import { Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import Card from '../shared/Card';
 
 const handleLinkClick = (link: string) => {
@@ -11,7 +11,9 @@ const contactDetails = [
 	{
 		title: 'Phone',
 		description: (
-			<p style={{ cursor: 'pointer' }}>+{String.fromCharCode(57, 50, 51, 48, 48, 54, 53, 49, 49, 49, 55, 51)}</p>
+			<Box aria-hidden='true' onClick={() => handleLinkClick('https://wa.me/447849820232')}>
+				<p style={{ cursor: 'pointer' }}>+{String.fromCharCode(52, 52, 55, 56, 52, 57, 56, 50, 48, 50, 51, 50)}</p>
+			</Box>
 		),
 		color: '#FF6F61',
 		icon: <Phone />,

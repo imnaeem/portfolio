@@ -29,6 +29,9 @@
 				"useImportType": "off",
 				"noNonNullAssertion": "warn"
 			},
+			"a11y": {
+				"useKeyWithClickEvents": "off"
+			},
 			"correctness": {
 				"useExhaustiveDependencies": "warn",
 				"noUnusedImports": "error",

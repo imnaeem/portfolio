@@ -2,18 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.muhammadnaeem.me/</loc>
-    <lastmod>2025-03-23</lastmod>
+    <lastmod>2025-03-29</lastmod>
   </url>
   <url>
     <loc>https://www.muhammadnaeem.me/contact</loc>
-    <lastmod>2025-03-23</lastmod>
+    <lastmod>2025-03-29</lastmod>
   </url>
   <url>
     <loc>https://www.muhammadnaeem.me/portfolio</loc>
-    <lastmod>2025-03-23</lastmod>
+    <lastmod>2025-03-29</lastmod>
   </url>
   <url>
     <loc>https://www.muhammadnaeem.me/experience</loc>
-    <lastmod>2025-03-23</lastmod>
+    <lastmod>2025-03-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadnaeem.me/portfolio/platform-inspection</loc>
+    <lastmod>2025-03-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadnaeem.me/portfolio/poll-app</loc>
+    <lastmod>2025-03-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadnaeem.me/portfolio/shuttle-pro</loc>
+    <lastmod>2025-03-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadnaeem.me/portfolio/goc-installers</loc>
+    <lastmod>2025-03-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadnaeem.me/portfolio/construction-solutions</loc>
+    <lastmod>2025-03-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.muhammadnaeem.me/portfolio/personal-portfolio</loc>
+    <lastmod>2025-03-29</lastmod>
   </url>
 </urlset>

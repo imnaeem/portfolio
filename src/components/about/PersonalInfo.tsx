@@ -5,8 +5,8 @@ import Info from '../shared/Info';
 const info = [
 	{
 		title: 'Phone',
-		value: `+${String.fromCharCode(57, 50, 51, 48, 48, 54, 53, 49, 49, 49, 55, 51)}`,
-		link: 'https://wa.me/923006511173',
+		value: `+${String.fromCharCode(52, 52, 55, 56, 52, 57, 56, 50, 48, 50, 51, 50)}`,
+		link: 'https://wa.me/447849820232',
 		icon: <WhatsApp />,
 		color: '#075E54',
 	},
