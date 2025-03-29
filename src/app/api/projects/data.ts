@@ -16,18 +16,7 @@ export const projectsList: Project[] = [
 			preview: '',
 			description:
 				'This project facilitates comprehensive inspection, analysis, and management for Marine Terminal & Offshore Platform infrastructure. It enables inspectors and engineers to assess conditions, identify issues, and take necessary actions to ensure safety, compliance, and operational efficiency.',
-			images: [
-				{
-					src: 'https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg',
-					width: 320,
-					height: 174,
-					tags: [
-						{ value: 'Nature', title: 'Nature' },
-						{ value: 'Flora', title: 'Flora' },
-					],
-					caption: 'After Rain (Jeshu John - designerspics.com)',
-				},
-			],
+			images: [],
 		},
 	},
 	{
@@ -116,7 +105,28 @@ export const projectsList: Project[] = [
 			preview: 'https://goc.techshiner.com/',
 			description:
 				'This project is a comprehensive home repair service system designed to efficiently manage leads, schedule appointments, and collect structured survey data. It features a multi-step home assessment survey, enabling service providers to gather detailed information about customer needs. The platform also includes an appointment booking system, allowing customers to schedule visits with professionals easily. Additionally, it automates PDF report generation, compiling survey responses and images into structured documents. This ensures organized data management, enhances service efficiency, and improves customer communication.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/goc-installers/img1.jpg',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/goc-installers/img2.jpg',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/goc-installers/img3.jpg',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/goc-installers/img4.jpg',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/goc-installers/img5.jpg',
+					key: 'img5',
+				},
+			],
 		},
 	},
 	{
@@ -134,7 +144,32 @@ export const projectsList: Project[] = [
 			preview: 'https://conssols.muhammadnaeem.me/',
 			description:
 				'This project is a full-stack web application that connects individuals with construction companies and professionals. It provides a marketplace for project listings, where users can post construction projects and receive bids from registered contractors. The system includes user and company registration, enabling professionals to showcase their services and customers to find the right expertise. Additionally, the platform features a bidding system, allowing contractors to submit proposals for projects, and a review system, ensuring trust and transparency between users and service providers.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/construction-solutions/img1.png',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/construction-solutions/img2.png',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/construction-solutions/img3.png',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/construction-solutions/img4.png',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/construction-solutions/img5.png',
+					key: 'img5',
+				},
+				{
+					url: '/images/projects/construction-solutions/img6.png',
+					key: 'img6',
+				},
+			],
 		},
 	},
 	{
@@ -152,7 +187,28 @@ export const projectsList: Project[] = [
 			preview: 'https://www.muhammadnaeem.me/',
 			description:
 				'This project is a personal portfolio website built with Next.js and TypeScript, showcasing my skills and projects. It features a responsive design, smooth animations, and a user-friendly interface. The website is hosted on Vercel for optimal performance and reliability. The code is available on GitHub for reference and collaboration.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/personal-portfolio/img1.png',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/personal-portfolio/img2.png',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/personal-portfolio/img3.png',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/personal-portfolio/img4.png',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/personal-portfolio/img5.png',
+					key: 'img5',
+				},
+			],
 		},
 	},
 ];

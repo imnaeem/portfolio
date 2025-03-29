@@ -1,13 +1,13 @@
+import { projectsList } from '@/app/api/projects/data';
 import GoBackButton from '@/components/portfolio/GoBackButton';
 import ProjectView from '@/components/portfolio/ProjectView';
 import Title from '@/components/shared/Title';
-import { projectsList } from '@/lib/data';
 import { titleCase } from '@/utils';
 import { Stack } from '@mui/material';
 import { Metadata } from 'next';
 
 interface ProjectPageProps {
-	params: { project: string };
+	params: Promise<{ project: string }>;
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {

@@ -1,151 +1,189 @@
 'use client';
-import { projectsList } from '@/lib/data';
 import { GitHub, Link } from '@mui/icons-material';
-import { Box, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Fade, LinearProgress, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { notFound } from 'next/navigation';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import { Skills } from '../experience/Skills';
 import Info from '../shared/Info';
 import 'react-multi-carousel/lib/styles.css';
+import { Project } from '@/types';
 import HideImageIcon from '@mui/icons-material/HideImage';
 
 type Props = { projectKey: string };
 
 const ProjectView = ({ projectKey }: Props) => {
+	const [currentProject, setCurrentProject] = useState<Project | undefined>(undefined);
+	const [loading, setLoading] = useState(true);
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 	const primaryColor = theme.palette.primary.main;
 
-	const currentProject = useMemo(() => {
-		return projectsList.find((item) => item.key === projectKey);
+	useEffect(() => {
+		const fetchProject = async () => {
+			try {
+				const response = await fetch(`/api/projects?key=${projectKey}`);
+				if (response.ok) {
+					const data = await response.json();
+					setCurrentProject(data);
+				}
+			} catch (error) {
+				console.error('Error fetching project:', error);
+				notFound();
+			} finally {
+				setLoading(false);
+			}
+		};
+		fetchProject();
 	}, [projectKey]);
 
-	if (!currentProject) return notFound();
+	if (loading) {
+		return (
+			<Box
+				sx={{
+					height: '70vh',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexDirection: 'column',
+				}}>
+				<Box width='20%'>
+					<Typography fontSize={16} lineHeight={2} mb={2} textAlign='center'>
+						Loading...
+					</Typography>
+					<LinearProgress />
+				</Box>
+			</Box>
+		);
+	}
+
+	if (!currentProject?.details) return notFound();
 
 	const { description, github, preview, techStack, images } = currentProject.details;
 
 	return (
-		<>
-			<Typography>{description}</Typography>
-			{(github || preview) && (
-				<>
-					<Typography fontWeight={500} fontSize={30} my={3}>
-						Links
-					</Typography>
-					<Stack gap={1.5} direction='row' flexWrap='wrap' my={3}>
-						{github && (
-							<Info
-								title='Github'
-								value={github}
-								link={github}
-								color='#24292e'
-								icon={<GitHub />}
-								sx={{ width: isMobile ? '100%' : 'fit-content' }}
-							/>
-						)}
-						{preview && (
-							<Info
-								title='Live Preview'
-								value={preview}
-								link={preview}
-								color={primaryColor}
-								icon={<Link />}
-								sx={{ width: isMobile ? '100%' : 'fit-content' }}
-							/>
-						)}
-					</Stack>
-				</>
-			)}
-
-			<Typography fontWeight={500} fontSize={30} my={3}>
-				Technologies Used
-			</Typography>
-			<Skills skills={techStack} />
-			<Typography fontWeight={500} fontSize={30} my={3}>
-				Preview
-			</Typography>
-			<Box mb='32px'>
-				{images.length === 0 && (
-					<Box
-						sx={{
-							height: '40vh',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							flexDirection: 'column',
-						}}>
-						<HideImageIcon sx={{ fontSize: '100px' }} />
-						<Typography fontSize={16} lineHeight={2} mt={2} textAlign='center'>
-							Preview not available for this project.
+		<Fade in timeout={500}>
+			<div>
+				<Typography>{description}</Typography>
+				{(github || preview) && (
+					<>
+						<Typography fontWeight={500} fontSize={30} my={3}>
+							Links
 						</Typography>
-					</Box>
+						<Stack gap={1.5} direction='row' flexWrap='wrap' my={3}>
+							{github && (
+								<Info
+									title='Github'
+									value={github}
+									link={github}
+									color='#24292e'
+									icon={<GitHub />}
+									sx={{ width: isMobile ? '100%' : 'fit-content' }}
+								/>
+							)}
+							{preview && (
+								<Info
+									title='Live Preview'
+									value={preview}
+									link={preview}
+									color={primaryColor}
+									icon={<Link />}
+									sx={{ width: isMobile ? '100%' : 'fit-content' }}
+								/>
+							)}
+						</Stack>
+					</>
 				)}
-				<Carousel
-					additionalTransfrom={0}
-					arrows
-					autoPlaySpeed={3000}
-					centerMode={false}
-					className=''
-					containerClass='container'
-					dotListClass=''
-					draggable
-					focusOnSelect={false}
-					infinite
-					itemClass=''
-					keyBoardControl
-					minimumTouchDrag={80}
-					pauseOnHover
-					renderArrowsWhenDisabled={false}
-					renderButtonGroupOutside={false}
-					renderDotsOutside={false}
-					responsive={{
-						desktop: {
-							breakpoint: {
-								max: 3000,
-								min: 1024,
+
+				<Typography fontWeight={500} fontSize={30} my={3}>
+					Technologies Used
+				</Typography>
+				<Skills skills={techStack} />
+				<Typography fontWeight={500} fontSize={30} my={3}>
+					Preview
+				</Typography>
+				<Box mb='32px'>
+					{images.length === 0 && (
+						<Box
+							sx={{
+								height: '40vh',
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+								flexDirection: 'column',
+							}}>
+							<HideImageIcon sx={{ fontSize: '100px' }} />
+							<Typography fontSize={16} lineHeight={2} mt={2} textAlign='center'>
+								Preview not available for this project.
+							</Typography>
+						</Box>
+					)}
+					<Carousel
+						additionalTransfrom={0}
+						arrows
+						autoPlaySpeed={3000}
+						centerMode={false}
+						className=''
+						containerClass='container'
+						dotListClass=''
+						draggable
+						focusOnSelect={false}
+						infinite
+						itemClass=''
+						keyBoardControl
+						minimumTouchDrag={80}
+						pauseOnHover
+						renderArrowsWhenDisabled={false}
+						renderButtonGroupOutside={false}
+						renderDotsOutside={false}
+						responsive={{
+							desktop: {
+								breakpoint: {
+									max: 3000,
+									min: 1024,
+								},
+								items: 1,
 							},
-							items: 1,
-						},
-						mobile: {
-							breakpoint: {
-								max: 464,
-								min: 0,
+							mobile: {
+								breakpoint: {
+									max: 464,
+									min: 0,
+								},
+								items: 1,
 							},
-							items: 1,
-						},
-						tablet: {
-							breakpoint: {
-								max: 1024,
-								min: 464,
+							tablet: {
+								breakpoint: {
+									max: 1024,
+									min: 464,
+								},
+								items: 1,
 							},
-							items: 1,
-						},
-					}}
-					rewind={false}
-					rewindWithAnimation={false}
-					rtl={false}
-					shouldResetAutoplay
-					showDots
-					sliderClass=''
-					slidesToSlide={1}
-					swipeable>
-					{images.map((image) => (
-						<img
-							key={image.key}
-							src={image.url}
-							alt={image.key}
-							style={{
-								display: 'block',
-								height: '100%',
-								margin: 'auto',
-								width: '100%',
-							}}
-						/>
-					))}
-				</Carousel>
-			</Box>
-		</>
+						}}
+						rewind={false}
+						rewindWithAnimation={false}
+						rtl={false}
+						shouldResetAutoplay
+						showDots
+						sliderClass=''
+						slidesToSlide={1}
+						swipeable>
+						{images.map((image) => (
+							<img
+								key={image.key}
+								src={image.url}
+								alt={image.key}
+								style={{
+									display: 'block',
+									height: '100%',
+									margin: 'auto',
+									width: '100%',
+								}}
+							/>
+						))}
+					</Carousel>
+				</Box>
+			</div>
+		</Fade>
 	);
 };
 
