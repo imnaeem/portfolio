@@ -4,6 +4,8 @@ import './globals.css';
 import { Footer } from '@/components/footer/Footer';
 import { Navbar } from '@/components/navbar';
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from '../components/scroll/ScrollToTop';
+import ScrollToTopArrow from '../components/scroll/ScrollToTopArrow';
 import ThemeRegistry from './ThemeRegistry';
 
 const geistSans = Geist({
@@ -60,6 +62,8 @@ export default function RootLayout({
 					</div>
 				</div>
 				<ToastContainer />
+				<ScrollToTop />
+				<ScrollToTopArrow />
 			</body>
 		</html>
 	);

@@ -4,7 +4,7 @@ import { Fade } from '@mui/material';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Portfolio | Muhammad Naeem',
+	title: 'My Portfolio | Muhammad Naeem',
 	description: 'Checkout my portfolio of projects built with React, Next.js, Node.js, and GraphQL.',
 };
 

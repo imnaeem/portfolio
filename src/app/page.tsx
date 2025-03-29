@@ -12,7 +12,7 @@ const About = () => {
 				<Stack direction={{ xs: 'column', md: 'row' }} spacing={4} mb={4} alignItems='center'>
 					<Image
 						className='drop-shadow-lg'
-						style={{ borderRadius: '50%' }}
+						style={{ borderRadius: '50%', border: '4px solid #1877F2' }}
 						src='/profile-picture.jpeg'
 						alt='profile-picture'
 						height={300}

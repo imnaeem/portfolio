@@ -47,11 +47,7 @@ const PersonalInfo = () => {
 			</Typography>
 			<Grid2 container spacing={2}>
 				{info.map((item) => (
-					<Grid2
-						key={item.title}
-						className='shadow-sm'
-						sx={{ borderRadius: 1.5, p: 0.8 }}
-						size={{ xs: 12, sm: 6, md: 4 }}>
+					<Grid2 key={item.title} size={{ xs: 12, sm: 6, md: 4 }}>
 						<Info {...item} />
 					</Grid2>
 				))}

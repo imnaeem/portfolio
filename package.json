@@ -29,10 +29,10 @@
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"react-google-recaptcha-v3": "^1.10.1",
-		"react-grid-gallery": "^1.0.1",
 		"react-icons": "^5.5.0",
-		"react-image-lightbox": "^5.1.4",
-		"react-toastify": "^11.0.5"
+		"react-multi-carousel": "^2.8.5",
+		"react-toastify": "^11.0.5",
+		"sass": "^1.86.0"
 	},
 	"devDependencies": {
 		"@tailwindcss/postcss": "^4",

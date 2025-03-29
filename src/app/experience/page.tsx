@@ -6,6 +6,28 @@ import Title from '@/components/shared/Title';
 import { Box, Fade, Stack, Typography } from '@mui/material';
 import { Metadata } from 'next';
 
+const technologies = [
+	'ReactJs',
+	'NextJs',
+	'VueJs',
+	'Redux',
+	'React Query',
+	'Git',
+	'Github',
+	'NodeJs',
+	'NestJs',
+	'Apollo GraphQL',
+	'Kafka',
+	'Github Actions',
+	'CI/CD',
+	'Typescript',
+	'MongoDB',
+	'SQL',
+	'AWS Services',
+	'Vercel',
+	'Docker',
+];
+
 export const metadata: Metadata = {
 	title: 'Experience | Muhammad Naeem',
 	description:
@@ -24,7 +46,7 @@ const Experience = () => {
 				<Typography fontWeight={500} fontSize={30} my={3}>
 					Technical Skills
 				</Typography>
-				<Skills />
+				<Skills skills={technologies} />
 				<Education />
 			</Box>
 		</Fade>

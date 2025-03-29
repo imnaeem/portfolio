@@ -17,10 +17,9 @@ const GoBackButton = () => {
 	}, []);
 
 	const handleGoBack = () => {
-		router.back();
+		if (canGoBack) router.back();
+		else router.replace('/portfolio');
 	};
-
-	if (!canGoBack) return <></>;
 
 	return (
 		<Box>

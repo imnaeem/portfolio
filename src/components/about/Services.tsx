@@ -18,7 +18,7 @@ const services = [
 	},
 	{
 		title: 'Backend Developer',
-		description: 'I develop scalable and efficient backend with Node.js, NestJS, Express, MongoDB, and PostgreSQL.',
+		description: 'I develop scalable and efficient backend with Node.js, NestJS, Express and MongoDB.',
 		color: '#4A90E2',
 		icon: <BackendIcon />,
 	},

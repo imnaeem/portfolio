@@ -26,7 +26,8 @@
 		"rules": {
 			"recommended": true,
 			"style": {
-				"useImportType": "off"
+				"useImportType": "off",
+				"noNonNullAssertion": "warn"
 			},
 			"correctness": {
 				"useExhaustiveDependencies": "warn",
