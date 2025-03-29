@@ -1,61 +1,25 @@
 'use client';
 import { GitHub, Link } from '@mui/icons-material';
-import { Box, Fade, LinearProgress, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Fade, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { notFound } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import Carousel from 'react-multi-carousel';
 import { Skills } from '../experience/Skills';
 import Info from '../shared/Info';
 import 'react-multi-carousel/lib/styles.css';
-import { Project } from '@/types';
+import { projectsList } from '@/app/api/projects/data';
 import HideImageIcon from '@mui/icons-material/HideImage';
 
 type Props = { projectKey: string };
 
 const ProjectView = ({ projectKey }: Props) => {
-	const [currentProject, setCurrentProject] = useState<Project | undefined>(undefined);
-	const [loading, setLoading] = useState(true);
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 	const primaryColor = theme.palette.primary.main;
 
-	useEffect(() => {
-		const fetchProject = async () => {
-			try {
-				const response = await fetch(`/api/projects?key=${projectKey}`);
-				if (response.ok) {
-					const data = await response.json();
-					setCurrentProject(data);
-				}
-			} catch (error) {
-				console.error('Error fetching project:', error);
-				notFound();
-			} finally {
-				setLoading(false);
-			}
-		};
-		fetchProject();
+	const currentProject = useMemo(() => {
+		return projectsList.find((project) => project.key === projectKey);
 	}, [projectKey]);
-
-	if (loading) {
-		return (
-			<Box
-				sx={{
-					height: '70vh',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					flexDirection: 'column',
-				}}>
-				<Box width='20%'>
-					<Typography fontSize={16} lineHeight={2} mb={2} textAlign='center'>
-						Loading...
-					</Typography>
-					<LinearProgress />
-				</Box>
-			</Box>
-		);
-	}
 
 	if (!currentProject?.details) return notFound();
 
@@ -112,7 +76,7 @@ const ProjectView = ({ projectKey }: Props) => {
 								justifyContent: 'center',
 								flexDirection: 'column',
 							}}>
-							<HideImageIcon sx={{ fontSize: '100px' }} />
+							<HideImageIcon sx={{ fontSize: '100px', color: 'grey' }} />
 							<Typography fontSize={16} lineHeight={2} mt={2} textAlign='center'>
 								Preview not available for this project.
 							</Typography>
