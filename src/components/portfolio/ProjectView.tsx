@@ -66,7 +66,7 @@ const ProjectView = ({ projectKey }: Props) => {
 				<Typography fontWeight={500} fontSize={30} my={3}>
 					Preview
 				</Typography>
-				<Box mb='32px'>
+				<Box mb={4}>
 					{images.length === 0 && (
 						<Box
 							sx={{

@@ -19,7 +19,7 @@ const Contact = () => {
 					spacing={{ xs: 4, md: 8 }}
 					alignItems='center'
 					mb={4}
-					py={5}>
+					py={{ md: 5, xs: 0 }}>
 					<ContactDetails />
 					<Divider orientation='horizontal' flexItem sx={{ display: { xs: 'block', md: 'none' } }} />
 

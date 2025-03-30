@@ -7,7 +7,7 @@ export const Education = () => {
 			<Typography fontWeight={500} fontSize={30} my={3}>
 				Education
 			</Typography>
-			<Box mb='32px'>
+			<Box mb={4}>
 				<Card
 					title='Bachelor of Science in Information Technology'
 					description={

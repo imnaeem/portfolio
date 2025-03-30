@@ -72,7 +72,7 @@ const contactDetails = [
 
 export const ContactDetails = () => {
 	return (
-		<Stack spacing={6} flex={1} width='100%'>
+		<Stack spacing={{ xs: 2, md: 6 }} flex={1} width='100%'>
 			{contactDetails.map((item) => (
 				<Card key={item.title} {...item} />
 			))}

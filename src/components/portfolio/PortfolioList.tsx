@@ -20,7 +20,7 @@ const PortfolioList = () => {
 			<Suspense fallback={<p>Loading...</p>}>
 				<PortfolioCategories category={category} setCategory={setCategory} />
 			</Suspense>
-			<Grid2 container spacing={3} my='32px'>
+			<Grid2 container spacing={3} my={4}>
 				{filteredProjects.map((item) => (
 					<Grid2 key={item.key} size={{ xs: 12, sm: 6, md: 4 }}>
 						<Link href={`/portfolio/${item.key}`}>

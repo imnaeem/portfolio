@@ -1,14 +1,7 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { transporter } from '../mailer';
 
-const { MAILER_HOST, MAILER_EMAIL, MAILER_EMAIL_PASSWORD } = process.env;
-
-const transporter = nodemailer.createTransport({
-	secure: true,
-	port: 465,
-	host: MAILER_HOST,
-	auth: { user: MAILER_EMAIL, pass: MAILER_EMAIL_PASSWORD },
-});
+const { MAILER_EMAIL } = process.env;
 
 export async function POST(req: Request) {
 	try {
