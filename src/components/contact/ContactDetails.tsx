@@ -1,5 +1,6 @@
 'use client';
-import { Email, Link, Phone } from '@mui/icons-material';
+import { formattedMobileNumber } from '@/constants';
+import { Email, Link, WhatsApp } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
 import Card from '../shared/Card';
 
@@ -12,11 +13,11 @@ const contactDetails = [
 		title: 'Phone',
 		description: (
 			<Box aria-hidden='true' onClick={() => handleLinkClick('https://wa.me/447849820232')}>
-				<p style={{ cursor: 'pointer' }}>+{String.fromCharCode(52, 52, 55, 56, 52, 57, 56, 50, 48, 50, 51, 50)}</p>
+				<p style={{ cursor: 'pointer' }}>+{formattedMobileNumber}</p>
 			</Box>
 		),
-		color: '#FF6F61',
-		icon: <Phone />,
+		color: '#075E54',
+		icon: <WhatsApp />,
 	},
 	{
 		title: 'Email',

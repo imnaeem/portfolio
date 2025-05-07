@@ -1,3 +1,4 @@
+import { formattedMobileNumber } from '@/constants';
 import { Email, GitHub, LinkedIn, LocationCity, WhatsApp } from '@mui/icons-material';
 import { Box, Grid2, Typography } from '@mui/material';
 import Info from '../shared/Info';
@@ -5,7 +6,7 @@ import Info from '../shared/Info';
 const info = [
 	{
 		title: 'Phone',
-		value: `+${String.fromCharCode(52, 52, 55, 56, 52, 57, 56, 50, 48, 50, 51, 50)}`,
+		value: `+${formattedMobileNumber}`,
 		link: 'https://wa.me/447849820232',
 		icon: <WhatsApp />,
 		color: '#075E54',

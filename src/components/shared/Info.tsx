@@ -30,31 +30,19 @@ const Info = ({ title, value, icon, link, color, sx = {} }: Props) => {
 				<Typography fontSize={12} variant='body2'>
 					{title}
 				</Typography>
-				{title === 'Phone' ? (
-					<Box aria-hidden='true' onClick={handleLinkClick}>
-						<p
-							style={{
-								cursor: 'pointer',
-								fontSize: '16px',
-								fontWeight: 500,
-							}}>
-							+{String.fromCharCode(52, 52, 55, 56, 52, 57, 56, 50, 48, 50, 51, 50)}
-						</p>
-					</Box>
-				) : (
-					<Typography
-						sx={{
-							cursor: link ? 'pointer' : 'default',
-							':hover': {
-								textDecoration: link ? 'underline' : 'none',
-							},
-						}}
-						onClick={handleLinkClick}
-						fontSize={16}
-						fontWeight={500}>
-						{value}
-					</Typography>
-				)}
+
+				<Typography
+					sx={{
+						cursor: link ? 'pointer' : 'default',
+						':hover': {
+							textDecoration: link ? 'underline' : 'none',
+						},
+					}}
+					onClick={handleLinkClick}
+					fontSize={16}
+					fontWeight={500}>
+					{value}
+				</Typography>
 			</Box>
 		</Stack>
 	);
