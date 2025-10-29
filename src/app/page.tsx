@@ -13,7 +13,7 @@ const About = () => {
 					<Image
 						className='drop-shadow-lg'
 						style={{ borderRadius: '50%', border: '4px solid #1877F2' }}
-						src='https://lh3.googleusercontent.com/a/ACg8ocI0sFtEynDe0VW-gaje8T16tIoFSq3wGS2XbxhZH_IRFcLkiw=s756-c-no'
+						src='/profile-image.jpg'
 						alt='profile-picture'
 						height={300}
 						width={260}
