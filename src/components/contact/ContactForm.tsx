@@ -2,7 +2,6 @@
 import SendIcon from '@mui/icons-material/Send';
 import { Button, Stack, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { toast } from 'react-toastify';
 
 const initialForm = { name: '', email: '', message: '' };
@@ -10,7 +9,6 @@ const initialForm = { name: '', email: '', message: '' };
 const ContactForm = () => {
 	const [loading, setLoading] = useState(false);
 	const [form, setForm] = useState(initialForm);
-	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
@@ -24,22 +22,10 @@ const ContactForm = () => {
 			toast.error('Please fill all the fields');
 			return;
 		}
-		if (!executeRecaptcha) {
-			toast.error('reCAPTCHA failed to load. Try again!');
-			return;
-		}
 
 		setLoading(true);
 
 		try {
-			const token = await executeRecaptcha('contact_form');
-
-			await fetch('/api/captcha', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ recaptchaToken: token }),
-			});
-
 			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
