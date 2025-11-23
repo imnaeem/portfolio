@@ -72,10 +72,39 @@ export const projectsList: Project[] = [
 				'React Query',
 				'Facebook APIs',
 			],
-			preview: '',
+			preview: 'https://shuttlepro.io',
 			description:
 				'This project is a MERN stack e-commerce platform that integrates WooCommerce and Shopify, allowing seamless store management from a single interface. It provides merchants with powerful tools to manage products, orders, and inventory across multiple platforms. The system also features GraphQL API integration, ensuring efficient data retrieval and real-time updates. Additionally, it streamlines social media management by enabling direct posting and automated content scheduling on Facebook and Instagram. For enhanced customer engagement, the platform integrates Facebook Messenger, Instagram, and WhatsApp, enabling businesses to communicate directly with customers through Facebook APIs.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/shuttle-pro/img1.png',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/shuttle-pro/img2.png',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/shuttle-pro/img3.png',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/shuttle-pro/img4.png',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/shuttle-pro/img5.png',
+					key: 'img5',
+				},
+				{
+					url: '/images/projects/shuttle-pro/img6.png',
+					key: 'img6',
+				},
+				{
+					url: '/images/projects/shuttle-pro/img7.png',
+					key: 'img7',
+				},
+			],
 		},
 	},
 	{
@@ -176,7 +205,7 @@ export const projectsList: Project[] = [
 		title: 'Personal Portfolio',
 		key: 'personal-portfolio',
 		type: 'personal',
-		color: '#008FF5',
+		color: '#1877F2',
 		thumbnail: '/images/projects/personal-portfolio/thumbnail.png',
 		metadata: {
 			description: 'A personal portfolio website showcasing my skills and projects.',
@@ -207,6 +236,109 @@ export const projectsList: Project[] = [
 				{
 					url: '/images/projects/personal-portfolio/img5.png',
 					key: 'img5',
+				},
+			],
+		},
+	},
+	{
+		title: 'SmartRec',
+		key: 'smart-rec',
+		type: 'personal',
+		color: '#FF6B6B',
+		thumbnail: '/images/projects/smart-rec/thumbnail.png',
+		metadata: {
+			description: 'Modern screen recording platform with video trimming and instant sharing capabilities.',
+		},
+		details: {
+			github: 'https://github.com/imnaeem/smart-rec',
+			techStack: [
+				'Next.js 15',
+				'React 19',
+				'TypeScript',
+				'Firebase',
+				'Firestore',
+				'Firebase Auth',
+				'Firebase Storage',
+				'Cloudinary',
+				'Tailwind CSS',
+				'MUI',
+			],
+			preview: 'https://smartrec.imnaeem.dev',
+			description:
+				'SmartRec is a modern screen recording platform (MVP) inspired by Loom, designed for async teams, creators, and educators. It allows users to record their screen or specific tabs directly from the browser, trim videos with precision, and share them instantly with a smooth, intuitive experience. Key features include seamless screen and tab recording, built-in video trimming tools, time-stamped comments for collaborative feedback, responsive UI optimized for all devices, and secure sharing via public or private links.\n\nBuilt with Next.js 15, React 19, and TypeScript for a robust frontend, Firebase for authentication, real-time database, and cloud storage, Cloudinary for efficient video processing and delivery, and styled with Tailwind CSS and Material-UI for a modern, clean interface. SmartRec delivers speed, simplicity, and seamless collaboration in one powerful package.',
+			images: [
+				{
+					url: '/images/projects/smart-rec/img1.jpg',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/smart-rec/img2.jpg',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/smart-rec/img3.jpg',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/smart-rec/img4.jpg',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/smart-rec/img5.jpg',
+					key: 'img5',
+				},
+				{
+					url: '/images/projects/smart-rec/img6.jpg',
+					key: 'img6',
+				},
+				{
+					url: '/images/projects/smart-rec/img7.jpg',
+					key: 'img7',
+				},
+			],
+		},
+	},
+	{
+		title: 'AIBot',
+		key: 'aibot',
+		type: 'personal',
+		color: '#4A90E2',
+		thumbnail: '/images/projects/aibot/thumbnail.png',
+		metadata: {
+			description: 'AI chatbot interface with multi-model support and document-aware conversations.',
+		},
+		details: {
+			github: 'https://github.com/imnaeem/aibot-frontend',
+			techStack: [
+				'React 19',
+				'TypeScript',
+				'Supabase',
+				'Supabase Auth',
+				'Supabase Storage',
+				'Groq AI',
+				'HuggingFace',
+				'Ollama',
+				'MUI',
+			],
+			preview: 'https://aibot.imnaeem.dev',
+			description:
+				'AIBot is a modern AI chatbot interface featuring multi-model support, real-time streaming responses, and document-aware conversations. Users can seamlessly chat with local models via Ollama or cloud-based models from HuggingFace and Groq, upload files to provide context for more intelligent responses, and manage chat history across devices with cloud synchronization. The platform offers a flexible architecture supporting multiple AI providers, real-time streaming for instant feedback, document upload and processing for context-aware conversations, persistent chat history with cross-device sync, and a responsive, intuitive interface built with Material-UI.\n\nBuilt with React 19 and TypeScript for a modern, type-safe frontend, Supabase for authentication, database, and cloud storage, free Groq AI models accessed via REST APIs for powerful language processing, and styled with Material-UI for a clean, responsive design. AIBot is built for flexibility, intelligence, and a seamless user experience, making AI conversations more powerful and accessible.',
+			images: [
+				{
+					url: '/images/projects/aibot/img1.jpg',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/aibot/img2.jpg',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/aibot/img3.jpg',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/aibot/img4.jpg',
+					key: 'img4',
 				},
 			],
 		},

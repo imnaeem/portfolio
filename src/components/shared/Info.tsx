@@ -1,5 +1,6 @@
 'use client';
 import { Box, Stack, SvgIconProps, SxProps, Typography } from '@mui/material';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 type Props = {
@@ -12,8 +13,16 @@ type Props = {
 };
 
 const Info = ({ title, value, icon, link, color, sx = {} }: Props) => {
+	const router = useRouter();
+
 	const handleLinkClick = () => {
-		if (link) window.open(link, '_blank');
+		if (link) {
+			if (link.startsWith('/')) {
+				window.open(link, '_blank');
+			} else {
+				window.open(link, '_blank');
+			}
+		}
 	};
 
 	return (

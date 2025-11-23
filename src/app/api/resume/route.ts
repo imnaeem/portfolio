@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
 		const emailOption = {
 			from: MAILER_EMAIL,
-			to: 'ceinfo.pk@gmail.com',
+			to: 'imnaeem.dev@gmail.com',
 			subject: 'Resume Download Notification',
 			html: `
 			<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"></div>

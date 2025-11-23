@@ -1,43 +1,43 @@
 'use client';
-import { formattedMobileNumber } from '@/constants';
 import { Email, Link, WhatsApp } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
 import Card from '../shared/Card';
-
-const handleLinkClick = (link: string) => {
-	window.open(link, '_blank');
-};
 
 const contactDetails = [
 	{
 		title: 'Phone',
 		description: (
-			<Box aria-hidden='true' onClick={() => handleLinkClick('https://wa.me/447849820232')}>
-				<p style={{ cursor: 'pointer' }}>+{formattedMobileNumber}</p>
-			</Box>
+			<Typography
+				sx={{
+					cursor: 'pointer',
+					':hover': { textDecoration: 'underline' },
+				}}>
+				WhatsApp
+			</Typography>
 		),
 		color: '#075E54',
 		icon: <WhatsApp />,
+		route: '/whatsapp',
 	},
 	{
 		title: 'Email',
 		description: (
 			<>
 				<Typography
-					onClick={() => handleLinkClick('mailto:contact@muhammadnaeem.me')}
+					onClick={() => handleLinkClick('mailto:contact@imnaeem.dev')}
 					sx={{
 						cursor: 'pointer',
 						':hover': { textDecoration: 'underline' },
 					}}>
-					contact@muhammadnaeem.me
+					contact@imnaeem.dev
 				</Typography>
 				<Typography
-					onClick={() => handleLinkClick('mailto:ceinfo.pk@gmail.com')}
+					onClick={() => handleLinkClick('mailto:imnaeem.dev@gmail.com')}
 					sx={{
 						cursor: 'pointer',
 						':hover': { textDecoration: 'underline' },
 					}}>
-					ceinfo.pk@gmail.com
+					imnaeem.dev@gmail.com
 				</Typography>
 			</>
 		),
@@ -72,10 +72,18 @@ const contactDetails = [
 ];
 
 export const ContactDetails = () => {
+	const handleCardClick = (route?: string) => {
+		if (route) {
+			window.open(route, '_blank');
+		}
+	};
+
 	return (
 		<Stack spacing={{ xs: 2, md: 6 }} flex={1} width='100%'>
 			{contactDetails.map((item) => (
-				<Card key={item.title} {...item} />
+				<Box key={item.title} onClick={() => handleCardClick(item.route)}>
+					<Card {...item} />
+				</Box>
 			))}
 		</Stack>
 	);

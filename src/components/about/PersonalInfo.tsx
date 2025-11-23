@@ -1,4 +1,3 @@
-import { formattedMobileNumber } from '@/constants';
 import { Email, GitHub, LinkedIn, LocationCity, WhatsApp } from '@mui/icons-material';
 import { Box, Grid2, Typography } from '@mui/material';
 import Info from '../shared/Info';
@@ -6,15 +5,15 @@ import Info from '../shared/Info';
 const info = [
 	{
 		title: 'Phone',
-		value: `+${formattedMobileNumber}`,
-		link: 'https://wa.me/447849820232',
+		value: 'WhatsApp',
+		link: '/whatsapp',
 		icon: <WhatsApp />,
 		color: '#075E54',
 	},
 	{
 		title: 'Email',
-		value: 'contact@muhammadnaeem.me',
-		link: 'mailto:contact@muhammadnaeem.me',
+		value: 'contact@imnaeem.dev',
+		link: 'mailto:contact@imnaeem.dev',
 		icon: <Email />,
 		color: '#9bc1ff',
 	},
