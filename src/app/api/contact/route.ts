@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { transporter } from '../mailer';
 
-const { MAILER_EMAIL } = process.env;
+const { MAILER_EMAIL, RECEIVER_EMAIL } = process.env;
 
 export async function POST(req: Request) {
 	try {
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
 		const receiverEmailOption = {
 			from: MAILER_EMAIL,
-			to: MAILER_EMAIL,
+			to: RECEIVER_EMAIL,
 			replyTo: email,
 			subject: 'New message from the contact form',
 			html: `

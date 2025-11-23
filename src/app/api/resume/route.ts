@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { transporter } from '../mailer';
 
-const { MAILER_EMAIL } = process.env;
+const { MAILER_EMAIL, RECEIVER_EMAIL } = process.env;
 
 export async function POST(req: Request) {
 	try {
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
 		const emailOption = {
 			from: MAILER_EMAIL,
-			to: 'imnaeem.dev@gmail.com',
+			to: RECEIVER_EMAIL,
 			subject: 'Resume Download Notification',
 			html: `
 			<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;"></div>
