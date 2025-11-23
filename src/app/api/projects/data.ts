@@ -170,7 +170,7 @@ export const projectsList: Project[] = [
 		details: {
 			github: 'https://github.com/imnaeem/ConsSols',
 			techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'MUI'],
-			preview: 'https://conssols.muhammadnaeem.me/',
+			preview: 'https://conssols.imnaeem.dev/',
 			description:
 				'This project is a full-stack web application that connects individuals with construction companies and professionals. It provides a marketplace for project listings, where users can post construction projects and receive bids from registered contractors. The system includes user and company registration, enabling professionals to showcase their services and customers to find the right expertise. Additionally, the platform features a bidding system, allowing contractors to submit proposals for projects, and a review system, ensuring trust and transparency between users and service providers.',
 			images: [
@@ -213,7 +213,7 @@ export const projectsList: Project[] = [
 		details: {
 			github: 'https://github.com/imnaeem/portfolio',
 			techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'MUI', 'Vercel'],
-			preview: 'https://www.muhammadnaeem.me/',
+			preview: 'https://imnaeem.dev/',
 			description:
 				'This project is a personal portfolio website built with Next.js and TypeScript, showcasing my skills and projects. It features a responsive design, smooth animations, and a user-friendly interface. The website is hosted on Vercel for optimal performance and reliability. The code is available on GitHub for reference and collaboration.',
 			images: [

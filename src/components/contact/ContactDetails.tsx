@@ -3,6 +3,10 @@ import { Email, Link, WhatsApp } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
 import Card from '../shared/Card';
 
+const handleLinkClick = (link: string) => {
+	window.open(link, '_blank');
+};
+
 const contactDetails = [
 	{
 		title: 'Phone',
