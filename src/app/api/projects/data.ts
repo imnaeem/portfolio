@@ -6,7 +6,7 @@ export const projectsList: Project[] = [
 		key: 'platform-inspection',
 		type: 'professional',
 		color: '#000000',
-		thumbnail: '/images/projects/platform-inspection/thumbnail.jpeg',
+		thumbnail: '/images/projects/platform-inspection/thumbnail.png',
 		metadata: {
 			description: 'A web application for platforms inspection and management.',
 		},
@@ -16,7 +16,68 @@ export const projectsList: Project[] = [
 			preview: '',
 			description:
 				'This project facilitates comprehensive inspection, analysis, and management for Marine Terminal & Offshore Platform infrastructure. It enables inspectors and engineers to assess conditions, identify issues, and take necessary actions to ensure safety, compliance, and operational efficiency.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/platform-inspection/img1.jpg',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/platform-inspection/img2.jpg',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/platform-inspection/img3.jpg',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/platform-inspection/img4.png',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/platform-inspection/img5.png',
+					key: 'img5',
+				},
+				{
+					url: '/images/projects/platform-inspection/img6.png',
+					key: 'img6',
+				},
+				{
+					url: '/images/projects/platform-inspection/img7.png',
+					key: 'img7',
+				},
+				{
+					url: '/images/projects/platform-inspection/img8.png',
+					key: 'img8',
+				},
+				{
+					url: '/images/projects/platform-inspection/img9.png',
+					key: 'img9',
+				},
+				{
+					url: '/images/projects/platform-inspection/img10.png',
+					key: 'img10',
+				},
+				{
+					url: '/images/projects/platform-inspection/img11.png',
+					key: 'img11',
+				},
+				{
+					url: '/images/projects/platform-inspection/img12.png',
+					key: 'img12',
+				},
+				{
+					url: '/images/projects/platform-inspection/img13.png',
+					key: 'img13',
+				},
+				{
+					url: '/images/projects/platform-inspection/img14.jpg',
+					key: 'img14',
+				},
+				{
+					url: '/images/projects/platform-inspection/img15.jpg',
+					key: 'img15',
+				},
+			],
 		},
 	},
 	{
@@ -45,7 +106,48 @@ export const projectsList: Project[] = [
 			preview: '',
 			description:
 				'This project is a polling application that seamlessly integrates with Slack while providing a web-based interface for managing and analyzing polls. The Slack app enables users to create, share, and participate in polls directly within Slack channels, while the interactive modals enhance the user experience by allowing structured and intuitive poll creation. The web interface offers comprehensive poll management, real-time results visualization, and detailed analytics, making it easy to track responses and gain insights. Designed for teams and organizations, this solution streamlines decision-making and feedback collection within Slack.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/poll-app/img1.jpg',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/poll-app/img2.jpg',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/poll-app/img3.jpg',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/poll-app/img4.jpg',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/poll-app/img5.jpg',
+					key: 'img5',
+				},
+				{
+					url: '/images/projects/poll-app/img6.jpg',
+					key: 'img6',
+				},
+				{
+					url: '/images/projects/poll-app/img7.jpg',
+					key: 'img7',
+				},
+				{
+					url: '/images/projects/poll-app/img8.jpg',
+					key: 'img8',
+				},
+				{
+					url: '/images/projects/poll-app/img9.jpg',
+					key: 'img9',
+				},
+				{
+					url: '/images/projects/poll-app/img10.jpg',
+					key: 'img10',
+				},
+			],
 		},
 	},
 	{
