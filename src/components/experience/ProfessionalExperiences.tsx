@@ -19,17 +19,18 @@ const experience = [
 						Developed and optimized full-stack applications using Next.js and Nest.js, building dynamic UI for data
 						visualization and operations.
 					</li>
-					<li>Enhanced API performance by efficiently using GraphQL, achieving 30% faster response times.</li>
+					<li>Enhanced API performance by optimizing using GraphQL, achieving 30% faster response times.</li>
 					<li>Implemented RBAC with Auth0, ensuring secure and role-based access to application features.</li>
 					<li>Ensured code reliability and functionality through unit and end-to-end testing.</li>
 					<li>
-						Worked on a Slack Polling app with a web interface, building interactive modals for Slack and implementing a
-						microservices architecture using Kafka and Amazon SQS for scalable and efficient event processing.
+						Worked on a Slack polling app with a React web interface, enhancing Slack interactive modals and
+						contributing to a Kafka and SQS based microservices architecture.
 					</li>
 					<li>
-						Integrated CI/CD pipelines to automate builds, testing, and deployments for a seamless development workflow.
+						Implemented CI/CD pipelines to streamline project builds, testing, and deployments.
 					</li>
-					<li>Led a team of three developers, conducted PR reviews, and ensured timely delivery.</li>
+					<li>Leading a team of three developers, conducting PR reviews, and ensuring timely delivery.</li>
+					<li>Effectively utilized AI coding tools (Cursor, Claude) to speed up development and improve code quality.</li>
 					<li>Collaborated in Agile environments using Jira and GitHub for task tracking and team coordination.</li>
 				</ul>
 			</>
