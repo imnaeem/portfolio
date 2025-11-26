@@ -445,4 +445,22 @@ export const projectsList: Project[] = [
 			],
 		},
 	},
+	{
+		title: 'JSON to TOON Converter',
+		key: 'json-to-toon',
+		type: 'personal',
+		color: '#10B981',
+		thumbnail: '/images/projects/json-to-toon/thumbnail.png',
+		metadata: {
+			description: 'Convert JSON to TOON format and reduce LLM token usage by ~50%. Free, fast, and secure.',
+		},
+		details: {
+			github: 'https://github.com/imnaeem/jsontotoon',
+			techStack: ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'Lucide Icons', 'Nodemailer'],
+			preview: 'https://jsontoonconverter.com/',
+			description:
+				'JSON to TOON Converter is a simple yet powerful tool that converts JSON to TOON format, helping reduce LLM token usage by approximately 50%. The application features client-side conversion for maximum privacy and security, supports both light and dark modes, and is fully responsive across all devices. Built with modern technologies and completely free to use, it helps developers and teams significantly reduce their LLM API costs while maintaining data privacy since all processing happens in the browser.',
+			images: [],
+		},
+	},
 ];
