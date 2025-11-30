@@ -1,0 +1,30 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#434343;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#grad2)"/>
+  
+  <!-- Geometric shapes -->
+  <polygon points="100,100 180,100 140,180" fill="rgba(255,255,255,0.12)"/>
+  <rect x="650" y="50" width="80" height="80" fill="rgba(255,255,255,0.1)" transform="rotate(15 690 90)"/>
+  
+  <!-- Navigation arrows -->
+  <path d="M 150 200 L 250 200 L 230 180 M 250 200 L 230 220" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 320 200 L 420 200 L 400 180 M 420 200 L 400 220" stroke="rgba(255,255,255,0.7)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 490 200 L 590 200 L 570 180 M 590 200 L 570 220" stroke="rgba(255,255,255,0.5)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Route nodes -->
+  <circle cx="150" cy="200" r="20" fill="#ffffff"/>
+  <circle cx="320" cy="200" r="20" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="490" cy="200" r="20" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="630" cy="200" r="20" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Text -->
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#ffffff" text-anchor="middle">Next.js</text>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="32" font-weight="normal" fill="rgba(255,255,255,0.85)" text-anchor="middle">App Router</text>
+</svg>

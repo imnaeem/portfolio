@@ -13,15 +13,60 @@ interface ProjectPageProps {
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
 	const { project: projectKey } = await params;
 	const project = projectsList.find(({ key }) => key === projectKey);
-	const { key, title, thumbnail, metadata } = project || {};
+	
+	if (!project) {
+		return {
+			title: 'Project Not Found',
+		};
+	}
+	
+	const { key, title, thumbnail, metadata, details } = project;
+	const baseUrl = 'https://imnaeem.dev';
+	const projectUrl = `${baseUrl}/portfolio/${projectKey}`;
+	const imageUrl = thumbnail ? `${baseUrl}${thumbnail}` : '';
+	
 	return {
-		title: `${title} - My Portfolio`,
-		description: metadata?.description,
+		title: `${title} | Muhammad Naeem Portfolio`,
+		description: metadata?.description || `${title} project by Muhammad Naeem`,
+		keywords: details?.techStack?.join(', ') || '',
+		authors: [{ name: 'Muhammad Naeem' }],
+		creator: 'Muhammad Naeem',
 		openGraph: {
-			title: `${title} - My Portfolio`,
-			description: metadata?.description,
-			url: `/portfolio/${projectKey}`,
-			images: [{ url: thumbnail || '', alt: key }],
+			title: `${title} | Portfolio`,
+			description: metadata?.description || `${title} project by Muhammad Naeem`,
+			type: 'website',
+			url: projectUrl,
+			siteName: 'Muhammad Naeem Portfolio',
+			locale: 'en_US',
+			images: imageUrl ? [
+				{
+					url: imageUrl,
+					width: 1200,
+					height: 630,
+					alt: title,
+				},
+			] : [],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: `${title} | Portfolio`,
+			description: metadata?.description || `${title} project by Muhammad Naeem`,
+			creator: '@imnaeem',
+			images: imageUrl ? [imageUrl] : [],
+		},
+		alternates: {
+			canonical: projectUrl,
+		},
+		robots: {
+			index: true,
+			follow: true,
+			googleBot: {
+				index: true,
+				follow: true,
+				'max-video-preview': -1,
+				'max-image-preview': 'large',
+				'max-snippet': -1,
+			},
 		},
 	};
 }

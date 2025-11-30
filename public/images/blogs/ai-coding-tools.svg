@@ -1,0 +1,41 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad18" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#grad18)"/>
+  
+  <!-- AI assistant icons -->
+  <circle cx="250" cy="180" r="55" fill="rgba(255,255,255,0.25)" stroke="#ffffff" stroke-width="3"/>
+  <path d="M 235 170 L 235 190 L 265 180 Z" fill="#ffffff"/>
+  <circle cx="232" cy="165" r="3" fill="#fbbf24"/>
+  <circle cx="245" cy="158" r="2.5" fill="#fbbf24"/>
+  <circle cx="258" cy="163" r="2" fill="#fbbf24"/>
+  
+  <circle cx="420" cy="180" r="55" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-width="3"/>
+  <rect x="405" y="165" width="30" height="30" fill="rgba(255,255,255,0.4)" rx="4"/>
+  <line x1="410" y1="175" x2="425" y2="175" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="410" y1="185" x2="425" y2="185" stroke="#8b5cf6" stroke-width="2"/>
+  
+  <circle cx="590" cy="180" r="55" fill="rgba(255,255,255,0.25)" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="590" cy="180" r="20" fill="#ffffff"/>
+  <circle cx="575" cy="170" r="8" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="605" cy="170" r="8" fill="rgba(255,255,255,0.6)"/>
+  
+  <!-- Collaboration lines -->
+  <line x1="305" y1="180" x2="365" y2="180" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="8,4"/>
+  <line x1="475" y1="180" x2="535" y2="180" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="8,4"/>
+  
+  <!-- Stars indicating AI magic -->
+  <path d="M 150 100 L 153 110 L 163 113 L 153 116 L 150 126 L 147 116 L 137 113 L 147 110 Z" fill="#ffffff"/>
+  <path d="M 680 120 L 683 130 L 693 133 L 683 136 L 680 146 L 677 136 L 667 133 L 677 130 Z" fill="#ffffff"/>
+  <path d="M 720 280 L 722 287 L 729 289 L 722 291 L 720 298 L 718 291 L 711 289 L 718 287 Z" fill="rgba(255,255,255,0.8)"/>
+  
+  <!-- Text -->
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#ffffff" text-anchor="middle">AI Development</text>
+  <text x="400" y="345" font-family="Arial, sans-serif" font-size="26" font-weight="normal" fill="rgba(255,255,255,0.9)" text-anchor="middle">Next-Gen Tools</text>
+</svg>

@@ -13,26 +13,39 @@ const Contact = () => {
 	return (
 		<Fade in timeout={500}>
 			<div>
-				<Title title='Contact Me' />
-				<Stack
-					direction={{ xs: 'column-reverse', md: 'row' }}
-					spacing={{ xs: 4, md: 8 }}
-					alignItems='center'
-					mb={4}
-					py={{ md: 5, xs: 0 }}>
+				<Title title='Contact Me' subtitle="Let's work together on your next project" />
+				<Stack direction={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 4, md: 6 }} mb={4}>
 					<ContactDetails />
 					<Divider orientation='horizontal' flexItem sx={{ display: { xs: 'block', md: 'none' } }} />
 
-					<Stack spacing={2} flex={2} width='100%'>
-						<Box>
-							<Typography variant='body1' fontSize={25}>
-								I'm always open to discussing product
-							</Typography>
-							<Typography fontSize={25} fontWeight={500}>
-								design work or partnerships
-							</Typography>
+					<Stack spacing={3} flex={2} width='100%'>
+						<Box
+							sx={{
+								p: { xs: 3, md: 4 },
+								borderRadius: '20px',
+								backgroundColor: '#FFFFFF',
+								border: '1px solid #E2E8F0',
+							}}>
+							<Box mb={3}>
+								<Typography
+									sx={{
+										fontSize: { xs: 20, md: 24 },
+										fontWeight: 600,
+										color: '#1E293B',
+										mb: 1,
+									}}>
+									Send a Message
+								</Typography>
+								<Typography
+									sx={{
+										fontSize: 15,
+										color: '#64748B',
+									}}>
+									I'm always open to discussing product design work or partnerships.
+								</Typography>
+							</Box>
+							<Form />
 						</Box>
-						<Form />
 					</Stack>
 				</Stack>
 			</div>

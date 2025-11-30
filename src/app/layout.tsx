@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Roboto } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { Footer } from '@/components/footer/Footer';
 import { Navbar } from '@/components/navbar';
@@ -8,15 +8,30 @@ import ScrollToTop from '../components/scroll/ScrollToTop';
 import ScrollToTopArrow from '../components/scroll/ScrollToTopArrow';
 import ThemeRegistry from './ThemeRegistry';
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin'],
-});
-
-const roboto = Roboto({
+const inter = localFont({
+	src: [
+		{
+			path: '../../public/fonts/roboto-latin-300-normal.woff2',
+			weight: '300',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/roboto-latin-400-normal.woff2',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/roboto-latin-500-normal.woff2',
+			weight: '500',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/roboto-latin-700-normal.woff2',
+			weight: '700',
+			style: 'normal',
+		},
+	],
 	variable: '--font-roboto',
-	subsets: ['latin'],
-	weight: ['300', '400', '500', '700'], // Specify the font weights you need
 });
 
 export const metadata: Metadata = {
@@ -49,15 +64,48 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${roboto.variable} ${geistSans.variable} antialiased`}>
-				<div
-					className='min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full bg-gradient-to-r from-[#d2e4fc] to-[#f7f7f7]'
-					style={{ backgroundImage: "url('/bg.jpg')" }}>
-					<Navbar />
-					<div
-						className='container lg:rounded-2xl bg-white px-4 sm:px-5 md:px-10 lg:px-20 mx-auto py-8 shadow-sm'
-						style={{ maxWidth: '1332px' }}>
-						<ThemeRegistry>{children}</ThemeRegistry>
+			<body className={`${inter.variable} antialiased`}>
+				<div className='min-h-screen' style={{
+					position: 'relative',
+					background: 'linear-gradient(135deg, rgba(248, 250, 252, 1) 0%, rgba(241, 245, 249, 1) 50%, rgba(248, 250, 252, 1) 100%)',
+				}}>
+					{/* Background gradients */}
+					<div style={{
+						position: 'fixed',
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						overflow: 'hidden',
+						zIndex: 0,
+						pointerEvents: 'none',
+					}}>
+						{/* Diagonal gradient */}
+						<div style={{
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.02) 0%, transparent 50%)',
+						}} />
+						
+						{/* Straight gradient from other side */}
+						<div style={{
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							background: 'linear-gradient(225deg, rgba(20, 184, 166, 0.02) 0%, transparent 50%)',
+						}} />
+					</div>
+
+					<div style={{ position: 'relative', zIndex: 1 }}>
+						<Navbar />
+						<main className='container mx-auto px-4 sm:px-6 lg:px-8 py-8' style={{ maxWidth: '1200px' }}>
+							<ThemeRegistry>{children}</ThemeRegistry>
+						</main>
 						<Footer />
 					</div>
 				</div>

@@ -38,15 +38,41 @@ const Experience = () => {
 	return (
 		<Fade in timeout={500}>
 			<Box>
-				<Stack direction={{ xs: 'column', md: 'row' }} justifyContent='space-between'>
-					<Title title='Professional Experience' />
+				<Stack
+					direction={{ xs: 'column', md: 'row' }}
+					justifyContent='space-between'
+					alignItems={{ xs: 'flex-start', md: 'center' }}
+					mb={2}>
+					<Title title='Experience' subtitle='My professional journey and technical expertise' />
 					<Resume />
 				</Stack>
-				<ProfessionalExperiences />
-				<Typography fontWeight={500} fontSize={30} my={3}>
-					Technical Skills
-				</Typography>
-				<Skills skills={technologies} />
+
+				<Box mb={6}>
+					<Typography
+						sx={{
+							fontWeight: 600,
+							fontSize: { xs: 20, md: 24 },
+							color: '#1E293B',
+							mb: 3,
+						}}>
+						Work History
+					</Typography>
+					<ProfessionalExperiences />
+				</Box>
+
+				<Box mb={6}>
+					<Typography
+						sx={{
+							fontWeight: 600,
+							fontSize: { xs: 20, md: 24 },
+							color: '#1E293B',
+							mb: 3,
+						}}>
+						Technical Skills
+					</Typography>
+					<Skills skills={technologies} />
+				</Box>
+
 				<Education />
 			</Box>
 		</Fade>

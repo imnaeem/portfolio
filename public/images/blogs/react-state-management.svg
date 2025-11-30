@@ -1,0 +1,37 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad13" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#grad13)"/>
+  
+  <!-- State container -->
+  <rect x="320" y="120" width="160" height="120" fill="rgba(255,255,255,0.2)" rx="12" stroke="#ffffff" stroke-width="3"/>
+  <text x="400" y="155" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">State</text>
+  
+  <!-- State items -->
+  <circle cx="360" cy="190" r="8" fill="#ffffff"/>
+  <line x1="375" y1="190" x2="420" y2="190" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="360" cy="210" r="8" fill="#ffffff"/>
+  <line x1="375" y1="210" x2="440" y2="210" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Actions/reducers -->
+  <rect x="240" y="280" width="100" height="50" fill="rgba(255,255,255,0.25)" rx="6"/>
+  <rect x="460" y="280" width="100" height="50" fill="rgba(255,255,255,0.25)" rx="6"/>
+  
+  <!-- Flow arrows -->
+  <path d="M 290 280 L 350 240" stroke="#ffffff" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <path d="M 510 280 L 450 240" stroke="#ffffff" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decorative -->
+  <circle cx="650" cy="150" r="40" fill="rgba(255,255,255,0.12)"/>
+  <rect x="120" y="250" width="50" height="50" fill="rgba(255,255,255,0.1)" rx="6" transform="rotate(15 145 275)"/>
+  
+  <!-- Text -->
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff" text-anchor="middle">State Management</text>
+  <text x="400" y="390" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="rgba(255,255,255,0.9)" text-anchor="middle">Redux &amp; Context</text>
+</svg>
