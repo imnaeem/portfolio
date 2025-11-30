@@ -7,6 +7,7 @@ export const projectsList: Project[] = [
 		type: 'professional',
 		color: '#000000',
 		thumbnail: '/images/projects/platform-inspection/thumbnail.png',
+		featured: true,
 		metadata: {
 			description: 'A web application for platforms inspection and management.',
 		},
@@ -156,6 +157,7 @@ export const projectsList: Project[] = [
 		type: 'professional',
 		color: '#187355',
 		thumbnail: '/images/projects/shuttle-pro/thumbnail.png',
+		featured: true,
 		metadata: {
 			description:
 				'MERN E-Commerce Platform with GraphQL, WooCommerce & Shopify Integration, and Automated Social Media Management.',
@@ -348,6 +350,7 @@ export const projectsList: Project[] = [
 		type: 'personal',
 		color: '#FF6B6B',
 		thumbnail: '/images/projects/smart-rec/thumbnail.png',
+		featured: true,
 		metadata: {
 			description: 'Modern screen recording platform with video trimming and instant sharing capabilities.',
 		},

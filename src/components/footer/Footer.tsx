@@ -1,11 +1,11 @@
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
-import { Box, Container, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 
-const socialLinks = [
-	{ icon: <GitHub />, href: 'https://github.com/imnaeem/', label: 'GitHub' },
-	{ icon: <LinkedIn />, href: 'https://www.linkedin.com/in/im-naeem/', label: 'LinkedIn' },
-	{ icon: <Email />, href: 'mailto:contact@imnaeem.dev', label: 'Email' },
+const legalLinks = [
+	{ label: 'About', href: '/' },
+	{ label: 'Terms & Conditions', href: '/terms-conditions' },
+	{ label: 'Privacy Policy', href: '/privacy-policy' },
+	{ label: 'Disclaimer', href: '/disclaimer' },
 ];
 
 export const Footer = () => {
@@ -16,41 +16,52 @@ export const Footer = () => {
 			component='footer'
 			sx={{
 				mt: 'auto',
-				py: 4,
-				borderTop: '1px solid #E2E8F0',
-				backgroundColor: '#FFFFFF',
+				py: 3.5,
+				borderTop: '1px solid rgba(226, 232, 240, 0.8)',
+				backgroundColor: 'rgba(255, 255, 255, 0.7)',
+				backdropFilter: 'blur(8px)',
 			}}>
 			<Container maxWidth='lg'>
 				<Stack
-					direction={{ xs: 'column', sm: 'row' }}
+					direction={{ xs: 'column', md: 'row' }}
 					justifyContent='space-between'
 					alignItems='center'
-					spacing={2}>
+					spacing={3}>
+					
+					{/* Left Side - Copyright */}
 					<Typography
 						variant='body2'
 						sx={{
 							color: '#64748B',
 							fontSize: '14px',
+							textAlign: { xs: 'center', md: 'left' },
 						}}>
-						© {year} Muhammad Naeem. All rights reserved.
+						© {year} <Box component='span' sx={{ fontWeight: 600, color: '#475569' }}>Muhammad Naeem</Box>. All rights reserved.
 					</Typography>
 
-					<Stack direction='row' spacing={1}>
-						{socialLinks.map(({ icon, href, label }) => (
-							<Link key={label} href={href} target='_blank' rel='noopener noreferrer'>
-								<IconButton
-									size='small'
+					{/* Right Side - Links */}
+					<Stack
+						direction={{ xs: 'row', sm: 'row' }}
+						spacing={3}
+						alignItems='center'
+						sx={{ 
+							flexWrap: 'wrap',
+							justifyContent: { xs: 'center', md: 'flex-end' }
+						}}>
+						{legalLinks.map(({ label, href }) => (
+							<Link key={href} href={href}>
+								<Typography
 									sx={{
+										fontSize: '13px',
 										color: '#64748B',
 										transition: 'all 0.2s ease-in-out',
+										fontWeight: 500,
 										'&:hover': {
 											color: '#4F46E5',
-											backgroundColor: 'rgba(79, 70, 229, 0.08)',
 										},
-									}}
-									aria-label={label}>
-									{icon}
-								</IconButton>
+									}}>
+									{label}
+								</Typography>
 							</Link>
 						))}
 					</Stack>

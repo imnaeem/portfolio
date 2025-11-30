@@ -13,7 +13,7 @@ const About = () => {
 				{/* Hero Section */}
 				<Box
 					sx={{
-						py: { xs: 4, md: 8 },
+						p: 4,
 						mb: 6,
 						borderRadius: '24px',
 						background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.04) 0%, rgba(20, 184, 166, 0.04) 100%)',

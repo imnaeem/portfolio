@@ -65,12 +65,49 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={`${inter.variable} antialiased`}>
-				<div className='min-h-screen bg-slate-50'>
-					<Navbar />
-					<main className='container mx-auto px-4 sm:px-6 lg:px-8 py-8' style={{ maxWidth: '1200px' }}>
-						<ThemeRegistry>{children}</ThemeRegistry>
-					</main>
-					<Footer />
+				<div className='min-h-screen' style={{
+					position: 'relative',
+					background: 'linear-gradient(135deg, rgba(248, 250, 252, 1) 0%, rgba(241, 245, 249, 1) 50%, rgba(248, 250, 252, 1) 100%)',
+				}}>
+					{/* Background gradients */}
+					<div style={{
+						position: 'fixed',
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						overflow: 'hidden',
+						zIndex: 0,
+						pointerEvents: 'none',
+					}}>
+						{/* Diagonal gradient */}
+						<div style={{
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.02) 0%, transparent 50%)',
+						}} />
+						
+						{/* Straight gradient from other side */}
+						<div style={{
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							background: 'linear-gradient(225deg, rgba(20, 184, 166, 0.02) 0%, transparent 50%)',
+						}} />
+					</div>
+
+					<div style={{ position: 'relative', zIndex: 1 }}>
+						<Navbar />
+						<main className='container mx-auto px-4 sm:px-6 lg:px-8 py-8' style={{ maxWidth: '1200px' }}>
+							<ThemeRegistry>{children}</ThemeRegistry>
+						</main>
+						<Footer />
+					</div>
 				</div>
 				<ToastContainer />
 				<ScrollToTop />

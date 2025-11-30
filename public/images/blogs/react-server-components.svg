@@ -1,0 +1,44 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad19" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#grad19)"/>
+  
+  <!-- Server component representation -->
+  <rect x="200" y="130" width="140" height="140" fill="rgba(255,255,255,0.25)" rx="12" stroke="#ffffff" stroke-width="3"/>
+  <text x="270" y="175" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">Server</text>
+  
+  <!-- Component tree -->
+  <rect x="230" y="195" width="80" height="20" fill="rgba(255,255,255,0.3)" rx="4"/>
+  <rect x="240" y="225" width="60" height="15" fill="rgba(255,255,255,0.25)" rx="3"/>
+  <rect x="240" y="250" width="60" height="15" fill="rgba(255,255,255,0.25)" rx="3"/>
+  
+  <!-- Lines showing data flow -->
+  <line x1="270" y1="215" x2="270" y2="225" stroke="#ffffff" stroke-width="2"/>
+  <line x1="270" y1="240" x2="270" y2="250" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Arrow to client -->
+  <path d="M 340 200 L 440 200 L 425 185 M 440 200 L 425 215" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Client representation -->
+  <rect x="440" y="160" width="160" height="80" fill="rgba(255,255,255,0.2)" rx="8"/>
+  <text x="520" y="207" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">Client</text>
+  <rect x="460" y="215" width="120" height="8" fill="rgba(255,255,255,0.3)" rx="2"/>
+  
+  <!-- Hydration symbol -->
+  <circle cx="520" cy="120" r="30" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-width="2"/>
+  <path d="M 510 120 Q 520 105 530 120 Q 520 135 510 120" fill="#ffffff"/>
+  
+  <!-- Decorative -->
+  <circle cx="680" cy="280" r="40" fill="rgba(255,255,255,0.12)"/>
+  <rect x="100" y="250" width="50" height="50" fill="rgba(255,255,255,0.1)" rx="6" transform="rotate(25 125 275)"/>
+  
+  <!-- Text -->
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#ffffff" text-anchor="middle">Server Components</text>
+  <text x="400" y="365" font-family="Arial, sans-serif" font-size="26" font-weight="normal" fill="rgba(255,255,255,0.9)" text-anchor="middle">React 18+</text>
+</svg>

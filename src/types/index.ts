@@ -18,4 +18,5 @@ export type Project = {
 	thumbnail: string;
 	details: ProjectDetails;
 	metadata: Metadata;
+	featured?: boolean;
 };
