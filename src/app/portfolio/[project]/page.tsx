@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 		};
 	}
 	
-	const { key, title, thumbnail, metadata } = project;
+	const { key, title, thumbnail, metadata, details } = project;
 	const baseUrl = 'https://imnaeem.dev';
 	const projectUrl = `${baseUrl}/portfolio/${projectKey}`;
 	const imageUrl = thumbnail ? `${baseUrl}${thumbnail}` : '';
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 	return {
 		title: `${title} | Muhammad Naeem Portfolio`,
 		description: metadata?.description || `${title} project by Muhammad Naeem`,
-		keywords: metadata?.techStack?.join(', ') || '',
+		keywords: details?.techStack?.join(', ') || '',
 		authors: [{ name: 'Muhammad Naeem' }],
 		creator: 'Muhammad Naeem',
 		openGraph: {

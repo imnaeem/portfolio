@@ -1,3 +1,4 @@
+import React from 'react';
 import { blogArticles } from '@/app/api/blogs/data';
 import { Box, Chip, Container, Fade, Grid2, Stack, Typography } from '@mui/material';
 import { AccessTime, CalendarToday, Person } from '@mui/icons-material';
@@ -259,7 +260,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 							<Typography variant='h2'>{section.heading}</Typography>
 							
 							{/* Split content into paragraphs and create structured format */}
-							{section.content.split('. ').reduce((acc: JSX.Element[], sentence, idx, arr) => {
+							{section.content.split('. ').reduce((acc: React.ReactElement[], sentence, idx, arr) => {
 								// Group sentences into paragraphs of 2-3 sentences
 								if (idx % 3 === 0) {
 									const paragraphText = arr.slice(idx, idx + 3).join('. ') + (idx + 3 < arr.length ? '.' : '');
