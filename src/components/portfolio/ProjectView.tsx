@@ -15,7 +15,6 @@ type Props = { projectKey: string };
 const ProjectView = ({ projectKey }: Props) => {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-	const primaryColor = theme.palette.primary.main;
 
 	const currentProject = useMemo(() => {
 		return projectsList.find((project) => project.key === projectKey);
@@ -28,45 +27,83 @@ const ProjectView = ({ projectKey }: Props) => {
 	return (
 		<Fade in timeout={500}>
 			<div>
-				<Typography>{description}</Typography>
+				<Box
+					sx={{
+						p: { xs: 3, md: 4 },
+						borderRadius: '16px',
+						backgroundColor: '#FFFFFF',
+						border: '1px solid #E2E8F0',
+						mb: 4,
+					}}>
+					<Typography
+						sx={{
+							fontSize: { xs: 15, md: 16 },
+							lineHeight: 1.8,
+							color: '#475569',
+						}}>
+						{description}
+					</Typography>
+				</Box>
+
 				{(github || preview) && (
-					<>
-						<Typography fontWeight={500} fontSize={30} my={3}>
-							Links
+					<Box mb={4}>
+						<Typography
+							sx={{
+								fontWeight: 600,
+								fontSize: { xs: 20, md: 24 },
+								color: '#1E293B',
+								mb: 3,
+							}}>
+							Project Links
 						</Typography>
-						<Stack gap={1.5} direction='row' flexWrap='wrap' my={3}>
+						<Stack gap={2} direction={{ xs: 'column', sm: 'row' }} flexWrap='wrap'>
 							{github && (
 								<Info
 									title='Github'
-									value={github}
+									value='View Source Code'
 									link={github}
-									color='#24292e'
+									color='#1E293B'
 									icon={<GitHub />}
-									sx={{ width: isMobile ? '100%' : 'fit-content' }}
+									sx={{ width: isMobile ? '100%' : 'fit-content', minWidth: 220 }}
 								/>
 							)}
 							{preview && (
 								<Info
 									title='Live Preview'
-									value={preview}
+									value='Visit Website'
 									link={preview}
-									color={primaryColor}
+									color='#4F46E5'
 									icon={<Link />}
-									sx={{ width: isMobile ? '100%' : 'fit-content' }}
+									sx={{ width: isMobile ? '100%' : 'fit-content', minWidth: 220 }}
 								/>
 							)}
 						</Stack>
-					</>
+					</Box>
 				)}
 
-				<Typography fontWeight={500} fontSize={30} my={3}>
-					Technologies Used
-				</Typography>
-				<Skills skills={techStack} />
-				<Typography fontWeight={500} fontSize={30} my={3}>
-					Preview
-				</Typography>
 				<Box mb={4}>
+					<Typography
+						sx={{
+							fontWeight: 600,
+							fontSize: { xs: 20, md: 24 },
+							color: '#1E293B',
+							mb: 3,
+						}}>
+						Technologies Used
+					</Typography>
+					<Skills skills={techStack} />
+				</Box>
+
+				<Box mb={4}>
+					<Typography
+						sx={{
+							fontWeight: 600,
+							fontSize: { xs: 20, md: 24 },
+							color: '#1E293B',
+							mb: 3,
+						}}>
+						Project Preview
+					</Typography>
 					{images.length === 0 && (
 						<Box
 							sx={{
@@ -75,76 +112,95 @@ const ProjectView = ({ projectKey }: Props) => {
 								alignItems: 'center',
 								justifyContent: 'center',
 								flexDirection: 'column',
+								backgroundColor: '#F8FAFC',
+								borderRadius: '16px',
+								border: '1px solid #E2E8F0',
 							}}>
-							<HideImageIcon sx={{ fontSize: '100px', color: 'grey' }} />
-							<Typography fontSize={16} lineHeight={2} mt={2} textAlign='center'>
+							<HideImageIcon sx={{ fontSize: 80, color: '#CBD5E1', mb: 2 }} />
+							<Typography
+								sx={{
+									fontSize: 16,
+									color: '#64748B',
+								}}>
 								Preview not available for this project.
 							</Typography>
 						</Box>
 					)}
-					<Carousel
-						additionalTransfrom={0}
-						arrows
-						autoPlaySpeed={3000}
-						centerMode={false}
-						className=''
-						containerClass='container'
-						dotListClass=''
-						draggable
-						focusOnSelect={false}
-						infinite
-						itemClass=''
-						keyBoardControl
-						minimumTouchDrag={80}
-						pauseOnHover
-						renderArrowsWhenDisabled={false}
-						renderButtonGroupOutside={false}
-						renderDotsOutside={false}
-						responsive={{
-							desktop: {
-								breakpoint: {
-									max: 3000,
-									min: 1024,
+					{images.length > 0 && (
+						<Box
+							sx={{
+								borderRadius: '16px',
+								overflow: 'hidden',
+								border: '1px solid #E2E8F0',
+								'& .react-multi-carousel-dot button': {
+									borderColor: '#CBD5E1',
 								},
-								items: 1,
-							},
-							mobile: {
-								breakpoint: {
-									max: 464,
-									min: 0,
+								'& .react-multi-carousel-dot--active button': {
+									backgroundColor: '#4F46E5',
+									borderColor: '#4F46E5',
 								},
-								items: 1,
-							},
-							tablet: {
-								breakpoint: {
-									max: 1024,
-									min: 464,
-								},
-								items: 1,
-							},
-						}}
-						rewind={false}
-						rewindWithAnimation={false}
-						rtl={false}
-						shouldResetAutoplay
-						showDots
-						sliderClass=''
-						slidesToSlide={1}
-						swipeable>
-						{images.map((image) => (
-							<img
-								key={image.key}
-								src={image.url}
-								alt={image.key}
-								style={{
-									display: 'block',
-									height: '100%',
-									margin: 'auto',
-									width: '100%',
+							}}>
+							<Carousel
+								additionalTransfrom={0}
+								arrows
+								autoPlaySpeed={3000}
+								centerMode={false}
+								containerClass='container'
+								draggable
+								focusOnSelect={false}
+								infinite
+								keyBoardControl
+								minimumTouchDrag={80}
+								pauseOnHover
+								renderArrowsWhenDisabled={false}
+								renderButtonGroupOutside={false}
+								renderDotsOutside={false}
+								responsive={{
+									desktop: {
+										breakpoint: {
+											max: 3000,
+											min: 1024,
+										},
+										items: 1,
+									},
+									mobile: {
+										breakpoint: {
+											max: 464,
+											min: 0,
+										},
+										items: 1,
+									},
+									tablet: {
+										breakpoint: {
+											max: 1024,
+											min: 464,
+										},
+										items: 1,
+									},
 								}}
-							/>
-						))}
-					</Carousel>
+								rewind={false}
+								rewindWithAnimation={false}
+								rtl={false}
+								shouldResetAutoplay
+								showDots
+								slidesToSlide={1}
+								swipeable>
+								{images.map((image) => (
+									<img
+										key={image.key}
+										src={image.url}
+										alt={image.key}
+										style={{
+											display: 'block',
+											height: '100%',
+											margin: 'auto',
+											width: '100%',
+										}}
+									/>
+								))}
+							</Carousel>
+						</Box>
+					)}
 				</Box>
 			</div>
 		</Fade>

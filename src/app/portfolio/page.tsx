@@ -12,7 +12,7 @@ const Portfolio = () => {
 	return (
 		<Fade in timeout={500}>
 			<div>
-				<Title title='Portfolio' />
+				<Title title='Portfolio' subtitle='A collection of my recent projects and work' />
 				<PortfolioList />
 			</div>
 		</Fade>

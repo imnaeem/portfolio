@@ -31,14 +31,16 @@ const PortfolioCategories = ({ category, setCategory }: Props) => {
 	};
 
 	return (
-		<Box sx={{ width: '100%', bgcolor: 'background.paper', display: 'flex', justifyContent: 'flex-end' }}>
+		<Box sx={{ width: '100%', bgcolor: 'transparent', display: 'flex', justifyContent: 'flex-end' }}>
 			<Tabs
 				sx={{
-					height: { xs: 35, sm: 40 },
-					minHeight: { xs: 35, sm: 40 },
-					// borderRadius: variant === 'joined' ? '5px' : 'none',
+					height: { xs: 40, sm: 44 },
+					minHeight: { xs: 40, sm: 44 },
 					backgroundColor: 'transparent',
 					width: 'fit-content',
+					'& .MuiTabs-indicator': {
+						display: 'none',
+					},
 				}}
 				value={category}
 				onChange={(_, v) => handleChange(v)}>
@@ -46,14 +48,23 @@ const PortfolioCategories = ({ category, setCategory }: Props) => {
 					<Tab
 						key={tab}
 						sx={{
-							height: { xs: 35, sm: 40 },
-							minHeight: { xs: 35, sm: 40 },
-							px: 1,
+							height: { xs: 40, sm: 44 },
+							minHeight: { xs: 40, sm: 44 },
+							px: 2,
 							mx: 0.5,
-							backgroundColor: category === tab ? '#e0e0e0' : '#f2f2f2',
-							borderRadius: '5px',
-							transition: 'background-color 0.3s ease',
-							'&:hover': { backgroundColor: '#e0e0e0' },
+							fontSize: 14,
+							fontWeight: 500,
+							color: category === tab.toLowerCase() ? '#4F46E5' : '#64748B',
+							backgroundColor: category === tab.toLowerCase() ? 'rgba(79, 70, 229, 0.1)' : '#F8FAFC',
+							border: `1px solid ${category === tab.toLowerCase() ? '#4F46E5' : '#E2E8F0'}`,
+							borderRadius: '10px',
+							transition: 'all 0.2s ease-in-out',
+							'&:hover': {
+								backgroundColor: category === tab.toLowerCase() ? 'rgba(79, 70, 229, 0.15)' : '#F1F5F9',
+							},
+							'&.Mui-selected': {
+								color: '#4F46E5',
+							},
 						}}
 						iconPosition='start'
 						label={tab}

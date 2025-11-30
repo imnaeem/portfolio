@@ -1,7 +1,6 @@
 'use client';
 import { Email, Link, WhatsApp } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
-import Card from '../shared/Card';
 
 const handleLinkClick = (link: string) => {
 	window.open(link, '_blank');
@@ -10,67 +9,27 @@ const handleLinkClick = (link: string) => {
 const contactDetails = [
 	{
 		title: 'Phone',
-		description: (
-			<Typography
-				sx={{
-					cursor: 'pointer',
-					':hover': { textDecoration: 'underline' },
-				}}>
-				WhatsApp
-			</Typography>
-		),
-		color: '#075E54',
+		description: 'WhatsApp',
+		color: '#25D366',
 		icon: <WhatsApp />,
 		route: '/whatsapp',
 	},
 	{
 		title: 'Email',
-		description: (
-			<>
-				<Typography
-					onClick={() => handleLinkClick('mailto:contact@imnaeem.dev')}
-					sx={{
-						cursor: 'pointer',
-						':hover': { textDecoration: 'underline' },
-					}}>
-					contact@imnaeem.dev
-				</Typography>
-				<Typography
-					onClick={() => handleLinkClick('mailto:imnaeem.dev@gmail.com')}
-					sx={{
-						cursor: 'pointer',
-						':hover': { textDecoration: 'underline' },
-					}}>
-					imnaeem.dev@gmail.com
-				</Typography>
-			</>
-		),
-		color: '#9bc1ff',
+		values: [
+			{ text: 'contact@imnaeem.dev', link: 'mailto:contact@imnaeem.dev' },
+			{ text: 'imnaeem.dev@gmail.com', link: 'mailto:imnaeem.dev@gmail.com' },
+		],
+		color: '#4F46E5',
 		icon: <Email />,
 	},
 	{
-		title: 'Profile',
-		description: (
-			<>
-				<Typography
-					onClick={() => handleLinkClick('https://www.linkedin.com/in/im-naeem/')}
-					sx={{
-						cursor: 'pointer',
-						':hover': { textDecoration: 'underline' },
-					}}>
-					LinkedIn
-				</Typography>
-				<Typography
-					onClick={() => handleLinkClick('https://github.com/imnaeem/')}
-					sx={{
-						cursor: 'pointer',
-						':hover': { textDecoration: 'underline' },
-					}}>
-					Github
-				</Typography>
-			</>
-		),
-		color: '#FFD166',
+		title: 'Social Profiles',
+		values: [
+			{ text: 'LinkedIn', link: 'https://www.linkedin.com/in/im-naeem/' },
+			{ text: 'Github', link: 'https://github.com/imnaeem/' },
+		],
+		color: '#14B8A6',
 		icon: <Link />,
 	},
 ];
@@ -83,10 +42,87 @@ export const ContactDetails = () => {
 	};
 
 	return (
-		<Stack spacing={{ xs: 2, md: 6 }} flex={1} width='100%'>
+		<Stack spacing={2.5} flex={1} width='100%'>
 			{contactDetails.map((item) => (
-				<Box key={item.title} onClick={() => handleCardClick(item.route)}>
-					<Card {...item} />
+				<Box
+					key={item.title}
+					onClick={() => handleCardClick(item.route)}
+					sx={{
+						p: 3,
+						borderRadius: '16px',
+						backgroundColor: '#FFFFFF',
+						border: '1px solid #E2E8F0',
+						cursor: item.route ? 'pointer' : 'default',
+						transition: 'all 0.2s ease-in-out',
+						'&:hover': {
+							borderColor: item.color,
+							boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
+						},
+					}}>
+					<Stack direction='row' spacing={2} alignItems='flex-start'>
+						<Box
+							sx={{
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+								width: 48,
+								height: 48,
+								borderRadius: '12px',
+								backgroundColor: `${item.color}15`,
+								flexShrink: 0,
+							}}>
+							{item.icon &&
+								// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+								(item.icon as any).type &&
+								// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+								((Icon) => <Icon sx={{ color: item.color, fontSize: 24 }} />)((item.icon as any).type)}
+						</Box>
+						<Stack spacing={0.5}>
+							<Typography
+								sx={{
+									fontSize: 12,
+									fontWeight: 600,
+									color: '#64748B',
+									textTransform: 'uppercase',
+									letterSpacing: '0.5px',
+								}}>
+								{item.title}
+							</Typography>
+							{item.description && (
+								<Typography
+									sx={{
+										fontSize: 16,
+										fontWeight: 600,
+										color: '#1E293B',
+										cursor: item.route ? 'pointer' : 'default',
+										'&:hover': {
+											color: item.route ? item.color : '#1E293B',
+										},
+									}}>
+									{item.description}
+								</Typography>
+							)}
+							{item.values?.map((value) => (
+								<Typography
+									key={value.text}
+									onClick={(e) => {
+										e.stopPropagation();
+										handleLinkClick(value.link);
+									}}
+									sx={{
+										fontSize: 15,
+										fontWeight: 500,
+										color: '#1E293B',
+										cursor: 'pointer',
+										'&:hover': {
+											color: item.color,
+										},
+									}}>
+									{value.text}
+								</Typography>
+							))}
+						</Stack>
+					</Stack>
 				</Box>
 			))}
 		</Stack>

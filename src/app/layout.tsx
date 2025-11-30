@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Roboto } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { Footer } from '@/components/footer/Footer';
 import { Navbar } from '@/components/navbar';
@@ -8,15 +8,30 @@ import ScrollToTop from '../components/scroll/ScrollToTop';
 import ScrollToTopArrow from '../components/scroll/ScrollToTopArrow';
 import ThemeRegistry from './ThemeRegistry';
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin'],
-});
-
-const roboto = Roboto({
+const inter = localFont({
+	src: [
+		{
+			path: '../../node_modules/@fontsource/roboto/files/roboto-latin-300-normal.woff2',
+			weight: '300',
+			style: 'normal',
+		},
+		{
+			path: '../../node_modules/@fontsource/roboto/files/roboto-latin-400-normal.woff2',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../node_modules/@fontsource/roboto/files/roboto-latin-500-normal.woff2',
+			weight: '500',
+			style: 'normal',
+		},
+		{
+			path: '../../node_modules/@fontsource/roboto/files/roboto-latin-700-normal.woff2',
+			weight: '700',
+			style: 'normal',
+		},
+	],
 	variable: '--font-roboto',
-	subsets: ['latin'],
-	weight: ['300', '400', '500', '700'], // Specify the font weights you need
 });
 
 export const metadata: Metadata = {
@@ -49,17 +64,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${roboto.variable} ${geistSans.variable} antialiased`}>
-				<div
-					className='min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full bg-gradient-to-r from-[#d2e4fc] to-[#f7f7f7]'
-					style={{ backgroundImage: "url('/bg.jpg')" }}>
+			<body className={`${inter.variable} antialiased`}>
+				<div className='min-h-screen bg-slate-50'>
 					<Navbar />
-					<div
-						className='container lg:rounded-2xl bg-white px-4 sm:px-5 md:px-10 lg:px-20 mx-auto py-8 shadow-sm'
-						style={{ maxWidth: '1332px' }}>
+					<main className='container mx-auto px-4 sm:px-6 lg:px-8 py-8' style={{ maxWidth: '1200px' }}>
 						<ThemeRegistry>{children}</ThemeRegistry>
-						<Footer />
-					</div>
+					</main>
+					<Footer />
 				</div>
 				<ToastContainer />
 				<ScrollToTop />

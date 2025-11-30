@@ -8,42 +8,48 @@ const info = [
 		value: 'WhatsApp',
 		link: '/whatsapp',
 		icon: <WhatsApp />,
-		color: '#075E54',
+		color: '#25D366',
 	},
 	{
 		title: 'Email',
 		value: 'contact@imnaeem.dev',
 		link: 'mailto:contact@imnaeem.dev',
 		icon: <Email />,
-		color: '#9bc1ff',
+		color: '#4F46E5',
 	},
 	{
 		title: 'Location',
 		value: 'Lahore, Pakistan',
 		icon: <LocationCity />,
-		color: '#fc9132',
+		color: '#14B8A6',
 	},
 	{
 		title: 'LinkedIn',
 		value: 'linkedin.com/in/im-naeem',
 		link: 'https://www.linkedin.com/in/im-naeem/',
 		icon: <LinkedIn />,
-		color: '#0a66c2',
+		color: '#0077B5',
 	},
 	{
 		title: 'GitHub',
 		value: 'github.com/imnaeem',
 		link: 'https://github.com/imnaeem/',
 		icon: <GitHub />,
-		color: '#24292e',
+		color: '#1E293B',
 	},
 ];
 
 const PersonalInfo = () => {
 	return (
-		<Box my={3}>
-			<Typography fontWeight={500} fontSize={25} my={3}>
-				Personal Info
+		<Box my={5}>
+			<Typography
+				sx={{
+					fontWeight: 600,
+					fontSize: { xs: 22, md: 26 },
+					color: '#1E293B',
+					mb: 3,
+				}}>
+				Get In Touch
 			</Typography>
 			<Grid2 container spacing={2}>
 				{info.map((item) => (

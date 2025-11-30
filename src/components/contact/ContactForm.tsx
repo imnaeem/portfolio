@@ -51,41 +51,92 @@ const ContactForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<Stack spacing={2}>
+			<Stack spacing={2.5}>
 				<TextField
 					required
 					type='text'
-					size='small'
+					size='medium'
 					key='name'
 					name='name'
 					variant='filled'
-					label='Name'
+					label='Your Name'
 					fullWidth
 					value={form.name}
 					onChange={handleChange}
+					sx={{
+						'& .MuiFilledInput-root': {
+							borderRadius: '12px',
+							backgroundColor: '#F8FAFC',
+							border: '1px solid #E2E8F0',
+							'&:hover': {
+								backgroundColor: '#F1F5F9',
+							},
+							'&.Mui-focused': {
+								backgroundColor: '#F8FAFC',
+								borderColor: '#4F46E5',
+							},
+							'&::before, &::after': {
+								display: 'none',
+							},
+						},
+					}}
 				/>
 				<TextField
 					required
 					type='email'
-					size='small'
+					size='medium'
 					name='email'
-					label='Email'
+					label='Your Email'
 					variant='filled'
 					fullWidth
 					value={form.email}
 					onChange={handleChange}
+					sx={{
+						'& .MuiFilledInput-root': {
+							borderRadius: '12px',
+							backgroundColor: '#F8FAFC',
+							border: '1px solid #E2E8F0',
+							'&:hover': {
+								backgroundColor: '#F1F5F9',
+							},
+							'&.Mui-focused': {
+								backgroundColor: '#F8FAFC',
+								borderColor: '#4F46E5',
+							},
+							'&::before, &::after': {
+								display: 'none',
+							},
+						},
+					}}
 				/>
 				<TextField
 					required
-					size='small'
+					size='medium'
 					name='message'
 					variant='filled'
-					label='Message'
+					label='Your Message'
 					multiline
-					rows={4}
+					rows={5}
 					fullWidth
 					value={form.message}
 					onChange={handleChange}
+					sx={{
+						'& .MuiFilledInput-root': {
+							borderRadius: '12px',
+							backgroundColor: '#F8FAFC',
+							border: '1px solid #E2E8F0',
+							'&:hover': {
+								backgroundColor: '#F1F5F9',
+							},
+							'&.Mui-focused': {
+								backgroundColor: '#F8FAFC',
+								borderColor: '#4F46E5',
+							},
+							'&::before, &::after': {
+								display: 'none',
+							},
+						},
+					}}
 				/>
 				<Button
 					loading={loading}
@@ -93,9 +144,20 @@ const ContactForm = () => {
 					startIcon={<SendIcon />}
 					size='large'
 					type='submit'
-					variant='outlined'
-					color='primary'
-					fullWidth>
+					variant='contained'
+					fullWidth
+					sx={{
+						py: 1.5,
+						borderRadius: '12px',
+						backgroundColor: '#4F46E5',
+						fontWeight: 600,
+						fontSize: 16,
+						boxShadow: 'none',
+						'&:hover': {
+							backgroundColor: '#4338CA',
+							boxShadow: '0 4px 12px rgba(79, 70, 229, 0.25)',
+						},
+					}}>
 					Send Message
 				</Button>
 			</Stack>

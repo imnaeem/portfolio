@@ -13,51 +13,57 @@ const services = [
 	{
 		title: 'Frontend Developer',
 		description: 'I build modern responsive web interfaces using React, Next.js, Tailwind CSS, and Material-UI.',
-		color: '#FF6F61',
+		color: '#4F46E5',
 		icon: <FrontendIcon />,
 	},
 	{
 		title: 'Backend Developer',
 		description: 'I develop scalable and efficient backend with Node.js, NestJS, Express and MongoDB.',
-		color: '#4A90E2',
+		color: '#14B8A6',
 		icon: <BackendIcon />,
 	},
 	{
 		title: 'Full Stack Developer',
 		description: 'I create end-to-end web solutions using React, Next.js, Node.js, NestJS, MongoDB, and GraphQL.',
-		color: '#F5A623',
+		color: '#F59E0B',
 		icon: <JavascriptIcon />,
 	},
 	{
 		title: 'WordPress Development',
 		description: 'I design and customize WordPress themes, plugins, and WooCommerce stores to enhance functionality.',
-		color: '#7B61FF',
+		color: '#8B5CF6',
 		icon: <WordpressIcon />,
 	},
 	{
 		title: 'Digital Marketing',
 		description: 'I help businesses grow online through Facebook Ads, Google Ads, SEO, and SEM strategies.',
-		color: '#FF4081',
+		color: '#EC4899',
 		icon: <DigitalMarketingIcon />,
 	},
 	{
-		title: 'SEO',
+		title: 'SEO Optimization',
 		description:
 			'I optimize websites for search engines with On-Page, Off-Page, Technical, Local, and E-Commerce SEO strategies.',
-		color: '#2ECC71',
+		color: '#10B981',
 		icon: <SeoIcon />,
 	},
 ];
 
 const Services = () => {
 	return (
-		<Box my={3}>
-			<Typography fontWeight={500} fontSize={30} my={3}>
-				What I do!
+		<Box my={5}>
+			<Typography
+				sx={{
+					fontWeight: 600,
+					fontSize: { xs: 22, md: 26 },
+					color: '#1E293B',
+					mb: 3,
+				}}>
+				What I Do
 			</Typography>
-			<Grid2 container spacing={2}>
+			<Grid2 container spacing={2.5}>
 				{services.map((item) => (
-					<Grid2 key={item.title} size={{ xs: 12, sm: 6, md: 4 }}>
+					<Grid2 key={item.title} size={{ xs: 12, sm: 6, lg: 4 }}>
 						<Card {...item} />
 					</Grid2>
 				))}

@@ -1,6 +1,5 @@
 'use client';
 import { Box, Stack, SvgIconProps, SxProps, Typography } from '@mui/material';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 
 type Props = {
@@ -13,43 +12,65 @@ type Props = {
 };
 
 const Info = ({ title, value, icon, link, color, sx = {} }: Props) => {
-	const router = useRouter();
-
 	const handleLinkClick = () => {
 		if (link) {
-			if (link.startsWith('/')) {
-				window.open(link, '_blank');
-			} else {
-				window.open(link, '_blank');
-			}
+			window.open(link, '_blank');
 		}
 	};
 
 	return (
 		<Stack
 			direction='row'
-			spacing={1.5}
+			spacing={2}
 			alignItems='center'
-			className='shadow-sm'
-			sx={{ ...sx, borderRadius: 1.5, p: 0.8 }}>
-			<Box className='shadow-sm' sx={{ borderRadius: 1.5, border: 1, borderColor: color, p: 0.8 }}>
-				{icon && React.cloneElement(icon, { sx: { color } })}
+			sx={{
+				...sx,
+				borderRadius: '12px',
+				p: 1.5,
+				backgroundColor: '#FFFFFF',
+				border: '1px solid #E2E8F0',
+				transition: 'all 0.2s ease-in-out',
+				cursor: link ? 'pointer' : 'default',
+				'&:hover': link
+					? {
+							borderColor: color,
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+						}
+					: {},
+			}}
+			onClick={handleLinkClick}>
+			<Box
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					width: 44,
+					height: 44,
+					borderRadius: '10px',
+					backgroundColor: `${color}15`,
+				}}>
+				{icon && React.cloneElement(icon, { sx: { color, fontSize: 22 } })}
 			</Box>
 			<Box>
-				<Typography fontSize={12} variant='body2'>
-					{title}
-				</Typography>
-
 				<Typography
 					sx={{
-						cursor: link ? 'pointer' : 'default',
-						':hover': {
-							textDecoration: link ? 'underline' : 'none',
+						fontSize: 12,
+						color: '#64748B',
+						fontWeight: 500,
+						textTransform: 'uppercase',
+						letterSpacing: '0.5px',
+					}}>
+					{title}
+				</Typography>
+				<Typography
+					sx={{
+						fontSize: 15,
+						fontWeight: 600,
+						color: '#1E293B',
+						'&:hover': {
+							color: link ? color : '#1E293B',
 						},
-					}}
-					onClick={handleLinkClick}
-					fontSize={16}
-					fontWeight={500}>
+					}}>
 					{value}
 				</Typography>
 			</Box>

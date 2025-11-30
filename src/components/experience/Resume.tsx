@@ -29,10 +29,17 @@ export const Resume = () => {
 		<>
 			<Box>
 				<Button
-					size='small'
-					sx={{ mb: isMobile ? 2 : 0 }}
+					size='medium'
+					sx={{
+						mb: isMobile ? 2 : 0,
+						borderColor: '#4F46E5',
+						color: '#4F46E5',
+						'&:hover': {
+							borderColor: '#4338CA',
+							backgroundColor: 'rgba(79, 70, 229, 0.04)',
+						},
+					}}
 					variant='outlined'
-					color='primary'
 					fullWidth={isMobile}
 					startIcon={<DownloadIcon />}
 					onClick={handleDialogOpen}>
@@ -43,7 +50,11 @@ export const Resume = () => {
 					onClose={handleClose}
 					slotProps={{
 						paper: {
-							sx: { overflowX: 'hidden' },
+							sx: {
+								overflowX: 'hidden',
+								borderRadius: '16px',
+								p: 1,
+							},
 							component: 'form',
 							onSubmit: async (event: React.FormEvent<HTMLFormElement>) => {
 								event.preventDefault();
@@ -59,9 +70,11 @@ export const Resume = () => {
 							},
 						},
 					}}>
-					<DialogTitle>Download Resume</DialogTitle>
+					<DialogTitle sx={{ fontWeight: 600, color: '#1E293B' }}>Download Resume</DialogTitle>
 					<DialogContent>
-						<DialogContentText>Please fill the details below to download my resume.</DialogContentText>
+						<DialogContentText sx={{ color: '#64748B', mb: 2 }}>
+							Please fill in the details below to download my resume.
+						</DialogContentText>
 						<TextField
 							required
 							size='small'
@@ -107,10 +120,29 @@ export const Resume = () => {
 						/>
 					</DialogContent>
 					<DialogActions sx={{ px: 3, pb: 2 }}>
-						<Button variant='outlined' onClick={handleClose}>
+						<Button
+							variant='outlined'
+							onClick={handleClose}
+							sx={{
+								borderColor: '#E2E8F0',
+								color: '#64748B',
+								'&:hover': {
+									borderColor: '#CBD5E1',
+									backgroundColor: '#F8FAFC',
+								},
+							}}>
 							Cancel
 						</Button>
-						<Button disableElevation variant='contained' type='submit'>
+						<Button
+							disableElevation
+							variant='contained'
+							type='submit'
+							sx={{
+								backgroundColor: '#4F46E5',
+								'&:hover': {
+									backgroundColor: '#4338CA',
+								},
+							}}>
 							Download
 						</Button>
 					</DialogActions>
