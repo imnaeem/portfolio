@@ -7,7 +7,6 @@ type Props = {
 	description: string | React.ReactElement;
 	icon?: React.ReactElement<SvgIconProps>;
 	color: string;
-	backgroundOpacity?: number;
 };
 
 const Card = ({ title, description, icon, color }: Props) => {

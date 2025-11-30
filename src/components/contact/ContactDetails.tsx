@@ -1,6 +1,7 @@
 'use client';
 import { Email, Link, WhatsApp } from '@mui/icons-material';
 import { Box, Stack, Typography } from '@mui/material';
+import React from 'react';
 
 const handleLinkClick = (link: string) => {
 	window.open(link, '_blank');
@@ -71,11 +72,7 @@ export const ContactDetails = () => {
 								backgroundColor: `${item.color}15`,
 								flexShrink: 0,
 							}}>
-							{item.icon &&
-								// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-								(item.icon as any).type &&
-								// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-								((Icon) => <Icon sx={{ color: item.color, fontSize: 24 }} />)((item.icon as any).type)}
+							{item.icon && React.cloneElement(item.icon, { sx: { color: item.color, fontSize: 24 } })}
 						</Box>
 						<Stack spacing={0.5}>
 							<Typography
