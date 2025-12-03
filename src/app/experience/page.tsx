@@ -38,14 +38,15 @@ const Experience = () => {
 	return (
 		<Fade in timeout={500}>
 			<Box>
-				<Stack
-					direction={{ xs: 'column', md: 'row' }}
-					justifyContent='space-between'
-					alignItems={{ xs: 'flex-start', md: 'center' }}
-					mb={2}>
-					<Title title='Experience' subtitle='My professional journey and technical expertise' />
-					<Resume />
-				</Stack>
+			<Stack
+				direction={{ xs: 'column', md: 'row' }}
+				justifyContent='space-between'
+				alignItems={{ xs: 'flex-start', md: 'center' }}
+				mb={2}
+				spacing={{ xs: 2, md: 0 }}>
+				<Title title='Experience' subtitle='My professional journey and technical expertise' />
+				<Resume />
+			</Stack>
 
 				<Box mb={6}>
 					<Typography

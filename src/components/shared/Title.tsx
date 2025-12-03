@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from '@mui/material';
 
 const Title = ({ title, subtitle }: { title: string; subtitle?: string }) => {
 	return (
-		<Stack spacing={0.5} pb={3} mb={2}>
+		<Stack spacing={0.5} mb={2}>
 			<Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
 				<Box
 					sx={{

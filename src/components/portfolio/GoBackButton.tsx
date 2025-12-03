@@ -28,6 +28,8 @@ const GoBackButton = () => {
 					onClick={handleGoBack}
 					sx={{
 						p: 1,
+						py: 0.8,
+						mb: 2,
 						border: '1px solid #E2E8F0',
 						borderRadius: '10px',
 						mt: 0.6,

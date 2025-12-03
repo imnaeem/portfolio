@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import ScrollToTop from '../components/scroll/ScrollToTop';
 import ScrollToTopArrow from '../components/scroll/ScrollToTopArrow';
 import ThemeRegistry from './ThemeRegistry';
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = localFont({
 	src: [
@@ -113,6 +114,7 @@ export default function RootLayout({
 				<ScrollToTop />
 				<ScrollToTopArrow />
 			</body>
+			<GoogleAnalytics gaId="G-YXRFS4T2EH" />
 		</html>
 	);
 }

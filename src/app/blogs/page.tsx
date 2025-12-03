@@ -63,10 +63,10 @@ const categories = [
 export default function BlogsPage() {
 	return (
 		<Fade in timeout={500}>
-			<Container maxWidth='lg'>
+			<div>
 				<Title title='Blog' subtitle='Articles about React, Next.js, NestJS, GraphQL, AWS, and AI Tools' />
 
-				<Grid2 container spacing={3} my={4}>
+				<Grid2 container spacing={3} mb={4}>
 					{blogArticles.map((article) => (
 						<Grid2 key={article.id} size={{ xs: 12, sm: 6, md: 4 }}>
 							<Link href={`/blogs/${article.slug}`} style={{ textDecoration: 'none' }}>
@@ -181,7 +181,7 @@ export default function BlogsPage() {
 						</Grid2>
 					))}
 				</Grid2>
-			</Container>
+			</div>
 		</Fade>
 	);
 }
