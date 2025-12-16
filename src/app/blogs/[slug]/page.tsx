@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getBlogLinks } from '@/utils/blogLinks';
+import InlineLinkedContent from '@/components/blog/InlineLinkedContent';
 
 export async function generateStaticParams() {
 	return blogArticles.map((article) => ({
@@ -221,7 +222,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 						{article.excerpt}
 					</Typography>
 
-					<Typography component='p'>{article.content.introduction}</Typography>
+					<InlineLinkedContent content={article.content.introduction} currentSlug={slug} />
 
 					<Box
 						sx={{
@@ -260,15 +261,13 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 						<Box key={index} id={`section-${index}`}>
 							<Typography variant='h2'>{section.heading}</Typography>
 							
-							{/* Split content into paragraphs and create structured format */}
+							{/* Split content into paragraphs and create structured format with inline links */}
 							{section.content.split('. ').reduce((acc: React.ReactElement[], sentence, idx, arr) => {
 								// Group sentences into paragraphs of 2-3 sentences
 								if (idx % 3 === 0) {
 									const paragraphText = arr.slice(idx, idx + 3).join('. ') + (idx + 3 < arr.length ? '.' : '');
 									acc.push(
-										<Typography key={`p-${idx}`} component='p'>
-											{paragraphText}
-										</Typography>
+										<InlineLinkedContent key={`p-${idx}`} content={paragraphText} currentSlug={slug} />
 									);
 								}
 								return acc;
@@ -310,7 +309,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 						}}>
 						Conclusion
 					</Typography>
-					<Typography component='p'>{article.content.conclusion}</Typography>
+					<InlineLinkedContent content={article.content.conclusion} currentSlug={slug} />
 				</Box>
 
 				{/* External Resources Section */}
