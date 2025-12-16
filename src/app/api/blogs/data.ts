@@ -13,6 +13,19 @@ export const blogArticles: BlogArticle[] = [
 		tags: ['React', 'Hooks', 'JavaScript', 'Frontend'],
 		imageKeyword: 'React Hooks',
 		image: '/images/blogs/react-hooks.svg',
+		relatedArticles: ['react-performance-optimization-guide', 'react-context-vs-redux-state-management', 'react-server-components-future', 'nextjs-15-app-router-guide'],
+		externalResources: [
+			{
+				title: 'React Hooks Official Documentation',
+				url: 'https://react.dev/reference/react',
+				description: 'Official React documentation covering all built-in Hooks and best practices',
+			},
+			{
+				title: 'Rules of Hooks - React Docs',
+				url: 'https://react.dev/warnings/invalid-hook-call-warning',
+				description: 'Understanding the essential rules for using Hooks correctly',
+			},
+		],
 		content: {
 			introduction: 'React Hooks revolutionized the way we write React components, introducing a more functional approach to state management and side effects. Since their introduction in React 16.8, Hooks have become the standard way to build React components, replacing class components in most use cases. This comprehensive guide will take you from the fundamentals to advanced patterns, helping you master React Hooks and write cleaner, more maintainable code.',
 			sections: [

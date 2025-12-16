@@ -18,5 +18,11 @@ export interface BlogArticle {
 		conclusion: string;
 	};
 	imageKeyword: string;
+	relatedArticles?: string[]; // Array of related article slugs
+	externalResources?: {
+		title: string;
+		url: string;
+		description: string;
+	}[];
 }
 
