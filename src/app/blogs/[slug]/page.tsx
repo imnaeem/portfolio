@@ -1,10 +1,11 @@
 import React from 'react';
 import { blogArticles } from '@/app/api/blogs/data';
 import { Box, Chip, Container, Fade, Grid2, Stack, Typography } from '@mui/material';
-import { AccessTime, CalendarToday, Person } from '@mui/icons-material';
+import { AccessTime, CalendarToday, Person, OpenInNew, ArrowForward } from '@mui/icons-material';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getBlogLinks } from '@/utils/blogLinks';
 
 export async function generateStaticParams() {
 	return blogArticles.map((article) => ({
@@ -311,6 +312,209 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 					</Typography>
 					<Typography component='p'>{article.content.conclusion}</Typography>
 				</Box>
+
+				{/* External Resources Section */}
+				{(() => {
+					const blogLinks = getBlogLinks(slug);
+					if (!blogLinks?.externalResources || blogLinks.externalResources.length === 0) return null;
+
+					return (
+						<Box sx={{ mt: 5, pt: 4, borderTop: '1px solid #E2E8F0' }}>
+							<Typography
+								variant='h6'
+								sx={{
+									mb: 3,
+									color: '#1E293B',
+									fontWeight: 700,
+									display: 'flex',
+									alignItems: 'center',
+									gap: 1,
+								}}>
+								📚 Additional Resources
+							</Typography>
+							<Stack spacing={2}>
+								{blogLinks.externalResources.map((resource, idx) => (
+									<Box
+										key={idx}
+										component='a'
+										href={resource.url}
+										target='_blank'
+										rel='noopener noreferrer nofollow'
+										sx={{
+											display: 'block',
+											p: 2.5,
+											borderRadius: '12px',
+											border: '1px solid #E2E8F0',
+											backgroundColor: '#FAFAFA',
+											textDecoration: 'none',
+											transition: 'all 0.3s ease',
+											'&:hover': {
+												borderColor: '#4F46E5',
+												backgroundColor: '#F8F7FF',
+												transform: 'translateX(4px)',
+											},
+										}}>
+										<Stack direction='row' spacing={1.5} alignItems='flex-start'>
+											<OpenInNew
+												sx={{
+													fontSize: 20,
+													color: '#4F46E5',
+													mt: 0.3,
+												}}
+											/>
+											<Box sx={{ flex: 1 }}>
+												<Typography
+													sx={{
+														fontSize: 16,
+														fontWeight: 600,
+														color: '#1E293B',
+														mb: 0.5,
+													}}>
+													{resource.title}
+												</Typography>
+												<Typography
+													sx={{
+														fontSize: 14,
+														color: '#64748B',
+														lineHeight: 1.6,
+													}}>
+													{resource.description}
+												</Typography>
+											</Box>
+										</Stack>
+									</Box>
+								))}
+							</Stack>
+						</Box>
+					);
+				})()}
+
+				{/* Related Articles Section */}
+				{(() => {
+					const blogLinks = getBlogLinks(slug);
+					if (!blogLinks?.relatedArticles || blogLinks.relatedArticles.length === 0) return null;
+
+					const relatedPosts = blogArticles.filter((article) =>
+						blogLinks.relatedArticles.includes(article.slug),
+					);
+
+					if (relatedPosts.length === 0) return null;
+
+					return (
+						<Box sx={{ mt: 5, pt: 4, borderTop: '1px solid #E2E8F0' }}>
+							<Typography
+								variant='h6'
+								sx={{
+									mb: 3,
+									color: '#1E293B',
+									fontWeight: 700,
+									display: 'flex',
+									alignItems: 'center',
+									gap: 1,
+								}}>
+								🔗 Related Articles
+							</Typography>
+							<Grid2 container spacing={3}>
+								{relatedPosts.slice(0, 3).map((relatedArticle) => (
+									<Grid2 key={relatedArticle.id} size={{ xs: 12, md: 4 }}>
+										<Link href={`/blogs/${relatedArticle.slug}`} style={{ textDecoration: 'none' }}>
+											<Box
+												sx={{
+													height: '100%',
+													borderRadius: '12px',
+													border: '1px solid #E2E8F0',
+													overflow: 'hidden',
+													cursor: 'pointer',
+													transition: 'all 0.3s ease',
+													'&:hover': {
+														borderColor: '#4F46E5',
+														transform: 'translateY(-4px)',
+														boxShadow: '0 8px 24px rgba(79, 70, 229, 0.12)',
+														'& .related-image': {
+															transform: 'scale(1.05)',
+														},
+													},
+												}}>
+												<Box
+													sx={{
+														position: 'relative',
+														height: 140,
+														overflow: 'hidden',
+														backgroundColor: '#F9FAFB',
+													}}>
+													<Image
+														className='related-image'
+														src={relatedArticle.image}
+														alt={relatedArticle.title}
+														fill
+														sizes='(max-width: 768px) 100vw, 300px'
+														style={{
+															objectFit: 'cover',
+															transition: 'transform 0.4s ease',
+														}}
+													/>
+												</Box>
+												<Box sx={{ p: 2.5 }}>
+													<Chip
+														label={relatedArticle.category}
+														size='small'
+														sx={{
+															mb: 1.5,
+															backgroundColor: 'rgba(79, 70, 229, 0.08)',
+															color: '#4F46E5',
+															fontWeight: 600,
+															fontSize: 10,
+															textTransform: 'uppercase',
+															height: 20,
+														}}
+													/>
+													<Typography
+														sx={{
+															fontSize: 15,
+															fontWeight: 700,
+															color: '#1E293B',
+															mb: 1,
+															lineHeight: 1.4,
+															display: '-webkit-box',
+															WebkitLineClamp: 2,
+															WebkitBoxOrient: 'vertical',
+															overflow: 'hidden',
+														}}>
+														{relatedArticle.title}
+													</Typography>
+													<Typography
+														sx={{
+															fontSize: 13,
+															color: '#64748B',
+															display: '-webkit-box',
+															WebkitLineClamp: 2,
+															WebkitBoxOrient: 'vertical',
+															overflow: 'hidden',
+															mb: 1.5,
+														}}>
+														{relatedArticle.excerpt}
+													</Typography>
+													<Box
+														sx={{
+															display: 'flex',
+															alignItems: 'center',
+															gap: 0.5,
+															color: '#4F46E5',
+															fontSize: 13,
+															fontWeight: 600,
+														}}>
+														Read more
+														<ArrowForward sx={{ fontSize: 16 }} />
+													</Box>
+												</Box>
+											</Box>
+										</Link>
+									</Grid2>
+								))}
+							</Grid2>
+						</Box>
+					);
+				})()}
 
 				<Box sx={{ mt: 5, pt: 4, borderTop: '1px solid #E2E8F0' }}>
 					<Typography variant='h6' sx={{ mb: 2, color: '#1E293B', fontWeight: 600 }}>
