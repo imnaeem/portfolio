@@ -325,9 +325,9 @@ export const blogLinksMap: Record<string, BlogLinks> = {
 		relatedArticles: ['cursor-ai-revolutionizing-development', 'github-copilot-vs-cursor-comparison'],
 		externalResources: [
 			{
-				title: 'AI and Software Development',
-				url: 'https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/',
-				description: 'Best practices for AI-assisted development',
+				title: 'AI-Powered Developer Tools',
+				url: 'https://github.blog/2023-11-08-universe-2023-copilot-transforms-github-into-the-ai-powered-developer-platform/',
+				description: 'How AI is transforming the developer platform and tooling ecosystem',
 			},
 			{
 				title: 'The Future of Programming',
