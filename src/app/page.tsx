@@ -54,7 +54,7 @@ const About = () => {
 										lineHeight: 1.7,
 										maxWidth: '500px',
 									}}>
-									Software Engineer with 3+ years of experience in building scalable JavaScript applications. Skilled
+									Software Engineer with 4+ years of experience in building scalable JavaScript applications. Skilled
 									in React, Next.js, Node.js, and NestJS.
 								</Typography>
 							</Box>
