@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
-import { School, CalendarToday } from '@mui/icons-material';
+import { School } from '@mui/icons-material';
 
 export const Education = () => {
 	return (
@@ -59,17 +59,6 @@ export const Education = () => {
 							Punjab University College of Information Technology | PUCIT
 						</Typography>
 					</Box>
-					<Stack direction='row' alignItems='center' spacing={0.5} sx={{ mt: { xs: 1, sm: 0 } }}>
-						<CalendarToday sx={{ color: '#64748B', fontSize: 14 }} />
-						<Typography
-							sx={{
-								fontSize: 13,
-								fontWeight: 500,
-								color: '#64748B',
-							}}>
-							Oct 2018 - Jul 2022
-						</Typography>
-					</Stack>
 				</Stack>
 				<Box sx={{ mt: 2, ml: 6 }}>
 					<Typography
