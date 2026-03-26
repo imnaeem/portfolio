@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const About = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<div>
 				{/* Hero Section */}
 				<Box

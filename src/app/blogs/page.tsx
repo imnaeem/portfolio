@@ -62,7 +62,7 @@ const categories = [
 
 export default function BlogsPage() {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<div>
 				<Title title='Blog' subtitle='Articles about React, Next.js, NestJS, GraphQL, AWS, and AI Tools' />
 

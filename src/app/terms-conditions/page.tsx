@@ -3,7 +3,7 @@ import Title from '@/components/shared/Title';
 
 const TermsConditions = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<Container maxWidth='lg'>
 				<Title title='Terms & Conditions' subtitle='Please read these terms carefully before using this website' />
 

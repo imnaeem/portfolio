@@ -3,7 +3,7 @@ import Title from '@/components/shared/Title';
 
 const Disclaimer = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<Container maxWidth='lg'>
 				<Title title='Disclaimer' subtitle='Important information about the use of this website' />
 

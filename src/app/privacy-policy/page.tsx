@@ -3,7 +3,7 @@ import Title from '@/components/shared/Title';
 
 const PrivacyPolicy = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<Container maxWidth='lg'>
 				<Title title='Privacy Policy' subtitle='Your privacy is important to us' />
 

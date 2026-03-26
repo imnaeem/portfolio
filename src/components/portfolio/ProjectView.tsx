@@ -33,7 +33,7 @@ const ProjectView = ({ projectKey }: Props) => {
 	const { description, github, preview, techStack, images } = currentProject.details;
 
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<div>
 				<Box
 					sx={{
