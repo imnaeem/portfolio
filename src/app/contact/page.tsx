@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const Contact = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<div>
 				<Title title='Contact Me' subtitle="Let's work together on your next project" />
 				<Stack direction={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 4, md: 6 }} mb={4}>

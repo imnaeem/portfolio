@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const Portfolio = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<div>
 				<Title title='Portfolio' subtitle='A collection of my recent projects and work' />
 				<PortfolioList />

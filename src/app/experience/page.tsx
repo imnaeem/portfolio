@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 const Experience = () => {
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<Box>
 			<Stack
 				direction={{ xs: 'column', md: 'row' }}

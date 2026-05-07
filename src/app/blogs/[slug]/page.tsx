@@ -85,7 +85,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 	}
 
 	return (
-		<Fade in timeout={500}>
+		<Fade in timeout={300}>
 			<Container maxWidth='md'>
 				<Box sx={{ mb: 4 }}>
 					<Chip
