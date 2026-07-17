@@ -11,7 +11,7 @@ const contactDetails = [
 	{
 		title: 'Phone',
 		description: 'WhatsApp',
-		color: '#25D366',
+		color: '#171717',
 		icon: <WhatsApp />,
 		route: '/whatsapp',
 	},
@@ -21,7 +21,7 @@ const contactDetails = [
 			{ text: 'contact@imnaeem.dev', link: 'mailto:contact@imnaeem.dev' },
 			{ text: 'imnaeem.dev@gmail.com', link: 'mailto:imnaeem.dev@gmail.com' },
 		],
-		color: '#4F46E5',
+		color: '#171717',
 		icon: <Email />,
 	},
 	{
@@ -30,7 +30,7 @@ const contactDetails = [
 			{ text: 'LinkedIn', link: 'https://www.linkedin.com/in/im-naeem/' },
 			{ text: 'Github', link: 'https://github.com/imnaeem/' },
 		],
-		color: '#14B8A6',
+		color: '#171717',
 		icon: <Link />,
 	},
 ];
@@ -50,14 +50,15 @@ export const ContactDetails = () => {
 					onClick={() => handleCardClick(item.route)}
 					sx={{
 						p: 3,
-						borderRadius: '16px',
+						borderRadius: '12px',
 						backgroundColor: '#FFFFFF',
-						border: '1px solid #E2E8F0',
+						border: '1px solid #f0f0f0',
 						cursor: item.route ? 'pointer' : 'default',
 						transition: 'all 0.2s ease-in-out',
+						boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 						'&:hover': {
-							borderColor: item.color,
-							boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
+							borderColor: '#d4d4d4',
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
 						},
 					}}>
 					<Stack direction='row' spacing={2} alignItems='flex-start'>
@@ -68,18 +69,18 @@ export const ContactDetails = () => {
 								justifyContent: 'center',
 								width: 48,
 								height: 48,
-								borderRadius: '12px',
-								backgroundColor: `${item.color}15`,
+								borderRadius: '10px',
+								backgroundColor: '#f5f5f5',
 								flexShrink: 0,
 							}}>
-							{item.icon && React.cloneElement(item.icon, { sx: { color: item.color, fontSize: 24 } })}
+							{item.icon && React.cloneElement(item.icon, { sx: { color: '#525252', fontSize: 24 } })}
 						</Box>
 						<Stack spacing={0.5}>
 							<Typography
 								sx={{
 									fontSize: 12,
 									fontWeight: 600,
-									color: '#64748B',
+									color: '#737373',
 									textTransform: 'uppercase',
 									letterSpacing: '0.5px',
 								}}>
@@ -90,10 +91,10 @@ export const ContactDetails = () => {
 									sx={{
 										fontSize: 16,
 										fontWeight: 600,
-										color: '#1E293B',
+										color: '#171717',
 										cursor: item.route ? 'pointer' : 'default',
 										'&:hover': {
-											color: item.route ? item.color : '#1E293B',
+											color: item.route ? item.color : '#171717',
 										},
 									}}>
 									{item.description}
@@ -109,7 +110,7 @@ export const ContactDetails = () => {
 									sx={{
 										fontSize: 15,
 										fontWeight: 500,
-										color: '#1E293B',
+										color: '#171717',
 										cursor: 'pointer',
 										'&:hover': {
 											color: item.color,

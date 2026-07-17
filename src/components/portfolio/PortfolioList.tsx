@@ -157,15 +157,16 @@ const PortfolioList = () => {
 										height: '100%',
 										borderRadius: '12px',
 										backgroundColor: '#FFFFFF',
-										border: '1px solid #E5E7EB',
+										border: '1px solid #f0f0f0',
 										cursor: 'pointer',
 										textAlign: 'left',
 										transition: 'all 0.3s ease',
 										overflow: 'hidden',
 										position: 'relative',
+										boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 										'&:hover': {
-											borderColor: item.type === 'professional' ? '#4F46E5' : '#14B8A6',
-											boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+											borderColor: '#d4d4d4',
+											boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
 											transform: 'translateY(-4px)',
 											'& .project-image': {
 												transform: 'scale(1.05)',
@@ -181,7 +182,7 @@ const PortfolioList = () => {
 											position: 'relative',
 											overflow: 'hidden',
 											height: '200px',
-											backgroundColor: '#F9FAFB',
+											backgroundColor: '#fafafa',
 										}}>
 										<Image
 											className='project-image'
@@ -205,14 +206,13 @@ const PortfolioList = () => {
 													position: 'absolute',
 													top: 12,
 													left: 12,
-													backgroundColor: 'rgba(255, 255, 255, 0.95)',
-													backdropFilter: 'blur(8px)',
+													backgroundColor: '#FFFFFF',
 													fontWeight: 600,
 													fontSize: 11,
-													color: '#F59E0B',
-													border: '1px solid rgba(245, 158, 11, 0.2)',
+													color: '#171717',
+													border: '1px solid #f0f0f0',
 													'& .MuiChip-icon': {
-														color: '#F59E0B',
+														color: '#171717',
 													},
 												}}
 											/>
@@ -227,14 +227,14 @@ const PortfolioList = () => {
 												px: 2,
 												py: 0.5,
 												borderRadius: '6px',
-												backgroundColor: item.type === 'professional' ? '#EEF2FF' : '#F0FDFA',
+												backgroundColor: '#f5f5f5',
 												mb: 1.5,
 											}}>
 											<Typography
 												sx={{
 													fontSize: 11,
 													fontWeight: 600,
-													color: item.type === 'professional' ? '#4F46E5' : '#14B8A6',
+													color: '#525252',
 													letterSpacing: '0.5px',
 													textTransform: 'uppercase',
 												}}>
@@ -247,7 +247,7 @@ const PortfolioList = () => {
 													sx={{
 														fontWeight: 600,
 														fontSize: 17,
-														color: '#111827',
+														color: '#171717',
 														lineHeight: 1.3,
 													}}>
 													{item.title}
@@ -255,7 +255,7 @@ const PortfolioList = () => {
 												<ArrowForward
 													className='project-arrow'
 													sx={{
-														color: item.type === 'professional' ? '#4F46E5' : '#14B8A6',
+														color: '#171717',
 														fontSize: 20,
 														opacity: 0,
 														flexShrink: 0,
@@ -266,7 +266,7 @@ const PortfolioList = () => {
 											<Typography
 												sx={{
 													fontSize: 14,
-													color: '#6B7280',
+													color: '#737373',
 													lineHeight: 1.6,
 													display: '-webkit-box',
 													WebkitLineClamp: 2,

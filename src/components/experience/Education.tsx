@@ -8,7 +8,7 @@ export const Education = () => {
 				sx={{
 					fontWeight: 600,
 					fontSize: { xs: 20, md: 24 },
-					color: '#1E293B',
+					color: '#171717',
 					mb: 3,
 				}}>
 				Education
@@ -16,13 +16,14 @@ export const Education = () => {
 			<Box
 				sx={{
 					p: { xs: 3, md: 4 },
-					borderRadius: '16px',
+					borderRadius: '12px',
 					backgroundColor: '#FFFFFF',
-					border: '1px solid #E2E8F0',
+					border: '1px solid #f0f0f0',
 					transition: 'all 0.2s ease-in-out',
+					boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 					'&:hover': {
-						borderColor: '#8B5CF6',
-						boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
+						borderColor: '#d4d4d4',
+						boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
 					},
 				}}>
 				<Stack direction={{ xs: 'column', sm: 'row' }} justifyContent='space-between' alignItems='flex-start'>
@@ -35,16 +36,16 @@ export const Education = () => {
 									justifyContent: 'center',
 									width: 36,
 									height: 36,
-									borderRadius: '10px',
-									backgroundColor: 'rgba(139, 92, 246, 0.1)',
+									borderRadius: '8px',
+									backgroundColor: '#f5f5f5',
 								}}>
-								<School sx={{ color: '#8B5CF6', fontSize: 18 }} />
+								<School sx={{ color: '#525252', fontSize: 18 }} />
 							</Box>
 							<Typography
 								sx={{
 									fontSize: { xs: 18, md: 20 },
 									fontWeight: 600,
-									color: '#1E293B',
+									color: '#171717',
 								}}>
 								Bachelor of Science in Information Technology
 							</Typography>
@@ -53,7 +54,7 @@ export const Education = () => {
 							sx={{
 								fontSize: 15,
 								fontWeight: 500,
-								color: '#8B5CF6',
+								color: '#525252',
 								ml: 6,
 							}}>
 							Punjab University College of Information Technology | PUCIT
@@ -64,7 +65,7 @@ export const Education = () => {
 					<Typography
 						sx={{
 							fontSize: 14,
-							color: '#475569',
+							color: '#737373',
 						}}>
 						CGPA: 3.13/4.0
 					</Typography>

@@ -17,9 +17,8 @@ export const Footer = () => {
 			sx={{
 				mt: 'auto',
 				py: 3.5,
-				borderTop: '1px solid rgba(226, 232, 240, 0.8)',
-				backgroundColor: 'rgba(255, 255, 255, 0.7)',
-				backdropFilter: 'blur(8px)',
+				borderTop: '1px solid #f0f0f0',
+				backgroundColor: '#FFFFFF',
 			}}>
 			<Container maxWidth='lg'>
 				<Stack
@@ -32,11 +31,11 @@ export const Footer = () => {
 					<Typography
 						variant='body2'
 						sx={{
-							color: '#64748B',
+							color: '#737373',
 							fontSize: '14px',
 							textAlign: { xs: 'center', md: 'left' },
 						}}>
-						© {year} <Box component='span' sx={{ fontWeight: 600, color: '#475569' }}>Muhammad Naeem</Box>. All rights reserved.
+						© {year} <Box component='span' sx={{ fontWeight: 600, color: '#171717' }}>Muhammad Naeem</Box>. All rights reserved.
 					</Typography>
 
 					{/* Right Side - Links */}
@@ -53,11 +52,11 @@ export const Footer = () => {
 								<Typography
 									sx={{
 										fontSize: '13px',
-										color: '#64748B',
-										transition: 'all 0.2s ease-in-out',
+										color: '#737373',
+										transition: 'color 0.2s ease-in-out',
 										fontWeight: 500,
 										'&:hover': {
-											color: '#4F46E5',
+											color: '#171717',
 										},
 									}}>
 									{label}

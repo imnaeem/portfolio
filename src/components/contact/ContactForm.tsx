@@ -65,15 +65,15 @@ const ContactForm = () => {
 					onChange={handleChange}
 					sx={{
 						'& .MuiFilledInput-root': {
-							borderRadius: '12px',
-							backgroundColor: '#F8FAFC',
-							border: '1px solid #E2E8F0',
+							borderRadius: '8px',
+							backgroundColor: '#fafafa',
+							border: '1px solid #e5e5e5',
 							'&:hover': {
-								backgroundColor: '#F1F5F9',
+								backgroundColor: '#f5f5f5',
 							},
 							'&.Mui-focused': {
-								backgroundColor: '#F8FAFC',
-								borderColor: '#4F46E5',
+								backgroundColor: '#ffffff',
+								borderColor: '#171717',
 							},
 							'&::before, &::after': {
 								display: 'none',
@@ -93,15 +93,15 @@ const ContactForm = () => {
 					onChange={handleChange}
 					sx={{
 						'& .MuiFilledInput-root': {
-							borderRadius: '12px',
-							backgroundColor: '#F8FAFC',
-							border: '1px solid #E2E8F0',
+							borderRadius: '8px',
+							backgroundColor: '#fafafa',
+							border: '1px solid #e5e5e5',
 							'&:hover': {
-								backgroundColor: '#F1F5F9',
+								backgroundColor: '#f5f5f5',
 							},
 							'&.Mui-focused': {
-								backgroundColor: '#F8FAFC',
-								borderColor: '#4F46E5',
+								backgroundColor: '#ffffff',
+								borderColor: '#171717',
 							},
 							'&::before, &::after': {
 								display: 'none',
@@ -122,15 +122,15 @@ const ContactForm = () => {
 					onChange={handleChange}
 					sx={{
 						'& .MuiFilledInput-root': {
-							borderRadius: '12px',
-							backgroundColor: '#F8FAFC',
-							border: '1px solid #E2E8F0',
+							borderRadius: '8px',
+							backgroundColor: '#fafafa',
+							border: '1px solid #e5e5e5',
 							'&:hover': {
-								backgroundColor: '#F1F5F9',
+								backgroundColor: '#f5f5f5',
 							},
 							'&.Mui-focused': {
-								backgroundColor: '#F8FAFC',
-								borderColor: '#4F46E5',
+								backgroundColor: '#ffffff',
+								borderColor: '#171717',
 							},
 							'&::before, &::after': {
 								display: 'none',
@@ -148,14 +148,15 @@ const ContactForm = () => {
 					fullWidth
 					sx={{
 						py: 1.5,
-						borderRadius: '12px',
-						backgroundColor: '#4F46E5',
+						borderRadius: '8px',
+						backgroundColor: '#171717',
+						color: '#FFFFFF',
 						fontWeight: 600,
 						fontSize: 16,
 						boxShadow: 'none',
 						'&:hover': {
-							backgroundColor: '#4338CA',
-							boxShadow: '0 4px 12px rgba(79, 70, 229, 0.25)',
+							backgroundColor: '#262626',
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
 						},
 					}}>
 					Send Message
