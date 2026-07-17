@@ -54,16 +54,16 @@ const PortfolioCategories = ({ category, setCategory }: Props) => {
 							mx: 0.5,
 							fontSize: 14,
 							fontWeight: 500,
-							color: category === tab.toLowerCase() ? '#4F46E5' : '#64748B',
-							backgroundColor: category === tab.toLowerCase() ? 'rgba(79, 70, 229, 0.1)' : '#F8FAFC',
-							border: `1px solid ${category === tab.toLowerCase() ? '#4F46E5' : '#E2E8F0'}`,
-							borderRadius: '10px',
+							color: category === tab.toLowerCase() ? '#171717' : '#737373',
+							backgroundColor: category === tab.toLowerCase() ? '#f5f5f5' : '#ffffff',
+							border: `1px solid ${category === tab.toLowerCase() ? '#d4d4d4' : '#f0f0f0'}`,
+							borderRadius: '8px',
 							transition: 'all 0.2s ease-in-out',
 							'&:hover': {
-								backgroundColor: category === tab.toLowerCase() ? 'rgba(79, 70, 229, 0.15)' : '#F1F5F9',
+								backgroundColor: '#f5f5f5',
 							},
 							'&.Mui-selected': {
-								color: '#4F46E5',
+								color: '#171717',
 							},
 						}}
 						iconPosition='start'

@@ -6,7 +6,7 @@ const experience = [
 		title: 'Software Engineer',
 		company: 'DevBrains',
 		period: 'Dec 2022 - Present',
-		color: '#4F46E5',
+		color: '#171717',
 		highlights: [
 			'Developed and optimized full-stack applications using Next.js and Nest.js, building dynamic UI for data visualization and operations.',
 			'Enhanced API performance by optimizing using GraphQL, achieving 30% faster response times.',
@@ -23,7 +23,7 @@ const experience = [
 		title: 'Associate Software Engineer',
 		company: 'Kinectro',
 		period: 'Aug 2022 - Nov 2022',
-		color: '#14B8A6',
+		color: '#171717',
 		highlights: [
 			'Worked on a MERN stack e-commerce platform with GraphQL, integrated store management for WooCommerce and Shopify platforms.',
 			'Integrated Facebook and Instagram for direct posting and automated content scheduling, streamlining social media management.',
@@ -40,13 +40,14 @@ const ProfessionalExperiences = () => {
 					key={item.title}
 					sx={{
 						p: { xs: 3, md: 4 },
-						borderRadius: '16px',
+						borderRadius: '12px',
 						backgroundColor: '#FFFFFF',
-						border: '1px solid #E2E8F0',
+						border: '1px solid #f0f0f0',
 						transition: 'all 0.2s ease-in-out',
+						boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 						'&:hover': {
-							borderColor: item.color,
-							boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
+							borderColor: '#d4d4d4',
+							boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
 						},
 					}}>
 					<Stack direction={{ xs: 'column', sm: 'row' }} justifyContent='space-between' alignItems='flex-start' mb={2}>
@@ -59,16 +60,16 @@ const ProfessionalExperiences = () => {
 										justifyContent: 'center',
 										width: 36,
 										height: 36,
-										borderRadius: '10px',
-										backgroundColor: `${item.color}15`,
+										borderRadius: '8px',
+										backgroundColor: '#f5f5f5',
 									}}>
-									<Work sx={{ color: item.color, fontSize: 18 }} />
+									<Work sx={{ color: '#525252', fontSize: 18 }} />
 								</Box>
 								<Typography
 									sx={{
 										fontSize: { xs: 18, md: 20 },
 										fontWeight: 600,
-										color: '#1E293B',
+										color: '#171717',
 									}}>
 									{item.title}
 								</Typography>
@@ -77,19 +78,19 @@ const ProfessionalExperiences = () => {
 								sx={{
 									fontSize: 15,
 									fontWeight: 500,
-									color: item.color,
+									color: '#525252',
 									ml: 6,
 								}}>
 								{item.company}
 							</Typography>
 						</Box>
 						<Stack direction='row' alignItems='center' spacing={0.5} sx={{ mt: { xs: 1, sm: 0 } }}>
-							<CalendarToday sx={{ color: '#64748B', fontSize: 14 }} />
+							<CalendarToday sx={{ color: '#737373', fontSize: 14 }} />
 							<Typography
 								sx={{
 									fontSize: 13,
 									fontWeight: 500,
-									color: '#64748B',
+									color: '#737373',
 								}}>
 								{item.period}
 							</Typography>
@@ -101,12 +102,12 @@ const ProfessionalExperiences = () => {
 							pl: 3,
 							m: 0,
 							'& li': {
-								color: '#475569',
+								color: '#525252',
 								fontSize: 14,
 								lineHeight: 1.7,
 								mb: 1,
 								'&::marker': {
-									color: item.color,
+									color: '#a3a3a3',
 								},
 							},
 						}}>

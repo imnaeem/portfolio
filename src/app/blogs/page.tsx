@@ -72,16 +72,17 @@ export default function BlogsPage() {
 							<Link href={`/blogs/${article.slug}`} style={{ textDecoration: 'none' }}>
 								<Box
 									sx={{
-										borderRadius: '20px',
+										borderRadius: '12px',
 										backgroundColor: '#FFFFFF',
-										border: '1px solid #E2E8F0',
+										border: '1px solid #f0f0f0',
 										cursor: 'pointer',
 										transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
 										height: '100%',
 										overflow: 'hidden',
+										boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 										'&:hover': {
-											borderColor: '#4F46E5',
-											boxShadow: '0 12px 32px rgba(79, 70, 229, 0.08)',
+											borderColor: '#d4d4d4',
+											boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
 											transform: 'translateY(-4px)',
 											'& .blog-image': {
 												transform: 'scale(1.05)',
@@ -94,7 +95,7 @@ export default function BlogsPage() {
 											position: 'relative',
 											overflow: 'hidden',
 											height: '220px',
-											backgroundColor: '#F9FAFB',
+											backgroundColor: '#fafafa',
 										}}>
 										<Image
 											className='blog-image'
@@ -116,8 +117,8 @@ export default function BlogsPage() {
 											size='small'
 											sx={{
 												mb: 2,
-												backgroundColor: 'rgba(79, 70, 229, 0.08)',
-												color: '#4F46E5',
+												backgroundColor: '#f5f5f5',
+												color: '#525252',
 												fontWeight: 600,
 												fontSize: 11,
 												textTransform: 'uppercase',
@@ -130,7 +131,7 @@ export default function BlogsPage() {
 										sx={{
 											fontWeight: 700,
 											fontSize: { xs: 18, md: 20 },
-											color: '#1E293B',
+											color: '#171717',
 											mb: 2,
 											lineHeight: 1.3,
 											display: '-webkit-box',
@@ -144,7 +145,7 @@ export default function BlogsPage() {
 									<Typography
 										sx={{
 											fontSize: 14,
-											color: '#64748B',
+											color: '#737373',
 											lineHeight: 1.7,
 											mb: 3,
 											display: '-webkit-box',
@@ -160,7 +161,7 @@ export default function BlogsPage() {
 											spacing={2}
 											sx={{
 												fontSize: 13,
-												color: '#94A3B8',
+												color: '#a3a3a3',
 											}}>
 											<Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
 												<CalendarToday sx={{ fontSize: 16 }} />

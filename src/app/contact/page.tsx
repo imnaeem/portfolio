@@ -22,16 +22,17 @@ const Contact = () => {
 						<Box
 							sx={{
 								p: { xs: 3, md: 4 },
-								borderRadius: '20px',
+								borderRadius: '12px',
 								backgroundColor: '#FFFFFF',
-								border: '1px solid #E2E8F0',
+								border: '1px solid #f0f0f0',
+								boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 							}}>
 							<Box mb={3}>
 								<Typography
 									sx={{
 										fontSize: { xs: 20, md: 24 },
 										fontWeight: 600,
-										color: '#1E293B',
+										color: '#171717',
 										mb: 1,
 									}}>
 									Send a Message
@@ -39,7 +40,7 @@ const Contact = () => {
 								<Typography
 									sx={{
 										fontSize: 15,
-										color: '#64748B',
+										color: '#737373',
 									}}>
 									I'm always open to discussing product design work or partnerships.
 								</Typography>

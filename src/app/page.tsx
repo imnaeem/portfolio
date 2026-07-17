@@ -13,10 +13,11 @@ const About = () => {
 				{/* Hero Section */}
 				<Box
 					sx={{
-						p: 4,
+						p: { xs: 4, md: 6 },
 						mb: 6,
-						borderRadius: '24px',
-						background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.04) 0%, rgba(20, 184, 166, 0.04) 100%)',
+						borderRadius: '16px',
+						backgroundColor: '#fafafa',
+						border: '1px solid #f0f0f0',
 					}}>
 					<Stack direction={{ xs: 'column-reverse', md: 'row' }} spacing={4} alignItems='center'>
 						<Stack spacing={3} flex={1}>
@@ -24,7 +25,7 @@ const About = () => {
 								<Typography
 									variant='body2'
 									sx={{
-										color: '#4F46E5',
+										color: '#525252',
 										fontWeight: 600,
 										fontSize: 14,
 										mb: 1,
@@ -37,20 +38,16 @@ const About = () => {
 									sx={{
 										fontSize: { xs: 36, md: 48 },
 										fontWeight: 700,
-										color: '#1E293B',
+										color: '#171717',
 										lineHeight: 1.2,
 										mb: 2,
 									}}>
-									Hi, I'm Muhammad
-									<Box component='span' sx={{ color: '#4F46E5' }}>
-										{' '}
-										Naeem
-									</Box>
+									Hi, I'm Muhammad Naeem
 								</Typography>
 								<Typography
 									sx={{
 										fontSize: { xs: 16, md: 18 },
-										color: '#64748B',
+										color: '#525252',
 										lineHeight: 1.7,
 										maxWidth: '500px',
 									}}>
@@ -63,26 +60,14 @@ const About = () => {
 									<Button
 										variant='contained'
 										endIcon={<ArrowForward />}
-										sx={{
-											backgroundColor: '#4F46E5',
-											'&:hover': {
-												backgroundColor: '#4338CA',
-											},
-										}}>
+										>
 										Get in Touch
 									</Button>
 								</Link>
 								<Link href='/portfolio'>
 									<Button
 										variant='outlined'
-										sx={{
-											borderColor: '#E2E8F0',
-											color: '#475569',
-											'&:hover': {
-												borderColor: '#4F46E5',
-												backgroundColor: 'rgba(79, 70, 229, 0.04)',
-											},
-										}}>
+										>
 										View Projects
 									</Button>
 								</Link>
@@ -93,22 +78,13 @@ const About = () => {
 								position: 'relative',
 								width: { xs: 200, md: 280 },
 								height: { xs: 200, md: 280 },
+								borderRadius: '16px',
+								overflow: 'hidden',
+								boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
 							}}>
-							<Box
-								sx={{
-									position: 'absolute',
-									inset: -8,
-									background: 'linear-gradient(135deg, #4F46E5 0%, #14B8A6 100%)',
-									borderRadius: '50%',
-									opacity: 0.15,
-								}}
-							/>
 							<Image
 								style={{
-									borderRadius: '50%',
 									objectFit: 'cover',
-									border: '4px solid #FFFFFF',
-									boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1)',
 								}}
 								src='/profile-image.jpg'
 								alt='Muhammad Naeem - Full Stack Developer'
@@ -125,16 +101,17 @@ const About = () => {
 				<Box
 					sx={{
 						p: { xs: 3, md: 4 },
-						borderRadius: '20px',
+						borderRadius: '12px',
 						backgroundColor: '#FFFFFF',
-						border: '1px solid #E2E8F0',
+						border: '1px solid #f0f0f0',
 						mb: 6,
+						boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
 					}}>
 					<Typography
 						sx={{
 							fontSize: { xs: 15, md: 16 },
 							lineHeight: 1.8,
-							color: '#475569',
+							color: '#525252',
 							mb: 2,
 						}}>
 						I bring a problem-solving mindset, strong collaboration skills, and a focus on building maintainable,
@@ -145,7 +122,7 @@ const About = () => {
 						sx={{
 							fontSize: { xs: 15, md: 16 },
 							lineHeight: 1.8,
-							color: '#475569',
+							color: '#525252',
 						}}>
 						Passionate about improving workflows and mentoring developers, I help drive projects that create real
 						impact while continuously learning and adapting to new technologies.

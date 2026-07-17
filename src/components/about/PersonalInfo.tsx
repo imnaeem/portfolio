@@ -8,34 +8,34 @@ const info = [
 		value: 'WhatsApp',
 		link: '/whatsapp',
 		icon: <WhatsApp />,
-		color: '#25D366',
+		color: '#171717',
 	},
 	{
 		title: 'Email',
 		value: 'contact@imnaeem.dev',
 		link: 'mailto:contact@imnaeem.dev',
 		icon: <Email />,
-		color: '#4F46E5',
+		color: '#171717',
 	},
 	{
 		title: 'Location',
 		value: 'Lahore, Pakistan',
 		icon: <LocationCity />,
-		color: '#14B8A6',
+		color: '#171717',
 	},
 	{
 		title: 'LinkedIn',
 		value: 'linkedin.com/in/im-naeem',
 		link: 'https://www.linkedin.com/in/im-naeem/',
 		icon: <LinkedIn />,
-		color: '#0077B5',
+		color: '#171717',
 	},
 	{
 		title: 'GitHub',
 		value: 'github.com/imnaeem',
 		link: 'https://github.com/imnaeem/',
 		icon: <GitHub />,
-		color: '#1E293B',
+		color: '#171717',
 	},
 ];
 
@@ -46,7 +46,7 @@ const PersonalInfo = () => {
 				sx={{
 					fontWeight: 600,
 					fontSize: { xs: 22, md: 26 },
-					color: '#1E293B',
+					color: '#171717',
 					mb: 3,
 				}}>
 				Get In Touch
