@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "nexum": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Nexum Router",
+      "options": {
+        "baseURL": "https://dialagram.me/router/v1"
+      },
+      "models": {
+        "qwen-3.8-max": {
+          "name": "Qwen 3.8 Max"
+        }
+      }
+    }
+  }
+}

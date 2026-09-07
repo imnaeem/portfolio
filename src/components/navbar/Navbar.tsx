@@ -1,212 +1,136 @@
 'use client';
-import { ContactMail, Description, Home, Menu, Work, Close } from '@mui/icons-material';
-import {
-	AppBar,
-	Box,
-	Drawer,
-	IconButton,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemIcon,
-	ListItemText,
-	Toolbar,
-	useMediaQuery,
-	useTheme,
-	Typography,
-} from '@mui/material';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 const navItems = [
-	{ label: 'About', icon: <Home />, href: '/' },
-	{ label: 'Experience', icon: <Description />, href: '/experience' },
-	{ label: 'Portfolio', icon: <Work />, href: '/portfolio' },
-	{ label: 'Blog', icon: <Description />, href: '/blogs' },
-	{ label: 'Contact', icon: <ContactMail />, href: '/contact' },
+	{ label: 'About', href: '/' },
+	{ label: 'Experience', href: '/experience' },
+	{ label: 'Work', href: '/portfolio' },
+	{ label: 'Writing', href: '/blogs' },
+	{ label: 'Contact', href: '/contact' },
 ];
 
 export const Navbar = () => {
 	const pathname = usePathname();
-	const [active, setActive] = useState(pathname);
-	const [mobileOpen, setMobileOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
-
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+	const [mobileOpen, setMobileOpen] = useState(false);
 
 	useEffect(() => {
-		setActive(`/${pathname.split('/')[1]}`);
-	}, [pathname]);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			setScrolled(window.scrollY > 20);
-		};
+		const handleScroll = () => setScrolled(window.scrollY > 10);
+		handleScroll();
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	const isActive = (href: string) => {
+		if (href === '/') return pathname === '/';
+		return pathname.startsWith(href);
+	};
+
 	return (
 		<>
-			<AppBar
-				elevation={0}
-				sx={{
-					position: 'sticky',
-					top: 0,
-					height: { xs: 64, md: 72 },
-					zIndex: (theme) => theme.zIndex.drawer + 1,
-					justifyContent: 'center',
-					backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.7)',
-					backdropFilter: 'blur(12px)',
-					borderBottom: scrolled ? '1px solid rgba(79, 70, 229, 0.1)' : '1px solid rgba(226, 232, 240, 0.5)',
-					boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.03)' : 'none',
-					transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-				}}>
-				<Toolbar
-					className='flex justify-between'
-					sx={{ width: '100%', maxWidth: '1200px', mx: 'auto', px: { xs: 2, sm: 3 } }}>
-					<Link href='/' className='flex items-center'>
-						<Image
-							src='/logo.png'
-							alt='logo'
-							width={isMobile ? 140 : 170}
-							height={isMobile ? 45 : 56}
-							priority
-							style={{ objectFit: 'contain' }}
-						/>
+			<header
+				className={`sticky top-0 z-50 transition-all duration-300 ${
+					scrolled ? 'glass shadow-lg shadow-black/20' : 'bg-transparent'
+				}`}
+			>
+				<nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+					<Link href="/" className="flex items-center gap-3 group">
+						<div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-sm tracking-tight transition-transform group-hover:scale-105">
+							MN
+						</div>
+						<div className="hidden sm:block">
+							<p className="text-sm font-semibold text-text leading-none">Muhammad Naeem</p>
+							<p className="text-[11px] text-text-dim mt-0.5">Full stack engineer</p>
+						</div>
 					</Link>
 
-					{!isMobile && (
-						<Box component='nav' sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
-							{navItems.map(({ label, href }) => (
-								<Link key={label} href={href} passHref>
-									<Box
-										component='span'
-										sx={{
-											display: 'flex',
-											alignItems: 'center',
-											px: 2,
-											py: 1,
-											borderRadius: '10px',
-											fontSize: '14px',
-											fontWeight: 600,
-											letterSpacing: '0.01em',
-											color: active === href ? '#4F46E5' : '#64748B',
-											backgroundColor: 'transparent',
-											transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-											cursor: 'pointer',
-											position: 'relative',
-											'&::after': active === href ? {
-												content: '""',
-												position: 'absolute',
-												bottom: 0,
-												left: '20%',
-												right: '20%',
-												height: '2px',
-												backgroundColor: '#4F46E5',
-												borderRadius: '2px 2px 0 0',
-											} : {},
-											'&:hover': {
-												backgroundColor: 'rgba(79, 70, 229, 0.05)',
-												color: '#4F46E5',
-											},
-										}}>
-										{label}
-									</Box>
+					<div className="hidden md:flex items-center gap-1">
+						{navItems.map(({ label, href }) => {
+							const active = isActive(href);
+							return (
+								<Link
+									key={href}
+									href={href}
+									className={`px-3.5 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 ${
+										active
+											? 'bg-surface-2 text-text'
+											: 'text-text-muted hover:text-text hover:bg-surface'
+									}`}
+								>
+									{label}
 								</Link>
-							))}
-						</Box>
-					)}
+							);
+						})}
+					</div>
 
-					{isMobile && (
-						<IconButton
-							onClick={() => setMobileOpen(true)}
-							sx={{
-								backgroundColor: 'rgba(79, 70, 229, 0.08)',
-								borderRadius: '12px',
-								p: 1.25,
-								border: '1px solid rgba(79, 70, 229, 0.15)',
-								transition: 'all 0.2s ease-in-out',
-								'&:hover': { 
-									backgroundColor: 'rgba(79, 70, 229, 0.15)',
-									borderColor: 'rgba(79, 70, 229, 0.3)',
-								},
-							}}>
-							<Menu sx={{ color: '#4F46E5', fontSize: 22 }} />
-						</IconButton>
-					)}
-				</Toolbar>
-			</AppBar>
+					<div className="hidden md:block">
+						<a
+							href="/assets/muhammad-naeem-resume.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-[13px] font-semibold transition-all duration-200 hover:-translate-y-0.5"
+						>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+							Resume
+						</a>
+					</div>
 
-			{isMobile && (
-				<Drawer
-					anchor='right'
-					open={mobileOpen}
-					onClose={() => setMobileOpen(false)}
-					slotProps={{
-						paper: {
-							sx: {
-								width: 280,
-								backgroundColor: '#FFFFFF',
-								borderTopLeftRadius: 24,
-								borderBottomLeftRadius: 24,
-								boxShadow: '-4px 0 24px rgba(0, 0, 0, 0.08)',
-							},
-						},
-					}}>
-					<Box sx={{ p: 2.5, display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #E2E8F0' }}>
-						<Typography sx={{ fontSize: 16, fontWeight: 700, color: '#1E293B' }}>Menu</Typography>
-						<IconButton 
-							onClick={() => setMobileOpen(false)}
-							sx={{
-								backgroundColor: 'rgba(79, 70, 229, 0.08)',
-								'&:hover': { backgroundColor: 'rgba(79, 70, 229, 0.15)' }
-							}}>
-							<Close sx={{ fontSize: 20, color: '#4F46E5' }} />
-						</IconButton>
-					</Box>
-					<List sx={{ px: 2, pt: 2 }}>
-						{navItems.map(({ label, icon, href }) => (
-							<Link key={label} href={href} passHref>
-								<ListItem disablePadding sx={{ mb: 1.5 }}>
-									<ListItemButton
-										selected={href === active}
+					<button
+						onClick={() => setMobileOpen(!mobileOpen)}
+						className="md:hidden w-9 h-9 rounded-lg border border-border bg-surface flex items-center justify-center text-text"
+						aria-label="Toggle menu"
+					>
+						{mobileOpen ? (
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+						) : (
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+						)}
+					</button>
+				</nav>
+			</header>
+
+			{mobileOpen && (
+				<div className="fixed inset-0 z-40 md:hidden">
+					<div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+					<div className="absolute right-0 top-0 bottom-0 w-72 bg-surface border-l border-border p-6 flex flex-col animate-slide-in-right">
+						<div className="flex items-center justify-between mb-8">
+							<span className="text-sm font-semibold text-text">Menu</span>
+							<button onClick={() => setMobileOpen(false)} className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-text-muted hover:text-text">
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+							</button>
+						</div>
+						<nav className="flex flex-col gap-1">
+							{navItems.map(({ label, href }) => {
+								const active = isActive(href);
+								return (
+									<Link
+										key={href}
+										href={href}
 										onClick={() => setMobileOpen(false)}
-										sx={{
-											borderRadius: '14px',
-											py: 1.75,
-											backgroundColor: active === href ? 'rgba(79, 70, 229, 0.1)' : 'transparent',
-											border: active === href ? '1px solid rgba(79, 70, 229, 0.2)' : '1px solid transparent',
-											color: active === href ? '#4F46E5' : '#475569',
-											transition: 'all 0.2s ease-in-out',
-											'&:hover': {
-												backgroundColor: active === href ? 'rgba(79, 70, 229, 0.15)' : 'rgba(79, 70, 229, 0.05)',
-												borderColor: active === href ? 'rgba(79, 70, 229, 0.3)' : 'rgba(79, 70, 229, 0.1)',
-											},
-										}}>
-										<ListItemIcon
-											sx={{
-												minWidth: 40,
-												color: active === href ? '#4F46E5' : '#64748B',
-											}}>
-											{icon}
-										</ListItemIcon>
-										<ListItemText
-											primary={label}
-											primaryTypographyProps={{
-												fontWeight: active === href ? 700 : 600,
-												fontSize: 15,
-											}}
-										/>
-									</ListItemButton>
-								</ListItem>
-							</Link>
-						))}
-					</List>
-				</Drawer>
+										className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+											active ? 'bg-surface-2 text-text' : 'text-text-muted hover:text-text hover:bg-surface-2'
+										}`}
+									>
+										{label}
+									</Link>
+								);
+							})}
+						</nav>
+						<div className="mt-auto">
+							<a
+								href="/assets/muhammad-naeem-resume.pdf"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-accent text-white text-sm font-semibold"
+							>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+								Open Resume
+							</a>
+						</div>
+					</div>
+				</div>
 			)}
 		</>
 	);

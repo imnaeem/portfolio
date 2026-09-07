@@ -1,19 +1,13 @@
 'use client';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Box, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const GoBackButton = () => {
 	const router = useRouter();
 	const [canGoBack, setCanGoBack] = useState(false);
-	const theme = useTheme();
-
-	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 	useEffect(() => {
-		const hasHistory = window.history.length > 2;
-		setCanGoBack(hasHistory);
+		setCanGoBack(window.history.length > 2);
 	}, []);
 
 	const handleGoBack = () => {
@@ -22,43 +16,13 @@ const GoBackButton = () => {
 	};
 
 	return (
-		<Box>
-			{isMobile ? (
-				<IconButton
-					onClick={handleGoBack}
-					sx={{
-						p: 1,
-						py: 0.8,
-						mb: 2,
-						border: '1px solid #E2E8F0',
-						borderRadius: '10px',
-						mt: 0.6,
-						color: '#4F46E5',
-						'&:hover': {
-							borderColor: '#4F46E5',
-							backgroundColor: 'rgba(79, 70, 229, 0.04)',
-						},
-					}}>
-					<ArrowBackIcon />
-				</IconButton>
-			) : (
-				<Button
-					variant='outlined'
-					startIcon={<ArrowBackIcon />}
-					onClick={handleGoBack}
-					sx={{
-						borderColor: '#E2E8F0',
-						color: '#475569',
-						'&:hover': {
-							borderColor: '#4F46E5',
-							color: '#4F46E5',
-							backgroundColor: 'rgba(79, 70, 229, 0.04)',
-						},
-					}}>
-					Go back
-				</Button>
-			)}
-		</Box>
+		<button
+			onClick={handleGoBack}
+			className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-text-muted hover:text-text hover:border-border-hover text-sm font-medium transition-all duration-200"
+		>
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+			Go back
+		</button>
 	);
 };
 

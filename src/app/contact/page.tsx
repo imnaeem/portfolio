@@ -1,55 +1,31 @@
+'use client';
 import { ContactDetails } from '@/components/contact/ContactDetails';
 import { Form } from '@/components/contact/Form';
-import Title from '@/components/shared/Title';
-import { Box, Divider, Fade, Stack, Typography } from '@mui/material';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-	title: 'Contact Me | Muhammad Naeem',
-	description: 'Contact me for any queries, partnerships, or product design work.',
-};
 
 const Contact = () => {
 	return (
-		<Fade in timeout={500}>
+		<div className="flex flex-col gap-8 py-8">
 			<div>
-				<Title title='Contact Me' subtitle="Let's work together on your next project" />
-				<Stack direction={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 4, md: 6 }} mb={4}>
-					<ContactDetails />
-					<Divider orientation='horizontal' flexItem sx={{ display: { xs: 'block', md: 'none' } }} />
-
-					<Stack spacing={3} flex={2} width='100%'>
-						<Box
-							sx={{
-								p: { xs: 3, md: 4 },
-								borderRadius: '20px',
-								backgroundColor: '#FFFFFF',
-								border: '1px solid #E2E8F0',
-							}}>
-							<Box mb={3}>
-								<Typography
-									sx={{
-										fontSize: { xs: 20, md: 24 },
-										fontWeight: 600,
-										color: '#1E293B',
-										mb: 1,
-									}}>
-									Send a Message
-								</Typography>
-								<Typography
-									sx={{
-										fontSize: 15,
-										color: '#64748B',
-									}}>
-									I'm always open to discussing product design work or partnerships.
-								</Typography>
-							</Box>
-							<Form />
-						</Box>
-					</Stack>
-				</Stack>
+				<div className="flex items-center gap-3 mb-3">
+					<div className="w-7 h-[2px] bg-accent rounded-full" />
+					<h1 className="text-3xl sm:text-4xl font-bold text-text tracking-tight">Contact</h1>
+				</div>
+				<p className="text-sm text-text-muted max-w-lg leading-relaxed">
+					Let&apos;s work together on your next project. I&apos;m always open to discussing product design work or partnerships.
+				</p>
 			</div>
-		</Fade>
+
+			<div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+				<div className="lg:col-span-3 p-6 sm:p-8 rounded-2xl border border-border bg-surface">
+					<h2 className="text-xl font-bold text-text mb-2">Send a Message</h2>
+					<p className="text-sm text-text-muted mb-6">I&apos;ll get back to you as soon as possible.</p>
+					<Form />
+				</div>
+				<div className="lg:col-span-2">
+					<ContactDetails />
+				</div>
+			</div>
+		</div>
 	);
 };
 

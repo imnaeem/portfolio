@@ -1,21 +1,20 @@
+'use client';
 import PortfolioList from '@/components/portfolio/PortfolioList';
-import Title from '@/components/shared/Title';
-import { Fade } from '@mui/material';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-	title: 'My Portfolio | Muhammad Naeem',
-	description: 'Checkout my portfolio of projects built with React, Next.js, Node.js, and GraphQL.',
-};
 
 const Portfolio = () => {
 	return (
-		<Fade in timeout={500}>
+		<div className="flex flex-col gap-8 py-8">
 			<div>
-				<Title title='Portfolio' subtitle='A collection of my recent projects and work' />
-				<PortfolioList />
+				<div className="flex items-center gap-3 mb-3">
+					<div className="w-7 h-[2px] bg-accent rounded-full" />
+					<h1 className="text-3xl sm:text-4xl font-bold text-text tracking-tight">Work</h1>
+				</div>
+				<p className="text-sm text-text-muted max-w-lg leading-relaxed">
+					A collection of projects spanning production platforms, e-commerce, AI tools, and developer utilities.
+				</p>
 			</div>
-		</Fade>
+			<PortfolioList />
+		</div>
 	);
 };
 

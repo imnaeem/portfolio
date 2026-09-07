@@ -1,75 +1,24 @@
-import { Box, Stack, Typography } from '@mui/material';
-import { School } from '@mui/icons-material';
-
 export const Education = () => {
 	return (
-		<Box mb={4}>
-			<Typography
-				sx={{
-					fontWeight: 600,
-					fontSize: { xs: 20, md: 24 },
-					color: '#1E293B',
-					mb: 3,
-				}}>
+		<section>
+			<h2 className="text-xl font-bold text-text mb-6 flex items-center gap-3">
+				<span className="w-1.5 h-6 bg-accent rounded-full" />
 				Education
-			</Typography>
-			<Box
-				sx={{
-					p: { xs: 3, md: 4 },
-					borderRadius: '16px',
-					backgroundColor: '#FFFFFF',
-					border: '1px solid #E2E8F0',
-					transition: 'all 0.2s ease-in-out',
-					'&:hover': {
-						borderColor: '#8B5CF6',
-						boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
-					},
-				}}>
-				<Stack direction={{ xs: 'column', sm: 'row' }} justifyContent='space-between' alignItems='flex-start'>
-					<Box>
-						<Stack direction='row' alignItems='center' spacing={1.5} mb={0.5}>
-							<Box
-								sx={{
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
-									width: 36,
-									height: 36,
-									borderRadius: '10px',
-									backgroundColor: 'rgba(139, 92, 246, 0.1)',
-								}}>
-								<School sx={{ color: '#8B5CF6', fontSize: 18 }} />
-							</Box>
-							<Typography
-								sx={{
-									fontSize: { xs: 18, md: 20 },
-									fontWeight: 600,
-									color: '#1E293B',
-								}}>
-								Bachelor of Science in Information Technology
-							</Typography>
-						</Stack>
-						<Typography
-							sx={{
-								fontSize: 15,
-								fontWeight: 500,
-								color: '#8B5CF6',
-								ml: 6,
-							}}>
-							Punjab University College of Information Technology | PUCIT
-						</Typography>
-					</Box>
-				</Stack>
-				<Box sx={{ mt: 2, ml: 6 }}>
-					<Typography
-						sx={{
-							fontSize: 14,
-							color: '#475569',
-						}}>
-						CGPA: 3.13/4.0
-					</Typography>
-				</Box>
-			</Box>
-		</Box>
+			</h2>
+			<div className="p-6 sm:p-8 rounded-2xl border border-border bg-surface transition-all duration-300 hover:border-border-hover glow-border">
+				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+					<div className="flex items-center gap-4">
+						<div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent"><path d="m4 6 8-4 8 4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"/><path d="M18 22V5.14"/><path d="M6 22V5.14"/></svg>
+						</div>
+						<div>
+							<h3 className="text-base font-bold text-text">Bachelor of Science in Information Technology</h3>
+							<p className="text-sm font-semibold text-accent mt-0.5">Punjab University College of Information Technology | PUCIT</p>
+						</div>
+					</div>
+					<span className="text-sm text-text-dim font-medium sm:text-right">CGPA: 3.13/4.0</span>
+				</div>
+			</div>
+		</section>
 	);
 };

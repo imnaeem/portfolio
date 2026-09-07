@@ -1,40 +1,28 @@
 'use client';
-import UpArrow from '@mui/icons-material/KeyboardArrowUp';
-import { Box, Fab, Fade } from '@mui/material';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
+import { useEffect, useState } from 'react';
 
 const ScrollToTopArrow = () => {
-	const trigger = useScrollTrigger({
-		disableHysteresis: true,
-		threshold: 100,
-	});
+	const [visible, setVisible] = useState(false);
 
-	const handleClick = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
-	};
+	useEffect(() => {
+		const handleScroll = () => setVisible(window.scrollY > 100);
+		handleScroll();
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	const handleClick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+	if (!visible) return null;
 
 	return (
-		<Fade in={trigger}>
-			<Box onClick={handleClick} role='presentation' sx={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
-				<Fab
-					disableRipple
-					size='medium'
-					aria-label='scroll back to top'
-					sx={{
-						backgroundColor: '#4F46E5',
-						color: '#FFFFFF',
-						boxShadow: '0 4px 14px rgba(79, 70, 229, 0.3)',
-						'&:hover': {
-							backgroundColor: '#4338CA',
-						},
-					}}>
-					<UpArrow />
-				</Fab>
-			</Box>
-		</Fade>
+		<button
+			onClick={handleClick}
+			aria-label="Scroll to top"
+			className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-accent hover:bg-accent-hover text-white shadow-lg shadow-accent/30 flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 animate-fade-in"
+		>
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+		</button>
 	);
 };
 
