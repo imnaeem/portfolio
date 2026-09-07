@@ -1,8 +1,7 @@
-import { hexToRgb } from '@mui/material';
-
-export const hexToRgba = (color: string, opacity: number) => {
-	const [red, green, blue] = hexToRgb(color)?.match?.(/\d+/g)?.map(Number) ?? [];
-	return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
+export const hexToRgba = (hex: string, opacity: number) => {
+	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	if (!result) return `rgba(0, 0, 0, ${opacity})`;
+	return `rgba(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}, ${opacity})`;
 };
 
 export const titleCase = (value: string) => {

@@ -1,397 +1,92 @@
 'use client';
-import { GitHub, Link } from '@mui/icons-material';
-import { Box, Fade, Grid2, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { notFound } from 'next/navigation';
-import { useMemo } from 'react';
-import Carousel from 'react-multi-carousel';
+import { projectsList } from '@/app/api/projects/data';
 import { Skills } from '../experience/Skills';
 import Info from '../shared/Info';
-import 'react-multi-carousel/lib/styles.css';
-import { projectsList } from '@/app/api/projects/data';
-import HideImageIcon from '@mui/icons-material/HideImage';
+import { notFound } from 'next/navigation';
+import { useMemo, useState } from 'react';
+import Image from 'next/image';
 import NextLink from 'next/link';
 
 type Props = { projectKey: string };
 
 const ProjectView = ({ projectKey }: Props) => {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-	const currentProject = useMemo(() => {
-		return projectsList.find((project) => project.key === projectKey);
-	}, [projectKey]);
-
-	const currentIndex = useMemo(() => {
-		return projectsList.findIndex((project) => project.key === projectKey);
-	}, [projectKey]);
-
+	const currentProject = useMemo(() => projectsList.find((p) => p.key === projectKey), [projectKey]);
+	const currentIndex = useMemo(() => projectsList.findIndex((p) => p.key === projectKey), [projectKey]);
 	const prevProject = currentIndex > 0 ? projectsList[currentIndex - 1] : null;
 	const nextProject = currentIndex < projectsList.length - 1 ? projectsList[currentIndex + 1] : null;
+	const [imgIdx, setImgIdx] = useState(0);
 
 	if (!currentProject?.details) return notFound();
-
 	const { description, github, preview, techStack, images } = currentProject.details;
 
 	return (
-		<Fade in timeout={500}>
-			<div>
-				<Box
-					sx={{
-						p: { xs: 3, md: 4 },
-						borderRadius: '16px',
-						backgroundColor: '#FFFFFF',
-						border: '1px solid #E2E8F0',
-						mb: 4,
-					}}>
-					<Typography
-						sx={{
-							fontSize: { xs: 15, md: 16 },
-							lineHeight: 1.8,
-							color: '#475569',
-						}}>
-						{description}
-					</Typography>
-				</Box>
-
-				{(github || preview) && (
-					<Box mb={4}>
-						<Typography
-							sx={{
-								fontWeight: 600,
-								fontSize: { xs: 20, md: 24 },
-								color: '#1E293B',
-								mb: 3,
-							}}>
-							Project Links
-						</Typography>
-						<Stack gap={2} direction={{ xs: 'column', sm: 'row' }} flexWrap='wrap'>
-							{github && (
-								<Info
-									title='Github'
-									value='View Source Code'
-									link={github}
-									color='#1E293B'
-									icon={<GitHub />}
-									sx={{ width: isMobile ? '100%' : 'fit-content', minWidth: 220 }}
-								/>
-							)}
-							{preview && (
-								<Info
-									title='Live Preview'
-									value='Visit Website'
-									link={preview}
-									color='#4F46E5'
-									icon={<Link />}
-									sx={{ width: isMobile ? '100%' : 'fit-content', minWidth: 220 }}
-								/>
-							)}
-						</Stack>
-					</Box>
-				)}
-
-				<Box mb={4}>
-					<Typography
-						sx={{
-							fontWeight: 600,
-							fontSize: { xs: 20, md: 24 },
-							color: '#1E293B',
-							mb: 3,
-						}}>
-						Technologies Used
-					</Typography>
-					<Skills skills={techStack} />
-				</Box>
-
-				<Box mb={4}>
-					<Typography
-						sx={{
-							fontWeight: 600,
-							fontSize: { xs: 20, md: 24 },
-							color: '#1E293B',
-							mb: 3,
-						}}>
-						Project Preview
-					</Typography>
-					{images.length === 0 && (
-						<Box
-							sx={{
-								height: '40vh',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-								flexDirection: 'column',
-								backgroundColor: '#F8FAFC',
-								borderRadius: '16px',
-								border: '1px solid #E2E8F0',
-							}}>
-							<HideImageIcon sx={{ fontSize: 80, color: '#CBD5E1', mb: 2 }} />
-							<Typography
-								sx={{
-									fontSize: 16,
-									color: '#64748B',
-								}}>
-								Preview not available for this project.
-							</Typography>
-						</Box>
-					)}
-					{images.length > 0 && (
-						<Box
-							sx={{
-								borderRadius: '16px',
-								overflow: 'hidden',
-								border: '1px solid #E2E8F0',
-								'& .react-multi-carousel-dot button': {
-									borderColor: '#CBD5E1',
-								},
-								'& .react-multi-carousel-dot--active button': {
-									backgroundColor: '#4F46E5',
-									borderColor: '#4F46E5',
-								},
-							}}>
-							<Carousel
-								additionalTransfrom={0}
-								arrows
-								autoPlaySpeed={3000}
-								centerMode={false}
-								containerClass='container'
-								draggable
-								focusOnSelect={false}
-								infinite
-								keyBoardControl
-								minimumTouchDrag={80}
-								pauseOnHover
-								renderArrowsWhenDisabled={false}
-								renderButtonGroupOutside={false}
-								renderDotsOutside={false}
-								responsive={{
-									desktop: {
-										breakpoint: {
-											max: 3000,
-											min: 1024,
-										},
-										items: 1,
-									},
-									mobile: {
-										breakpoint: {
-											max: 464,
-											min: 0,
-										},
-										items: 1,
-									},
-									tablet: {
-										breakpoint: {
-											max: 1024,
-											min: 464,
-										},
-										items: 1,
-									},
-								}}
-								rewind={false}
-								rewindWithAnimation={false}
-								rtl={false}
-								shouldResetAutoplay
-								showDots
-								slidesToSlide={1}
-								swipeable>
-								{images.map((image) => (
-									<img
-										key={image.key}
-										src={image.url}
-										alt={image.key}
-										style={{
-											display: 'block',
-											height: '100%',
-											margin: 'auto',
-											width: '100%',
-										}}
-									/>
-								))}
-							</Carousel>
-						</Box>
-					)}
-				</Box>
-
-				{/* Next/Previous Navigation */}
-				<Box sx={{ mt: 6 }}>
-					<Typography
-						sx={{
-							fontWeight: 600,
-							fontSize: { xs: 20, md: 24 },
-							color: '#1E293B',
-							mb: 3,
-						}}>
-						More Projects
-					</Typography>
-					<Grid2 container spacing={3}>
-						{prevProject && (
-							<Grid2 size={{ xs: 12, md: 6 }}>
-								<NextLink href={`/portfolio/${prevProject.key}`} style={{ textDecoration: 'none' }}>
-									<Box
-										sx={{
-											position: 'relative',
-											height: 140,
-											borderRadius: '12px',
-											overflow: 'hidden',
-											cursor: 'pointer',
-											transition: 'transform 0.3s ease',
-											'&:hover': {
-												transform: 'translateY(-4px)',
-												'& .nav-overlay': {
-													background: 'linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))',
-												},
-											},
-										}}>
-										<img
-											src={prevProject.thumbnail}
-											alt={prevProject.title}
-											style={{
-												width: '100%',
-												height: '100%',
-												objectFit: 'cover',
-											}}
-										/>
-										<Box
-											className='nav-overlay'
-											sx={{
-												position: 'absolute',
-												inset: 0,
-												background: 'linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3))',
-												display: 'flex',
-												flexDirection: 'column',
-												justifyContent: 'flex-end',
-												p: 2.5,
-												transition: 'background 0.3s ease',
-											}}>
-											<Box
-												sx={{
-													display: 'inline-flex',
-													alignItems: 'center',
-													gap: 1,
-													mb: 1.5,
-													backgroundColor: 'rgba(255, 255, 255, 0.2)',
-													backdropFilter: 'blur(8px)',
-													px: 1.5,
-													py: 0.75,
-													borderRadius: '6px',
-													width: 'fit-content',
-												}}>
-												<Typography
-													sx={{
-														fontSize: 12,
-														fontWeight: 700,
-														color: '#FFFFFF',
-														textTransform: 'uppercase',
-														letterSpacing: '0.5px',
-													}}>
-													← Previous
-												</Typography>
-											</Box>
-											<Typography
-												sx={{
-													fontSize: 16,
-													fontWeight: 700,
-													color: '#FFFFFF',
-													lineHeight: 1.3,
-													display: '-webkit-box',
-													WebkitLineClamp: 2,
-													WebkitBoxOrient: 'vertical',
-													overflow: 'hidden',
-												}}>
-												{prevProject.title}
-											</Typography>
-										</Box>
-									</Box>
-								</NextLink>
-							</Grid2>
-						)}
-
-						{nextProject && (
-							<Grid2 size={{ xs: 12, md: 6 }}>
-								<NextLink href={`/portfolio/${nextProject.key}`} style={{ textDecoration: 'none' }}>
-									<Box
-										sx={{
-											position: 'relative',
-											height: 140,
-											borderRadius: '12px',
-											overflow: 'hidden',
-											cursor: 'pointer',
-											transition: 'transform 0.3s ease',
-											'&:hover': {
-												transform: 'translateY(-4px)',
-												'& .nav-overlay': {
-													background: 'linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2))',
-												},
-											},
-										}}>
-										<img
-											src={nextProject.thumbnail}
-											alt={nextProject.title}
-											style={{
-												width: '100%',
-												height: '100%',
-												objectFit: 'cover',
-											}}
-										/>
-										<Box
-											className='nav-overlay'
-											sx={{
-												position: 'absolute',
-												inset: 0,
-												background: 'linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.3))',
-												display: 'flex',
-												flexDirection: 'column',
-												justifyContent: 'flex-end',
-												alignItems: 'flex-end',
-												p: 2.5,
-												transition: 'background 0.3s ease',
-											}}>
-											<Box
-												sx={{
-													display: 'inline-flex',
-													alignItems: 'center',
-													gap: 1,
-													mb: 1.5,
-													backgroundColor: 'rgba(255, 255, 255, 0.2)',
-													backdropFilter: 'blur(8px)',
-													px: 1.5,
-													py: 0.75,
-													borderRadius: '6px',
-													width: 'fit-content',
-												}}>
-												<Typography
-													sx={{
-														fontSize: 12,
-														fontWeight: 700,
-														color: '#FFFFFF',
-														textTransform: 'uppercase',
-														letterSpacing: '0.5px',
-													}}>
-													Next →
-												</Typography>
-											</Box>
-											<Typography
-												sx={{
-													fontSize: 16,
-													fontWeight: 700,
-													color: '#FFFFFF',
-													lineHeight: 1.3,
-													textAlign: 'right',
-													display: '-webkit-box',
-													WebkitLineClamp: 2,
-													WebkitBoxOrient: 'vertical',
-													overflow: 'hidden',
-												}}>
-												{nextProject.title}
-											</Typography>
-										</Box>
-									</Box>
-								</NextLink>
-							</Grid2>
-						)}
-					</Grid2>
-				</Box>
+		<div className="flex flex-col gap-10">
+			<div className="p-6 sm:p-8 rounded-2xl border border-border bg-surface">
+				<p className="text-[15px] leading-relaxed text-text-muted">{description}</p>
 			</div>
-		</Fade>
+
+			{(github || preview) && (
+				<div>
+					<h2 className="text-xl font-bold text-text mb-4 flex items-center gap-3"><span className="w-1.5 h-6 bg-accent rounded-full" />Project Links</h2>
+					<div className="flex flex-wrap gap-3">
+						{github && <Info title="Github" value="View Source Code" link={github} icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>} />}
+						{preview && <Info title="Live Preview" value="Visit Website" link={preview} icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>} />}
+					</div>
+				</div>
+			)}
+
+			<div>
+				<h2 className="text-xl font-bold text-text mb-4 flex items-center gap-3"><span className="w-1.5 h-6 bg-accent rounded-full" />Technologies Used</h2>
+				<Skills skills={techStack} />
+			</div>
+
+			<div>
+				<h2 className="text-xl font-bold text-text mb-4 flex items-center gap-3"><span className="w-1.5 h-6 bg-accent rounded-full" />Project Preview</h2>
+				{images.length === 0 ? (
+					<div className="h-64 flex flex-col items-center justify-center rounded-2xl border border-border bg-surface">
+						<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-text-dim mb-3"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+						<p className="text-sm text-text-muted">Preview not available for this project.</p>
+					</div>
+				) : (
+					<div className="rounded-2xl overflow-hidden border border-border bg-surface">
+						<div className="relative w-full aspect-video bg-surface-2">
+							<img src={images[imgIdx].url} alt={images[imgIdx].key} className="w-full h-full object-cover" />
+						</div>
+						<div className="flex gap-2 p-3 overflow-x-auto">
+							{images.map((image, i) => (
+								<button key={image.key} onClick={() => setImgIdx(i)} className={`shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${i === imgIdx ? 'border-accent' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+									<img src={image.url} alt={image.key} className="w-full h-full object-cover" />
+								</button>
+							))}
+						</div>
+					</div>
+				)}
+			</div>
+
+			<div>
+				<h2 className="text-xl font-bold text-text mb-4 flex items-center gap-3"><span className="w-1.5 h-6 bg-accent rounded-full" />More Projects</h2>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+					{prevProject && (
+						<NextLink href={`/portfolio/${prevProject.key}`} className="group relative block h-36 rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+							<img src={prevProject.thumbnail} alt={prevProject.title} className="w-full h-full object-cover" />
+							<div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30 flex flex-col justify-end p-5">
+								<span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-white/20 backdrop-blur-sm text-[10px] font-bold text-white uppercase tracking-wider w-fit mb-2">&larr; Previous</span>
+								<p className="text-sm font-bold text-white line-clamp-1">{prevProject.title}</p>
+							</div>
+						</NextLink>
+					)}
+					{nextProject && (
+						<NextLink href={`/portfolio/${nextProject.key}`} className="group relative block h-36 rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+							<img src={nextProject.thumbnail} alt={nextProject.title} className="w-full h-full object-cover" />
+							<div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30 flex flex-col justify-end items-end p-5">
+								<span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-white/20 backdrop-blur-sm text-[10px] font-bold text-white uppercase tracking-wider w-fit mb-2">Next &rarr;</span>
+								<p className="text-sm font-bold text-white text-right line-clamp-1">{nextProject.title}</p>
+							</div>
+						</NextLink>
+					)}
+				</div>
+			</div>
+		</div>
 	);
 };
 

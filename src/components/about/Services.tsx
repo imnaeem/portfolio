@@ -1,74 +1,27 @@
-import {
-	CodeOff as BackendIcon,
-	BusinessCenter as DigitalMarketingIcon,
-	Code as FrontendIcon,
-	Dashboard as JavascriptIcon,
-	ScreenSearchDesktop as SeoIcon,
-	Language as WordpressIcon,
-} from '@mui/icons-material';
-import { Box, Grid2, Typography } from '@mui/material';
-import Card from '../shared/Card';
-
 const services = [
-	{
-		title: 'Frontend Developer',
-		description: 'I build modern responsive web interfaces using React, Next.js, Tailwind CSS, and Material-UI.',
-		color: '#4F46E5',
-		icon: <FrontendIcon />,
-	},
-	{
-		title: 'Backend Developer',
-		description: 'I develop scalable and efficient backend with Node.js, NestJS, Express and MongoDB.',
-		color: '#14B8A6',
-		icon: <BackendIcon />,
-	},
-	{
-		title: 'Full Stack Developer',
-		description: 'I create end-to-end web solutions using React, Next.js, Node.js, NestJS, MongoDB, and GraphQL.',
-		color: '#F59E0B',
-		icon: <JavascriptIcon />,
-	},
-	{
-		title: 'WordPress Development',
-		description: 'I design and customize WordPress themes, plugins, and WooCommerce stores to enhance functionality.',
-		color: '#8B5CF6',
-		icon: <WordpressIcon />,
-	},
-	{
-		title: 'Digital Marketing',
-		description: 'I help businesses grow online through Facebook Ads, Google Ads, SEO, and SEM strategies.',
-		color: '#EC4899',
-		icon: <DigitalMarketingIcon />,
-	},
-	{
-		title: 'SEO Optimization',
-		description:
-			'I optimize websites for search engines with On-Page, Off-Page, Technical, Local, and E-Commerce SEO strategies.',
-		color: '#10B981',
-		icon: <SeoIcon />,
-	},
+	{ title: 'Product Frontends', description: 'Responsive React and Next.js interfaces for dashboards, SaaS tools, marketplaces, and workflow-heavy apps.' },
+	{ title: 'Backend Systems', description: 'Node.js, NestJS, GraphQL, REST, MongoDB, and service integrations built for maintainability.' },
+	{ title: 'Performance Work', description: 'API and UI improvements such as the GraphQL optimizations that delivered 30% faster responses.' },
+	{ title: 'Architecture', description: 'Feature structure, RBAC, CI/CD, testing, data flows, and implementation plans teams can keep using.' },
+	{ title: 'Quality Practices', description: 'Unit tests, end-to-end checks, PR reviews, and release routines that reduce last-minute surprises.' },
+	{ title: 'Team Delivery', description: 'Developer mentoring, task breakdown, code reviews, and coordination across GitHub, Jira, and Agile teams.' },
 ];
 
 const Services = () => {
 	return (
-		<Box my={5}>
-			<Typography
-				sx={{
-					fontWeight: 600,
-					fontSize: { xs: 22, md: 26 },
-					color: '#1E293B',
-					mb: 3,
-				}}>
-				What I Do
-			</Typography>
-			<Grid2 container spacing={2.5}>
+		<div>
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 				{services.map((item) => (
-					<Grid2 key={item.title} size={{ xs: 12, sm: 6, lg: 4 }}>
-						<Card {...item} />
-					</Grid2>
+					<div key={item.title} className="p-6 rounded-2xl border border-border bg-surface transition-all duration-300 hover:border-border-hover glow-border">
+						<h3 className="text-base font-bold text-text">{item.title}</h3>
+						<p className="mt-2 text-[13px] text-text-muted leading-relaxed">{item.description}</p>
+					</div>
 				))}
-			</Grid2>
-		</Box>
+			</div>
+			<p className="mt-4 text-[13px] text-text-dim leading-relaxed">
+				I keep the service list focused on engineering work recruiters and hiring teams can validate through projects, resume bullets, and technical interviews.
+			</p>
+		</div>
 	);
 };
 

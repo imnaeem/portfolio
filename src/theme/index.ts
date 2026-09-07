@@ -2,73 +2,90 @@ import { createTheme } from '@mui/material';
 
 const baseTheme = createTheme();
 
-// Modern minimalistic theme with primary and secondary colors
-// Primary: Deep Indigo - #4F46E5
-// Secondary: Teal accent - #14B8A6
-// Background cards: Light gray tones
 const lightTheme = createTheme({
 	...baseTheme,
 	typography: {
 		fontFamily: 'var(--font-roboto), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-		button: { textTransform: 'none', fontWeight: 500 },
-		h1: { fontWeight: 700, letterSpacing: '-0.02em' },
-		h2: { fontWeight: 600, letterSpacing: '-0.01em' },
-		h3: { fontWeight: 600 },
-		h4: { fontWeight: 600 },
-		h5: { fontWeight: 500 },
-		h6: { fontWeight: 500 },
+		button: { textTransform: 'none', fontWeight: 600, fontSize: '0.875rem' },
+		h1: { fontWeight: 700, letterSpacing: '-0.02em', color: '#18181B' },
+		h2: { fontWeight: 700, letterSpacing: '-0.01em', color: '#18181B' },
+		h3: { fontWeight: 600, letterSpacing: '-0.01em', color: '#18181B' },
+		h4: { fontWeight: 650, color: '#18181B' },
+		h5: { fontWeight: 600, color: '#18181B' },
+		h6: { fontWeight: 600, color: '#18181B' },
 	},
 	palette: {
 		...baseTheme.palette,
 		primary: {
-			main: '#4F46E5',
-			light: '#818CF8',
-			dark: '#3730A3',
+			main: '#18181B', // Zinc 900
+			light: '#3F3F46', // Zinc 700
+			dark: '#09090B', // Zinc 950
 			contrastText: '#FFFFFF',
 		},
 		secondary: {
-			main: '#14B8A6',
-			light: '#5EEAD4',
-			dark: '#0D9488',
+			main: '#52525B', // Zinc 600
+			light: '#71717A', // Zinc 500
+			dark: '#27272A', // Zinc 800
 			contrastText: '#FFFFFF',
 		},
 		background: {
-			default: '#F8FAFC',
+			default: '#FAFAFA', // Soft off-white
 			paper: '#FFFFFF',
 		},
 		text: {
-			primary: '#1E293B',
-			secondary: '#64748B',
+			primary: '#18181B', // Zinc 900
+			secondary: '#52525B', // Zinc 600
 		},
 		grey: {
-			50: '#F8FAFC',
-			100: '#F1F5F9',
-			200: '#E2E8F0',
-			300: '#CBD5E1',
-			400: '#94A3B8',
-			500: '#64748B',
-			600: '#475569',
-			700: '#334155',
-			800: '#1E293B',
-			900: '#0F172A',
+			50: '#FAFAFA',
+			100: '#F4F4F5',
+			200: '#E4E4E7',
+			300: '#D4D4D8',
+			400: '#A1A1AA',
+			500: '#71717A',
+			600: '#52525B',
+			700: '#3F3F46',
+			800: '#27272A',
+			900: '#18181B',
 		},
 		mode: 'light',
 	},
 	shape: {
-		borderRadius: 12,
+		borderRadius: 12, // Increased border-radius for modern cards
 	},
 	components: {
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					borderRadius: 8,
-					padding: '10px 24px',
-					fontWeight: 500,
+					borderRadius: 10,
+					padding: '8px 16px',
+					fontWeight: 600,
+					boxShadow: 'none',
+					textTransform: 'none',
+					transition: 'all 0.2s ease-in-out',
 				},
 				contained: {
+					backgroundColor: '#18181B',
+					color: '#FFFFFF',
 					boxShadow: 'none',
 					'&:hover': {
-						boxShadow: '0 4px 12px rgba(79, 70, 229, 0.25)',
+						backgroundColor: '#27272A',
+						boxShadow: 'none',
+					},
+				},
+				outlined: {
+					borderColor: '#E4E4E7',
+					color: '#18181B',
+					'&:hover': {
+						backgroundColor: '#F4F4F5',
+						borderColor: '#D4D4D8',
+					},
+				},
+				text: {
+					color: '#52525B',
+					'&:hover': {
+						backgroundColor: '#F4F4F5',
+						color: '#18181B',
 					},
 				},
 			},
@@ -76,22 +93,52 @@ const lightTheme = createTheme({
 		MuiCard: {
 			styleOverrides: {
 				root: {
-					boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
-					border: '1px solid #E2E8F0',
+					boxShadow: 'none',
+					border: '1px solid #E4E4E7',
+					borderRadius: 12,
+					backgroundColor: '#FFFFFF',
+				},
+			},
+		},
+		MuiChip: {
+			styleOverrides: {
+				root: {
+					borderRadius: 8,
+					fontWeight: 500,
+					fontSize: '0.8125rem',
 				},
 			},
 		},
 		MuiTextField: {
 			styleOverrides: {
 				root: {
+					'& .MuiOutlinedInput-root': {
+						borderRadius: 10,
+						backgroundColor: '#FFFFFF',
+						'& fieldset': {
+							borderColor: '#E4E4E7',
+						},
+						'&:hover fieldset': {
+							borderColor: '#D4D4D8',
+						},
+						'&.Mui-focused fieldset': {
+							borderColor: '#18181B',
+							borderWidth: '1.5px',
+						},
+					},
 					'& .MuiFilledInput-root': {
-						borderRadius: 8,
-						backgroundColor: '#F8FAFC',
+						borderRadius: 10,
+						backgroundColor: '#F4F4F5',
+						border: '1px solid #E4E4E7',
+						'&::before, &::after': {
+							display: 'none',
+						},
 						'&:hover': {
-							backgroundColor: '#F1F5F9',
+							backgroundColor: '#E4E4E7',
 						},
 						'&.Mui-focused': {
-							backgroundColor: '#F8FAFC',
+							backgroundColor: '#FFFFFF',
+							borderColor: '#18181B',
 						},
 					},
 				},
