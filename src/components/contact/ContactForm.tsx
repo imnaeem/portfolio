@@ -1,17 +1,22 @@
 'use client';
-import SendIcon from '@mui/icons-material/Send';
-import { Button, Stack, TextField } from '@mui/material';
-import React, { useState } from 'react';
+
+import { useState } from 'react';
+import { FiSend } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+
+const inputCls =
+	'w-full rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-stone-400 transition-colors focus:border-accent focus:outline-none';
 
 const initialForm = { name: '', email: '', message: '' };
 
-const ContactForm = () => {
+/** Contact form — posts to /api/contact (nodemailer flow kept intact). */
+export default function ContactForm() {
 	const [loading, setLoading] = useState(false);
 	const [form, setForm] = useState(initialForm);
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		e.preventDefault();
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
 
@@ -24,145 +29,81 @@ const ContactForm = () => {
 		}
 
 		setLoading(true);
-
 		try {
 			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(form),
 			});
-
 			const data = await response.json();
 
 			if (response.ok) {
-				toast.success('Message sent successfully, We will get back to you as soon as possible. Thanks!');
+				toast.success('Message sent successfully. I will get back to you as soon as possible. Thanks!');
 				setForm(initialForm);
 			} else {
 				toast.error(data.message || 'Failed to send message. Try Again!');
 			}
-			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-		} catch (error: any) {
+		} catch (error) {
 			console.error('Error sending email:', error);
-			toast.error(error?.message || 'Failed to send message. Try Again!');
+			toast.error('Failed to send message. Try Again!');
 		} finally {
 			setLoading(false);
 		}
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<Stack spacing={2.5}>
-				<TextField
-					required
-					type='text'
-					size='medium'
-					key='name'
+		<form onSubmit={handleSubmit} className='space-y-4'>
+			<div>
+				<label htmlFor='contact-name' className='mb-1.5 block text-xs font-semibold text-ink'>
+					Your Name
+				</label>
+				<input
+					id='contact-name'
 					name='name'
-					variant='filled'
-					label='Your Name'
-					fullWidth
+					type='text'
+					required
 					value={form.name}
 					onChange={handleChange}
-					sx={{
-						'& .MuiFilledInput-root': {
-							borderRadius: '12px',
-							backgroundColor: '#F8FAFC',
-							border: '1px solid #E2E8F0',
-							'&:hover': {
-								backgroundColor: '#F1F5F9',
-							},
-							'&.Mui-focused': {
-								backgroundColor: '#F8FAFC',
-								borderColor: '#4F46E5',
-							},
-							'&::before, &::after': {
-								display: 'none',
-							},
-						},
-					}}
+					placeholder='Jane Smith'
+					className={inputCls}
 				/>
-				<TextField
-					required
-					type='email'
-					size='medium'
+			</div>
+			<div>
+				<label htmlFor='contact-email' className='mb-1.5 block text-xs font-semibold text-ink'>
+					Your Email
+				</label>
+				<input
+					id='contact-email'
 					name='email'
-					label='Your Email'
-					variant='filled'
-					fullWidth
+					type='email'
+					required
 					value={form.email}
 					onChange={handleChange}
-					sx={{
-						'& .MuiFilledInput-root': {
-							borderRadius: '12px',
-							backgroundColor: '#F8FAFC',
-							border: '1px solid #E2E8F0',
-							'&:hover': {
-								backgroundColor: '#F1F5F9',
-							},
-							'&.Mui-focused': {
-								backgroundColor: '#F8FAFC',
-								borderColor: '#4F46E5',
-							},
-							'&::before, &::after': {
-								display: 'none',
-							},
-						},
-					}}
+					placeholder='jane@company.com'
+					className={inputCls}
 				/>
-				<TextField
-					required
-					size='medium'
+			</div>
+			<div>
+				<label htmlFor='contact-message' className='mb-1.5 block text-xs font-semibold text-ink'>
+					Your Message
+				</label>
+				<textarea
+					id='contact-message'
 					name='message'
-					variant='filled'
-					label='Your Message'
-					multiline
+					required
 					rows={5}
-					fullWidth
 					value={form.message}
 					onChange={handleChange}
-					sx={{
-						'& .MuiFilledInput-root': {
-							borderRadius: '12px',
-							backgroundColor: '#F8FAFC',
-							border: '1px solid #E2E8F0',
-							'&:hover': {
-								backgroundColor: '#F1F5F9',
-							},
-							'&.Mui-focused': {
-								backgroundColor: '#F8FAFC',
-								borderColor: '#4F46E5',
-							},
-							'&::before, &::after': {
-								display: 'none',
-							},
-						},
-					}}
+					placeholder='Tell me about your project…'
+					className={`${inputCls} resize-none`}
 				/>
-				<Button
-					loading={loading}
-					loadingPosition='start'
-					startIcon={<SendIcon />}
-					size='large'
-					type='submit'
-					variant='contained'
-					fullWidth
-					sx={{
-						py: 1.5,
-						borderRadius: '12px',
-						backgroundColor: '#4F46E5',
-						fontWeight: 600,
-						fontSize: 16,
-						boxShadow: 'none',
-						'&:hover': {
-							backgroundColor: '#4338CA',
-							boxShadow: '0 4px 12px rgba(79, 70, 229, 0.25)',
-						},
-					}}>
-					Send Message
-				</Button>
-			</Stack>
+			</div>
+			<button
+				type='submit'
+				disabled={loading}
+				className='inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-60'>
+				<FiSend size={15} /> {loading ? 'Sending…' : 'Send Message'}
+			</button>
 		</form>
 	);
-};
-
-export default ContactForm;
+}

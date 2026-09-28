@@ -1,22 +1,26 @@
-import PortfolioList from '@/components/portfolio/PortfolioList';
-import Title from '@/components/shared/Title';
-import { Fade } from '@mui/material';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import PortfolioGrid from '@/components/portfolio/PortfolioGrid';
+import SectionHeading from '@/components/ui/SectionHeading';
+import Reveal from '@/components/ui/Reveal';
 
 export const metadata: Metadata = {
 	title: 'My Portfolio | Muhammad Naeem',
 	description: 'Checkout my portfolio of projects built with React, Next.js, Node.js, and GraphQL.',
 };
 
-const Portfolio = () => {
+export default function PortfolioPage() {
 	return (
-		<Fade in timeout={500}>
-			<div>
-				<Title title='Portfolio' subtitle='A collection of my recent projects and work' />
-				<PortfolioList />
+		<>
+			<Reveal>
+				<SectionHeading
+					eyebrow='Work'
+					title='Portfolio'
+					description='A collection of my recent projects — professional client work and personal experiments.'
+				/>
+			</Reveal>
+			<div className='mt-8'>
+				<PortfolioGrid />
 			</div>
-		</Fade>
+		</>
 	);
-};
-
-export default Portfolio;
+}
