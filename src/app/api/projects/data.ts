@@ -2,12 +2,47 @@ import { Project } from '@/types';
 
 export const projectsList: Project[] = [
 	{
+		title: 'Ralliy',
+		key: 'ralliy',
+		type: 'professional',
+		color: '#2563EB',
+		thumbnail: '/images/projects/ralliy/thumbnail.png',
+		featured: true,
+		metadata: {
+			description:
+				'Freelance marketplace with AI-powered job creation, real-time chat, and escrow payments.',
+		},
+		details: {
+			github: '',
+			techStack: [
+				'Next.js 16',
+				'NestJS',
+				'GraphQL',
+				'Apollo',
+				'PostgreSQL',
+				'Prisma',
+				'Redis',
+				'BullMQ',
+				'Socket.IO',
+				'Clerk',
+				'OpenAI',
+				'Langfuse',
+				'Stripe Connect',
+				'AWS ECS',
+				'Docker',
+			],
+			preview: 'https://staging.ralliy.com',
+			description:
+				'Ralliy is a freelance marketplace built to take the friction out of hiring. Clients describe what they need in plain words or upload files, and AI turns that into structured job posts; freelancers onboard the same way. Underneath it is a full production system: a NestJS backend with schema-first GraphQL and Apollo, PostgreSQL with Prisma, Redis and BullMQ for background jobs, and real-time chat over Socket.IO plus GraphQL subscriptions. Auth runs on Clerk, AI workflows on OpenAI with Langfuse for prompt management and tracing, and payments through Stripe Connect with fiat and USDC escrow. The frontend is Next.js 16 with shadcn and Apollo, deployed on AWS ECS with RDS, ElastiCache, S3, and SES. One of the more demanding builds in it: a home-repair services flow with lead management, appointment scheduling, multi-step home assessment surveys, and automated PDF reports generated from survey inputs and images, with guest access throughout.',
+			images: [],
+		},
+	},
+	{
 		title: 'Platforms Inspection',
 		key: 'platform-inspection',
 		type: 'professional',
 		color: '#000000',
 		thumbnail: '/images/projects/platform-inspection/thumbnail.png',
-		featured: true,
 		metadata: {
 			description: 'A web application for platforms inspection and management.',
 		},
@@ -157,7 +192,6 @@ export const projectsList: Project[] = [
 		type: 'professional',
 		color: '#187355',
 		thumbnail: '/images/projects/shuttle-pro/thumbnail.png',
-		featured: true,
 		metadata: {
 			description:
 				'MERN E-Commerce Platform with GraphQL, WooCommerce & Shopify Integration, and Automated Social Media Management.',
@@ -409,6 +443,7 @@ export const projectsList: Project[] = [
 		type: 'personal',
 		color: '#4A90E2',
 		thumbnail: '/images/projects/aibot/thumbnail.png',
+		featured: true,
 		metadata: {
 			description: 'AI chatbot interface with multi-model support and document-aware conversations.',
 		},
@@ -454,6 +489,7 @@ export const projectsList: Project[] = [
 		type: 'personal',
 		color: '#10B981',
 		thumbnail: '/images/projects/json-to-toon/thumbnail.jpg',
+		featured: true,
 		metadata: {
 			description: 'Convert JSON to TOON format and reduce LLM token usage by ~50%. Free, fast, and secure.',
 		},

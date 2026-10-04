@@ -31,7 +31,7 @@ const technologies = [
 export const metadata: Metadata = {
 	title: 'Experience | Muhammad Naeem',
 	description:
-		'Full Stack JavaScript Developer skilled in React, Next.js, Node.js, and GraphQL, building scalable and high-performance web apps.',
+		'Senior Full-Stack Engineer building scalable web apps and backend systems with Next.js, NestJS, AWS, and AI-native workflows.',
 };
 
 const Experience = () => {

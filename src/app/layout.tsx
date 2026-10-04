@@ -36,9 +36,9 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-	title: 'Muhammad Naeem | Full Stack Javascript Developer',
+	title: 'Muhammad Naeem | Senior Full-Stack Engineer',
 	description:
-		'Full Stack JavaScript Developer skilled in React, Next.js, Node.js, and GraphQL, building scalable and high-performance web apps.',
+		'Senior Full-Stack Engineer building scalable web apps and backend systems with Next.js, NestJS, AWS, and AI-native workflows.',
 	applicationName: 'Muhammad Naeem Portfolio',
 	authors: [{ name: 'Muhammad Naeem', url: 'https://www.linkedin.com/in/im-naeem/' }],
 	keywords: [
@@ -47,7 +47,8 @@ export const metadata: Metadata = {
 		'next js developer',
 		'nest js developer',
 		'graphql developer',
-		'full stack developer',
+		'senior full-stack engineer',
+		'ai engineer',
 		'javascript developer',
 		'typescript developer',
 		'web developer',
