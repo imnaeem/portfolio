@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect } from 'react';
 
 const WhatsAppRedirect = () => {
@@ -9,11 +10,15 @@ const WhatsAppRedirect = () => {
 	}, []);
 
 	return (
-		<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-			<p>Redirecting to WhatsApp...</p>
+		<div className='flex min-h-[40vh] flex-col items-center justify-center gap-4 text-center'>
+			<div
+				className='h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent'
+				role='status'
+				aria-label='Loading'
+			/>
+			<p className='text-sm text-ink-soft'>Redirecting to WhatsApp…</p>
 		</div>
 	);
 };
 
 export default WhatsAppRedirect;
-

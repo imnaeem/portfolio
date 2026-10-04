@@ -1,7 +1,10 @@
-import { hexToRgb } from '@mui/material';
-
 export const hexToRgba = (color: string, opacity: number) => {
-	const [red, green, blue] = hexToRgb(color)?.match?.(/\d+/g)?.map(Number) ?? [];
+	const hex = color.replace('#', '');
+	const full = hex.length === 3 ? hex.split('').map((c) => c + c).join('') : hex;
+	const num = Number.parseInt(full, 16);
+	const red = (num >> 16) & 255;
+	const green = (num >> 8) & 255;
+	const blue = num & 255;
 	return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
 };
 

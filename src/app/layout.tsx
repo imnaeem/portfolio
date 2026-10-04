@@ -1,44 +1,30 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
-import { Footer } from '@/components/footer/Footer';
-import { Navbar } from '@/components/navbar';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { ToastContainer } from 'react-toastify';
-import ScrollToTop from '../components/scroll/ScrollToTop';
-import ScrollToTopArrow from '../components/scroll/ScrollToTopArrow';
-import ThemeRegistry from './ThemeRegistry';
-import { GoogleAnalytics } from "@next/third-parties/google";
+import 'react-toastify/dist/ReactToastify.css';
+import BackToTopButton from '@/components/layout/BackToTopButton';
+import Footer from '@/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
+import RouteScrollTop from '@/components/layout/RouteScrollTop';
 
-const inter = localFont({
-	src: [
-		{
-			path: '../../public/fonts/roboto-latin-300-normal.woff2',
-			weight: '300',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/roboto-latin-400-normal.woff2',
-			weight: '400',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/roboto-latin-500-normal.woff2',
-			weight: '500',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/roboto-latin-700-normal.woff2',
-			weight: '700',
-			style: 'normal',
-		},
-	],
-	variable: '--font-roboto',
+const inter = Inter({
+	subsets: ['latin'],
+	variable: '--font-inter',
+	display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+	subsets: ['latin'],
+	variable: '--font-display',
+	display: 'swap',
 });
 
 export const metadata: Metadata = {
-	title: 'Muhammad Naeem | Full Stack Javascript Developer',
+	title: 'Muhammad Naeem | Senior Full-Stack Engineer',
 	description:
-		'Full Stack JavaScript Developer skilled in React, Next.js, Node.js, and GraphQL, building scalable and high-performance web apps.',
+		'Senior Full-Stack Engineer building scalable web apps and backend systems with Next.js, NestJS, AWS, and AI-native workflows.',
 	applicationName: 'Muhammad Naeem Portfolio',
 	authors: [{ name: 'Muhammad Naeem', url: 'https://www.linkedin.com/in/im-naeem/' }],
 	keywords: [
@@ -47,7 +33,8 @@ export const metadata: Metadata = {
 		'next js developer',
 		'nest js developer',
 		'graphql developer',
-		'full stack developer',
+		'senior full-stack engineer',
+		'ai engineer',
 		'javascript developer',
 		'typescript developer',
 		'web developer',
@@ -65,56 +52,15 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${inter.variable} antialiased`}>
-				<div className='min-h-screen' style={{
-					position: 'relative',
-					background: 'linear-gradient(135deg, rgba(248, 250, 252, 1) 0%, rgba(241, 245, 249, 1) 50%, rgba(248, 250, 252, 1) 100%)',
-				}}>
-					{/* Background gradients */}
-					<div style={{
-						position: 'fixed',
-						top: 0,
-						left: 0,
-						right: 0,
-						bottom: 0,
-						overflow: 'hidden',
-						zIndex: 0,
-						pointerEvents: 'none',
-					}}>
-						{/* Diagonal gradient */}
-						<div style={{
-							position: 'absolute',
-							top: 0,
-							left: 0,
-							right: 0,
-							bottom: 0,
-							background: 'linear-gradient(135deg, rgba(79, 70, 229, 0.02) 0%, transparent 50%)',
-						}} />
-						
-						{/* Straight gradient from other side */}
-						<div style={{
-							position: 'absolute',
-							top: 0,
-							left: 0,
-							right: 0,
-							bottom: 0,
-							background: 'linear-gradient(225deg, rgba(20, 184, 166, 0.02) 0%, transparent 50%)',
-						}} />
-					</div>
-
-					<div style={{ position: 'relative', zIndex: 1 }}>
-						<Navbar />
-						<main className='container mx-auto px-4 sm:px-6 lg:px-8 py-8' style={{ maxWidth: '1200px' }}>
-							<ThemeRegistry>{children}</ThemeRegistry>
-						</main>
-						<Footer />
-					</div>
-				</div>
-				<ToastContainer />
-				<ScrollToTop />
-				<ScrollToTopArrow />
+			<body className={`${inter.variable} ${spaceGrotesk.variable} bg-canvas font-sans text-ink antialiased`}>
+				<Navbar />
+				<main className='mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8'>{children}</main>
+				<Footer />
+				<ToastContainer position='bottom-right' theme='light' />
+				<RouteScrollTop />
+				<BackToTopButton />
 			</body>
-			<GoogleAnalytics gaId="G-YXRFS4T2EH" />
+			<GoogleAnalytics gaId='G-YXRFS4T2EH' />
 		</html>
 	);
 }

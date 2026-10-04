@@ -1,83 +1,66 @@
-import { Education } from '@/components/experience/Education';
-import ProfessionalExperiences from '@/components/experience/ProfessionalExperiences';
-import { Resume } from '@/components/experience/Resume';
-import { Skills } from '@/components/experience/Skills';
-import Title from '@/components/shared/Title';
-import { Box, Fade, Stack, Typography } from '@mui/material';
-import { Metadata } from 'next';
-
-const technologies = [
-	'ReactJs',
-	'NextJs',
-	'VueJs',
-	'Redux',
-	'React Query',
-	'Git',
-	'Github',
-	'NodeJs',
-	'NestJs',
-	'Apollo GraphQL',
-	'Kafka',
-	'Github Actions',
-	'CI/CD',
-	'Typescript',
-	'MongoDB',
-	'SQL',
-	'AWS Services',
-	'Vercel',
-	'Docker',
-];
+import type { Metadata } from 'next';
+import EducationCard from '@/components/experience/EducationCard';
+import ExperienceTimeline from '@/components/experience/ExperienceTimeline';
+import ResumeGate from '@/components/experience/ResumeGate';
+import SkillsGroups from '@/components/experience/SkillsGroups';
+import SectionHeading from '@/components/ui/SectionHeading';
+import Reveal from '@/components/ui/Reveal';
 
 export const metadata: Metadata = {
 	title: 'Experience | Muhammad Naeem',
 	description:
-		'Full Stack JavaScript Developer skilled in React, Next.js, Node.js, and GraphQL, building scalable and high-performance web apps.',
+		'Senior Full-Stack Engineer building scalable web apps and backend systems with Next.js, NestJS, AWS, and AI-native workflows.',
 };
 
-const Experience = () => {
+export default function ExperiencePage() {
 	return (
-		<Fade in timeout={500}>
-			<Box>
-			<Stack
-				direction={{ xs: 'column', md: 'row' }}
-				justifyContent='space-between'
-				alignItems={{ xs: 'flex-start', md: 'center' }}
-				mb={2}
-				spacing={{ xs: 2, md: 0 }}>
-				<Title title='Experience' subtitle='My professional journey and technical expertise' />
-				<Resume />
-			</Stack>
+		<>
+			<Reveal>
+				<div className='flex flex-wrap items-start justify-between gap-4'>
+					<SectionHeading
+						eyebrow='Career'
+						title='Experience'
+						description='My professional journey, technical expertise, and education.'
+					/>
+					<ResumeGate />
+				</div>
+			</Reveal>
 
-				<Box mb={6}>
-					<Typography
-						sx={{
-							fontWeight: 600,
-							fontSize: { xs: 20, md: 24 },
-							color: '#1E293B',
-							mb: 3,
-						}}>
+			<section aria-label='Work history' className='mt-10'>
+				<Reveal>
+					<h2 className='font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl'>
 						Work History
-					</Typography>
-					<ProfessionalExperiences />
-				</Box>
+					</h2>
+				</Reveal>
+				<div className='mt-5'>
+					<ExperienceTimeline />
+				</div>
+			</section>
 
-				<Box mb={6}>
-					<Typography
-						sx={{
-							fontWeight: 600,
-							fontSize: { xs: 20, md: 24 },
-							color: '#1E293B',
-							mb: 3,
-						}}>
+			<section aria-label='Technical skills' className='mt-12'>
+				<Reveal>
+					<h2 className='font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl'>
 						Technical Skills
-					</Typography>
-					<Skills skills={technologies} />
-				</Box>
+					</h2>
+					<p className='mt-2 max-w-2xl text-[15px] text-ink-soft'>
+						The tools and technologies I reach for every day.
+					</p>
+				</Reveal>
+				<div className='mt-5'>
+					<SkillsGroups />
+				</div>
+			</section>
 
-				<Education />
-			</Box>
-		</Fade>
+			<section aria-label='Education' className='mt-12'>
+				<Reveal>
+					<h2 className='font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl'>
+						Education
+					</h2>
+				</Reveal>
+				<div className='mt-5'>
+					<EducationCard />
+				</div>
+			</section>
+		</>
 	);
-};
-
-export default Experience;
+}

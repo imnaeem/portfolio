@@ -1,56 +1,45 @@
-import { ContactDetails } from '@/components/contact/ContactDetails';
-import { Form } from '@/components/contact/Form';
-import Title from '@/components/shared/Title';
-import { Box, Divider, Fade, Stack, Typography } from '@mui/material';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import ContactCards from '@/components/contact/ContactCards';
+import ContactForm from '@/components/contact/ContactForm';
+import Card from '@/components/ui/Card';
+import SectionHeading from '@/components/ui/SectionHeading';
+import Reveal from '@/components/ui/Reveal';
 
 export const metadata: Metadata = {
 	title: 'Contact Me | Muhammad Naeem',
 	description: 'Contact me for any queries, partnerships, or product design work.',
 };
 
-const Contact = () => {
+export default function ContactPage() {
 	return (
-		<Fade in timeout={500}>
-			<div>
-				<Title title='Contact Me' subtitle="Let's work together on your next project" />
-				<Stack direction={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 4, md: 6 }} mb={4}>
-					<ContactDetails />
-					<Divider orientation='horizontal' flexItem sx={{ display: { xs: 'block', md: 'none' } }} />
+		<>
+			<Reveal>
+				<SectionHeading
+					eyebrow='Contact'
+					title="Let's work together"
+					description='Have a question, a project, or a role in mind? Reach out — I usually reply within a day.'
+				/>
+			</Reveal>
 
-					<Stack spacing={3} flex={2} width='100%'>
-						<Box
-							sx={{
-								p: { xs: 3, md: 4 },
-								borderRadius: '20px',
-								backgroundColor: '#FFFFFF',
-								border: '1px solid #E2E8F0',
-							}}>
-							<Box mb={3}>
-								<Typography
-									sx={{
-										fontSize: { xs: 20, md: 24 },
-										fontWeight: 600,
-										color: '#1E293B',
-										mb: 1,
-									}}>
-									Send a Message
-								</Typography>
-								<Typography
-									sx={{
-										fontSize: 15,
-										color: '#64748B',
-									}}>
-									I'm always open to discussing product design work or partnerships.
-								</Typography>
-							</Box>
-							<Form />
-						</Box>
-					</Stack>
-				</Stack>
+			<div className='mt-10 grid gap-6 lg:grid-cols-[1fr_1.1fr]'>
+				<Reveal>
+					<ContactCards />
+				</Reveal>
+
+				<Reveal delay={100}>
+					<Card className='h-full p-6 sm:p-8'>
+						<h2 className='font-display text-xl font-semibold tracking-tight text-ink'>
+							Send a message
+						</h2>
+						<p className='mt-1 text-sm text-ink-soft'>
+							Prefer email? The form lands straight in my inbox.
+						</p>
+						<div className='mt-5'>
+							<ContactForm />
+						</div>
+					</Card>
+				</Reveal>
 			</div>
-		</Fade>
+		</>
 	);
-};
-
-export default Contact;
+}
