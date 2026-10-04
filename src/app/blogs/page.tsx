@@ -4,7 +4,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 
 export const metadata: Metadata = {
-	title: 'Blog Articles | Muhammad Naeem - Full Stack Developer',
+	title: 'Blog Articles | Muhammad Naeem - Senior Full-Stack Engineer',
 	description:
 		'Read in-depth articles about React, Next.js, NestJS, GraphQL, AWS, and AI development tools. Learn modern web development techniques and best practices.',
 	keywords:

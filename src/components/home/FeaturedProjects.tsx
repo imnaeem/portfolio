@@ -6,7 +6,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 
 export default function FeaturedProjects() {
-	const featured = projectsList.filter((p) => p.featured).slice(0, 3);
+	const featured = projectsList.filter((p) => p.featured).slice(0, 4);
 
 	return (
 		<section aria-label='Featured projects' className='py-10 sm:py-14'>
@@ -25,7 +25,7 @@ export default function FeaturedProjects() {
 				</div>
 			</Reveal>
 
-			<div className='mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
+			<div className='mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4'>
 				{featured.map((project, i) => (
 					<Reveal key={project.key} delay={i * 80} className='h-full'>
 						<ProjectCard project={project} />

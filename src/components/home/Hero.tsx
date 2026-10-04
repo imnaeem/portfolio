@@ -14,7 +14,7 @@ const socialLinks = [
 
 const stats = [
 	{ value: '4+', label: 'Years experience' },
-	{ value: '9', label: 'Projects shipped' },
+	{ value: '10', label: 'Projects shipped' },
 	{ value: '3', label: 'Developers mentored' },
 ];
 
@@ -25,14 +25,14 @@ export default function Hero() {
 				<Reveal>
 					<Chip variant='accent' className='mb-5'>
 						<span className='mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-accent' aria-hidden='true' />
-						Full Stack Developer
+						Senior Full-Stack Engineer
 					</Chip>
 					<h1 className='font-display text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl'>
 						Hi, I&apos;m Muhammad <span className='text-accent'>Naeem</span>
 					</h1>
 					<p className='mt-5 max-w-xl text-lg leading-relaxed text-ink-soft'>
-						Software Engineer with 4+ years of experience building scalable JavaScript applications — from
-						pixel-sharp interfaces to robust APIs.
+						I build scalable web apps and backend systems — Next.js, NestJS, AWS, and AI-native
+						workflows, from pixel-sharp interfaces to the APIs behind them.
 					</p>
 					<div className='mt-7 flex flex-wrap gap-3'>
 						<ButtonLink href='/contact'>
@@ -64,7 +64,7 @@ export default function Hero() {
 							<div className='relative aspect-square overflow-hidden rounded-2xl'>
 								<Image
 									src='/profile-image.jpg'
-									alt='Muhammad Naeem — Full Stack Developer'
+									alt='Muhammad Naeem — Senior Full-Stack Engineer'
 									fill
 									priority
 									sizes='(max-width: 1024px) 320px, 420px'

@@ -34,8 +34,8 @@ export default function Footer() {
 							imnaeem<span className='text-accent'>.dev</span>
 						</Link>
 						<p className='mt-3 max-w-sm text-sm leading-relaxed text-ink-soft'>
-							Full Stack JavaScript Developer building scalable web apps with React, Next.js, Node.js, and
-							GraphQL.
+							Senior Full-Stack Engineer building scalable web apps and backend systems with Next.js,
+							NestJS, AWS, and AI-native workflows.
 						</p>
 						<div className='mt-4 flex gap-2'>
 							{socials.map(({ label, href, Icon }) => (

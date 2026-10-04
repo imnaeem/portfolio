@@ -14,6 +14,9 @@ export default function EducationCard() {
 					<div>
 						<h3 className='font-display text-lg font-semibold tracking-tight text-ink'>{education.degree}</h3>
 						<p className='mt-1 text-sm font-medium text-ink-soft'>{education.school}</p>
+						<p className='mt-2 text-xs font-medium uppercase tracking-wider text-ink-muted'>
+							{education.period} · {education.note}
+						</p>
 					</div>
 				</div>
 			</Card>

@@ -44,8 +44,8 @@ export default function About() {
 			<Reveal>
 				<SectionHeading
 					eyebrow='About'
-					title='Building impactful digital solutions'
-					description='I bring a problem-solving mindset, strong collaboration skills, and a focus on maintainable, high-performance software. I specialize in efficient architectures, performance optimization, and seamless user experiences in Agile environments — and I love mentoring developers along the way.'
+					title='Built to last, not just to launch'
+					description="I'm Muhammad Naeem, a Senior Full-Stack Engineer. I've seen too many codebases that were fine at launch and a mess a year later. I build the kind that holds up as the team and the traffic grow — clean architecture, tested code, and AI-native workflows where they actually help."
 				/>
 			</Reveal>
 

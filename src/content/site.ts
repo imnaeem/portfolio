@@ -56,23 +56,44 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
 	{
 		label: 'Frontend',
-		skills: ['ReactJs', 'NextJs', 'VueJs', 'Redux', 'React Query', 'Typescript'],
+		skills: ['React.js', 'Next.js', 'Vue.js', 'TypeScript', 'Redux', 'React Query', 'Tailwind CSS', 'MUI'],
 	},
 	{
 		label: 'Backend',
-		skills: ['NodeJs', 'NestJs', 'Apollo GraphQL', 'Kafka'],
+		skills: ['Node.js', 'Express.js', 'NestJS', 'REST APIs', 'GraphQL', 'WebSockets'],
 	},
 	{
-		label: 'Data',
-		skills: ['MongoDB', 'SQL'],
+		label: 'Databases',
+		skills: ['MongoDB', 'Mongoose', 'SQL', 'PostgreSQL', 'Prisma'],
 	},
 	{
-		label: 'DevOps & Cloud',
-		skills: ['Git', 'Github', 'Github Actions', 'CI/CD', 'AWS Services', 'Vercel', 'Docker'],
+		label: 'Cloud & DevOps',
+		skills: [
+			'AWS (ECS, EC2, RDS, SQS, Lambda, S3, CodePipeline, CDK)',
+			'Docker',
+			'CI/CD',
+			'Vercel',
+		],
+	},
+	{
+		label: 'Tools & Architecture',
+		skills: [
+			'Kafka',
+			'RabbitMQ',
+			'Git',
+			'GitHub',
+			'Stripe',
+			'OpenAI APIs',
+			'Langfuse',
+			'Claude Code',
+			'Cursor',
+		],
 	},
 ];
 
 export const education = {
 	degree: 'Bachelor of Science in Information Technology',
 	school: 'Punjab University College of Information Technology | PUCIT',
+	period: 'Oct 2018 - Jul 2022',
+	note: 'CGPA 3.13/4.0',
 };

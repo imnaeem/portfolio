@@ -1,4 +1,4 @@
-import { FiCode, FiServer, FiLayers, FiPenTool, FiTrendingUp, FiSearch } from 'react-icons/fi';
+import { FiCode, FiServer, FiLayers, FiCpu, FiCloud, FiZap } from 'react-icons/fi';
 import Card from '@/components/ui/Card';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
@@ -11,7 +11,7 @@ const services = [
 	},
 	{
 		title: 'Backend Development',
-		description: 'Scalable, efficient APIs and services with Node.js, NestJS, Express, and MongoDB.',
+		description: 'Scalable, efficient APIs and services with Node.js, NestJS, Express, and PostgreSQL.',
 		Icon: FiServer,
 	},
 	{
@@ -20,19 +20,21 @@ const services = [
 		Icon: FiLayers,
 	},
 	{
-		title: 'WordPress Development',
-		description: 'Custom themes, plugins, and WooCommerce stores tailored to business needs.',
-		Icon: FiPenTool,
+		title: 'AI Integration',
+		description:
+			'AI agents, chatbots, and LLM workflows with OpenAI APIs and Langfuse. Shipped to production, not just demoed.',
+		Icon: FiCpu,
 	},
 	{
-		title: 'Digital Marketing',
-		description: 'Growth through Facebook Ads, Google Ads, SEO, and SEM strategies.',
-		Icon: FiTrendingUp,
+		title: 'Cloud & DevOps',
+		description: 'AWS infrastructure, Docker, and CI/CD pipelines that deploy reliably, every time.',
+		Icon: FiCloud,
 	},
 	{
-		title: 'SEO Optimization',
-		description: 'On-page, off-page, technical, local, and e-commerce SEO that ranks.',
-		Icon: FiSearch,
+		title: 'API Development',
+		description:
+			'REST and GraphQL APIs built for scale — including 30% faster responses through query optimization.',
+		Icon: FiZap,
 	},
 ];
 
