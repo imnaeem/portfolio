@@ -1,5 +1,6 @@
 import PersonalInfo from '@/components/about/PersonalInfo';
 import Services from '@/components/about/Services';
+import FeaturedWork from '@/components/about/FeaturedWork';
 import Title from '@/components/shared/Title';
 import { ArrowForward } from '@mui/icons-material';
 import { Box, Button, Fade, Stack, Typography } from '@mui/material';
@@ -30,7 +31,7 @@ const About = () => {
 										mb: 1,
 										letterSpacing: '0.5px',
 									}}>
-									FULL STACK DEVELOPER
+									SENIOR FULL-STACK ENGINEER
 								</Typography>
 								<Typography
 									variant='h1'
@@ -54,8 +55,9 @@ const About = () => {
 										lineHeight: 1.7,
 										maxWidth: '500px',
 									}}>
-									Software Engineer with 4+ years of experience in building scalable JavaScript applications. Skilled
-									in React, Next.js, Node.js, and NestJS.
+									Everyone demos AI. I ship it. Senior Full-Stack Engineer with 4+ years of experience
+									building scalable web apps and backend systems with Next.js, NestJS, GraphQL, and
+									AWS, including production AI agents and LLM workflows.
 								</Typography>
 							</Box>
 							<Stack direction='row' spacing={2}>
@@ -111,7 +113,7 @@ const About = () => {
 									boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1)',
 								}}
 								src='/profile-image.jpg'
-								alt='Muhammad Naeem - Full Stack Developer'
+								alt='Muhammad Naeem - Senior Full-Stack Engineer'
 								fill
 								priority
 								placeholder='empty'
@@ -121,7 +123,7 @@ const About = () => {
 				</Box>
 
 				{/* About Section */}
-				<Title title='About Me' subtitle='Passionate about building impactful digital solutions' />
+				<Title title='About Me' subtitle='Engineer who takes products from idea to production' />
 				<Box
 					sx={{
 						p: { xs: 3, md: 4 },
@@ -137,9 +139,9 @@ const About = () => {
 							color: '#475569',
 							mb: 2,
 						}}>
-						I bring a problem-solving mindset, strong collaboration skills, and a focus on building maintainable,
-						high-performance solutions. I specialize in designing efficient architectures, optimizing performance, and
-						delivering seamless user experiences in Agile environments.
+						I'm a Software Engineer with 4+ years of experience building scalable full-stack applications
+						with React, Next.js, Node.js, NestJS, MongoDB, PostgreSQL, and GraphQL. I focus on solving
+						hard technical problems, taking ownership, and growing into technical leadership.
 					</Typography>
 					<Typography
 						sx={{
@@ -147,11 +149,13 @@ const About = () => {
 							lineHeight: 1.8,
 							color: '#475569',
 						}}>
-						Passionate about improving workflows and mentoring developers, I help drive projects that create real
-						impact while continuously learning and adapting to new technologies.
+						These days most of my work lives where AI meets production: AI agents and LLM workflows with
+						OpenAI and Langfuse, real-time systems over WebSockets, and backends that survive real users.
+						I lead projects, review code, and help teams ship.
 					</Typography>
 				</Box>
 
+				<FeaturedWork />
 				<PersonalInfo />
 				<Services />
 			</div>

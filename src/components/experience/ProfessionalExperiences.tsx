@@ -3,18 +3,33 @@ import { Work, CalendarToday } from '@mui/icons-material';
 
 const experience = [
 	{
+		title: 'Freelance Full-Stack Engineer',
+		company: 'Ralliy',
+		period: 'Jun 2026 - Sep 2026',
+		color: '#F59E0B',
+		highlights: [
+			'Built a freelance marketplace backend with NestJS, schema-first GraphQL/Apollo, PostgreSQL/Prisma, and Redis/BullMQ for background jobs.',
+			'Shipped AI job creation and freelancer onboarding from raw text and uploaded files, using OpenAI APIs with Langfuse for prompt management and tracing.',
+			'Implemented real-time chat over Socket.IO and GraphQL subscriptions, with Clerk authentication.',
+			'Integrated Stripe Connect with fiat and USDC escrow payments.',
+			'Deployed on AWS ECS with RDS, ElastiCache, S3, and SES; Next.js 16 frontend with shadcn and Apollo.',
+			'Built a home-repair services flow with lead management, appointment scheduling, multi-step surveys, and automated PDF reports.',
+		],
+	},
+	{
 		title: 'Software Engineer',
 		company: 'DevBrains',
 		period: 'Dec 2022 - Present',
 		color: '#4F46E5',
 		highlights: [
-			'Developed and optimized full-stack applications using Next.js and Nest.js, building dynamic UI for data visualization and operations.',
-			'Enhanced API performance by optimizing using GraphQL, achieving 30% faster response times.',
+			'Developed and optimized full-stack applications using Next.js and NestJS, with MongoDB and PostgreSQL powering scalable backend systems.',
+			'Enhanced API performance by optimizing GraphQL data fetching, achieving 30% faster response times.',
 			'Implemented RBAC with Auth0, ensuring secure and role-based access to application features.',
 			'Ensured code reliability and functionality through unit and end-to-end testing.',
 			'Worked on a Slack polling app with a React web interface, enhancing Slack interactive modals and contributing to a Kafka and SQS based microservices architecture.',
 			'Implemented CI/CD pipelines to streamline project builds, testing, and deployments.',
-			'Leading a team of three developers, conducting PR reviews, and ensuring timely delivery.',
+			'Leading multiple projects, conducting PR reviews, and ensuring timely delivery across different teams.',
+			'Contributed to technical decisions and solution architecture across multiple projects.',
 			'Effectively utilized AI coding tools (Cursor, Claude) to speed up development and improve code quality.',
 			'Collaborated in Agile environments using Jira and GitHub for task tracking and team coordination.',
 		],
