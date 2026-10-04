@@ -1,51 +1,50 @@
 import {
-	CodeOff as BackendIcon,
-	BusinessCenter as DigitalMarketingIcon,
+	Bolt as RealtimeIcon,
+	Cloud as CloudIcon,
 	Code as FrontendIcon,
-	Dashboard as JavascriptIcon,
-	ScreenSearchDesktop as SeoIcon,
-	Language as WordpressIcon,
+	CodeOff as BackendIcon,
+	SmartToy as AIIcon,
+	Storage as DatabaseIcon,
 } from '@mui/icons-material';
 import { Box, Grid2, Typography } from '@mui/material';
 import Card from '../shared/Card';
 
 const services = [
 	{
-		title: 'Frontend Developer',
-		description: 'I build modern responsive web interfaces using React, Next.js, Tailwind CSS, and Material-UI.',
+		title: 'Full-Stack Web Apps',
+		description: 'End-to-end products with React, Next.js, and TypeScript, from database to deploy.',
 		color: '#4F46E5',
 		icon: <FrontendIcon />,
 	},
 	{
-		title: 'Backend Developer',
-		description: 'I develop scalable and efficient backend with Node.js, NestJS, Express and MongoDB.',
+		title: 'Backend & APIs',
+		description: 'Scalable backends with NestJS, GraphQL, and REST, built as microservices that hold up.',
 		color: '#14B8A6',
 		icon: <BackendIcon />,
 	},
 	{
-		title: 'Full Stack Developer',
-		description: 'I create end-to-end web solutions using React, Next.js, Node.js, NestJS, MongoDB, and GraphQL.',
+		title: 'AI Agents & Workflows',
+		description: 'Production AI with OpenAI and Langfuse: agents, RAG, and automations that actually ship.',
 		color: '#F59E0B',
-		icon: <JavascriptIcon />,
+		icon: <AIIcon />,
 	},
 	{
-		title: 'WordPress Development',
-		description: 'I design and customize WordPress themes, plugins, and WooCommerce stores to enhance functionality.',
+		title: 'Real-Time Systems',
+		description: 'Live features with WebSockets, GraphQL subscriptions, Kafka, and SQS.',
 		color: '#8B5CF6',
-		icon: <WordpressIcon />,
+		icon: <RealtimeIcon />,
 	},
 	{
-		title: 'Digital Marketing',
-		description: 'I help businesses grow online through Facebook Ads, Google Ads, SEO, and SEM strategies.',
+		title: 'Cloud & DevOps',
+		description: 'AWS (ECS, RDS, Lambda, S3), Docker, and CI/CD pipelines that keep releases boring.',
 		color: '#EC4899',
-		icon: <DigitalMarketingIcon />,
+		icon: <CloudIcon />,
 	},
 	{
-		title: 'SEO Optimization',
-		description:
-			'I optimize websites for search engines with On-Page, Off-Page, Technical, Local, and E-Commerce SEO strategies.',
+		title: 'Databases & Performance',
+		description: 'PostgreSQL, Prisma, and MongoDB tuned for speed, including 30% faster GraphQL APIs.',
 		color: '#10B981',
-		icon: <SeoIcon />,
+		icon: <DatabaseIcon />,
 	},
 ];
 
