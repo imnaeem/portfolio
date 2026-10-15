@@ -1,10 +1,11 @@
 import React from 'react';
 import { blogArticles } from '@/app/api/blogs/data';
-import { Box, Chip, Container, Fade, Grid2, Stack, Typography } from '@mui/material';
+import { Box, Chip, Container, Grid2, Stack, Typography } from '@mui/material';
 import { AccessTime, CalendarToday, Person } from '@mui/icons-material';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import FadeIn from '@/components/shared/FadeIn';
 
 export async function generateStaticParams() {
 	return blogArticles.map((article) => ({
@@ -85,7 +86,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 	}
 
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<Container maxWidth='md'>
 				<Box sx={{ mb: 4 }}>
 					<Chip
@@ -518,7 +519,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 					</Grid2>
 				</Box>
 			</Container>
-		</Fade>
+		</FadeIn>
 	);
 }
 

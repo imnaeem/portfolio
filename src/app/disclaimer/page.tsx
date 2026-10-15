@@ -1,9 +1,10 @@
-import { Box, Container, Stack, Typography, Fade } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import Title from '@/components/shared/Title';
+import FadeIn from '@/components/shared/FadeIn';
 
 const Disclaimer = () => {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<Container maxWidth='lg'>
 				<Title title='Disclaimer' subtitle='Important information about the use of this website' />
 
@@ -239,7 +240,7 @@ const Disclaimer = () => {
 					</Stack>
 				</Box>
 			</Container>
-		</Fade>
+		</FadeIn>
 	);
 };
 

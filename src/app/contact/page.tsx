@@ -1,8 +1,9 @@
 import { ContactDetails } from '@/components/contact/ContactDetails';
 import { Form } from '@/components/contact/Form';
 import Title from '@/components/shared/Title';
-import { Box, Divider, Fade, Stack, Typography } from '@mui/material';
+import { Box, Divider, Stack, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import FadeIn from '@/components/shared/FadeIn';
 
 export const metadata: Metadata = {
 	title: 'Contact Me | Muhammad Naeem',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 const Contact = () => {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<div>
 				<Title title='Contact Me' subtitle="Let's work together on your next project" />
 				<Stack direction={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 4, md: 6 }} mb={4}>
@@ -49,7 +50,7 @@ const Contact = () => {
 					</Stack>
 				</Stack>
 			</div>
-		</Fade>
+		</FadeIn>
 	);
 };
 

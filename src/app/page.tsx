@@ -3,13 +3,14 @@ import Services from '@/components/about/Services';
 import FeaturedWork from '@/components/about/FeaturedWork';
 import Title from '@/components/shared/Title';
 import { ArrowForward } from '@mui/icons-material';
-import { Box, Button, Fade, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import FadeIn from '@/components/shared/FadeIn';
 
 const About = () => {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<div>
 				{/* Hero Section */}
 				<Box
@@ -159,7 +160,7 @@ const About = () => {
 				<PersonalInfo />
 				<Services />
 			</div>
-		</Fade>
+		</FadeIn>
 	);
 };
 

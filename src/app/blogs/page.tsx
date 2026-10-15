@@ -1,10 +1,11 @@
 import { blogArticles } from '../api/blogs/data';
-import { Box, Container, Fade, Grid2, Typography, Chip, Stack } from '@mui/material';
+import { Box, Container, Grid2, Typography, Chip, Stack } from '@mui/material';
 import Link from 'next/link';
 import { AccessTime, CalendarToday } from '@mui/icons-material';
 import Title from '@/components/shared/Title';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import FadeIn from '@/components/shared/FadeIn';
 
 export const metadata: Metadata = {
 	title: 'Blog Articles | Muhammad Naeem - Senior Full-Stack Engineer',
@@ -62,7 +63,7 @@ const categories = [
 
 export default function BlogsPage() {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<div>
 				<Title title='Blog' subtitle='Articles about React, Next.js, NestJS, GraphQL, AWS, and AI Tools' />
 
@@ -182,7 +183,7 @@ export default function BlogsPage() {
 					))}
 				</Grid2>
 			</div>
-		</Fade>
+		</FadeIn>
 	);
 }
 

@@ -1,9 +1,10 @@
-import { Box, Container, Stack, Typography, Fade } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import Title from '@/components/shared/Title';
+import FadeIn from '@/components/shared/FadeIn';
 
 const PrivacyPolicy = () => {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<Container maxWidth='lg'>
 				<Title title='Privacy Policy' subtitle='Your privacy is important to us' />
 
@@ -257,7 +258,7 @@ const PrivacyPolicy = () => {
 					</Stack>
 				</Box>
 			</Container>
-		</Fade>
+		</FadeIn>
 	);
 };
 

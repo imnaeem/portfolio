@@ -1,9 +1,10 @@
-import { Box, Container, Stack, Typography, Fade } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import Title from '@/components/shared/Title';
+import FadeIn from '@/components/shared/FadeIn';
 
 const TermsConditions = () => {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<Container maxWidth='lg'>
 				<Title title='Terms & Conditions' subtitle='Please read these terms carefully before using this website' />
 
@@ -172,7 +173,7 @@ const TermsConditions = () => {
 					</Stack>
 				</Box>
 			</Container>
-		</Fade>
+		</FadeIn>
 	);
 };
 

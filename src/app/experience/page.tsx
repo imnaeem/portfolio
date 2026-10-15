@@ -3,8 +3,9 @@ import ProfessionalExperiences from '@/components/experience/ProfessionalExperie
 import { Resume } from '@/components/experience/Resume';
 import { Skills } from '@/components/experience/Skills';
 import Title from '@/components/shared/Title';
-import { Box, Fade, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { Metadata } from 'next';
+import FadeIn from '@/components/shared/FadeIn';
 
 const technologies = [
 	'ReactJs',
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
 
 const Experience = () => {
 	return (
-		<Fade in timeout={500}>
+		<FadeIn>
 			<Box>
 			<Stack
 				direction={{ xs: 'column', md: 'row' }}
@@ -86,7 +87,7 @@ const Experience = () => {
 
 				<Education />
 			</Box>
-		</Fade>
+		</FadeIn>
 	);
 };
 
