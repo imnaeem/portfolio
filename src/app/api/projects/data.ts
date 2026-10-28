@@ -34,7 +34,44 @@ export const projectsList: Project[] = [
 			preview: 'https://staging.ralliy.com',
 			description:
 				'Ralliy is a freelance marketplace built to take the friction out of hiring. Clients describe what they need in plain words or upload files, and AI turns that into structured job posts; freelancers onboard the same way. Underneath it is a full production system: a NestJS backend with schema-first GraphQL and Apollo, PostgreSQL with Prisma, Redis and BullMQ for background jobs, and real-time chat over Socket.IO plus GraphQL subscriptions. Auth runs on Clerk, AI workflows on OpenAI with Langfuse for prompt management and tracing, and payments through Stripe Connect with fiat and USDC escrow. The frontend is Next.js 16 with shadcn and Apollo, deployed on AWS ECS with RDS, ElastiCache, S3, and SES. One of the more demanding builds in it: a home-repair services flow with lead management, appointment scheduling, multi-step home assessment surveys, and automated PDF reports generated from survey inputs and images, with guest access throughout.',
-			images: [],
+			images: [
+				{
+					url: '/images/projects/ralliy/img1.jpg',
+					key: 'img1',
+				},
+				{
+					url: '/images/projects/ralliy/img2.jpg',
+					key: 'img2',
+				},
+				{
+					url: '/images/projects/ralliy/img3.jpg',
+					key: 'img3',
+				},
+				{
+					url: '/images/projects/ralliy/img4.jpg',
+					key: 'img4',
+				},
+				{
+					url: '/images/projects/ralliy/img5.jpg',
+					key: 'img5',
+				},
+				{
+					url: '/images/projects/ralliy/img6.jpg',
+					key: 'img6',
+				},
+				{
+					url: '/images/projects/ralliy/img7.jpg',
+					key: 'img7',
+				},
+				{
+					url: '/images/projects/ralliy/img8.jpg',
+					key: 'img8',
+				},
+				{
+					url: '/images/projects/ralliy/img9.jpg',
+					key: 'img9',
+				},
+			],
 		},
 	},
 	{
