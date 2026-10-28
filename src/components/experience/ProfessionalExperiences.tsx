@@ -3,20 +3,6 @@ import { Work, CalendarToday } from '@mui/icons-material';
 
 const experience = [
 	{
-		title: 'Freelance Full-Stack Engineer',
-		company: 'Ralliy',
-		period: 'Jun 2026 - Sep 2026',
-		color: '#F59E0B',
-		highlights: [
-			'Built a freelance marketplace backend with NestJS, schema-first GraphQL/Apollo, PostgreSQL/Prisma, and Redis/BullMQ for background jobs.',
-			'Shipped AI job creation and freelancer onboarding from raw text and uploaded files, using OpenAI APIs with Langfuse for prompt management and tracing.',
-			'Implemented real-time chat over Socket.IO and GraphQL subscriptions, with Clerk authentication.',
-			'Integrated Stripe Connect with fiat and USDC escrow payments.',
-			'Deployed on AWS ECS with RDS, ElastiCache, S3, and SES; Next.js 16 frontend with shadcn and Apollo.',
-			'Built a home-repair services flow with lead management, appointment scheduling, multi-step surveys, and automated PDF reports.',
-		],
-	},
-	{
 		title: 'Software Engineer',
 		company: 'DevBrains',
 		period: 'Dec 2022 - Present',
