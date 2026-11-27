@@ -1,14 +1,23 @@
 'use client';
 import SendIcon from '@mui/icons-material/Send';
 import { Button, Stack, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
+import { Turnstile, type TurnstileHandle } from './Turnstile';
 
 const initialForm = { name: '', email: '', message: '' };
+// The site key is public (it ships in the page HTML), so it has a safe fallback.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '0x4AAAAAAGWFQmpGHTvbPQx0';
 
 const ContactForm = () => {
 	const [loading, setLoading] = useState(false);
 	const [form, setForm] = useState(initialForm);
+	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+	const turnstileRef = useRef<TurnstileHandle>(null);
+
+	const handleTurnstileToken = useCallback((token: string | null) => {
+		setTurnstileToken(token);
+	}, []);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
@@ -23,13 +32,18 @@ const ContactForm = () => {
 			return;
 		}
 
+		if (!turnstileToken) {
+			toast.error('Please complete the captcha verification');
+			return;
+		}
+
 		setLoading(true);
 
 		try {
 			const response = await fetch('/api/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(form),
+				body: JSON.stringify({ ...form, 'cf-turnstile-response': turnstileToken }),
 			});
 
 			const data = await response.json();
@@ -46,6 +60,8 @@ const ContactForm = () => {
 			toast.error(error?.message || 'Failed to send message. Try Again!');
 		} finally {
 			setLoading(false);
+			// Turnstile tokens are single-use, so reset the widget after every attempt.
+			turnstileRef.current?.reset();
 		}
 	};
 
@@ -137,6 +153,13 @@ const ContactForm = () => {
 							},
 						},
 					}}
+				/>
+				<Turnstile
+					ref={turnstileRef}
+					siteKey={TURNSTILE_SITE_KEY}
+					action='contact'
+					theme='light'
+					onToken={handleTurnstileToken}
 				/>
 				<Button
 					loading={loading}
